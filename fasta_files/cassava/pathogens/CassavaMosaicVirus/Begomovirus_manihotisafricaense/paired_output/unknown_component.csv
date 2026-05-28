@@ -1,0 +1,6 @@
+Accession,BioSample,Organism_Name,Species,Isolate,Segment,GenBank_Title,Length,Nuc_Completeness,Geo_Location,Country,Host,Collection_Date
+PV524653,,East African cassava mosaic virus,Begomovirus manihotisafricaense,Senegal-SN88SF-2023,,"East African cassava mosaic virus isolate Senegal-SN88SF-2023, complete genome",2798,complete,Senegal,Senegal,,2023-11
+PV524654,,East African cassava mosaic virus,Begomovirus manihotisafricaense,Senegal-SN88SA-2023,,"East African cassava mosaic virus isolate Senegal-SN88SA-2023, complete genome",2798,complete,Senegal,Senegal,,2023-11
+JX658692,,East African cassava mosaic virus,Begomovirus manihotisafricaense,,,"UNVERIFIED: East African cassava mosaic virus clone EACMV[MA:07:26N] AV2-like (AV2), CP-like (AV1), REn-like (AC3), and TrAP-like genes, complete sequence; and Rep gene, complete cds",2803,complete,Malawi,Malawi,Manihot esculenta,
+JX473582,,East African cassava mosaic virus,Begomovirus manihotisafricaense,,,"East African cassava mosaic virus strain Malawi/2007/8N, complete sequence",2798,complete,Malawi,Malawi,,2007
+FM877474,,East African cassava mosaic virus-Uganda BFA/2008,Begomovirus manihotisafricaense,Burkina Faso-Koubri-2008,,"East African cassava mosaic virus-Uganda BFA/2008 complete genome, isolate Burkina Faso-Koubri-2008",2799,complete,Burkina Faso,Burkina Faso,Manihot esculenta,2008-08
