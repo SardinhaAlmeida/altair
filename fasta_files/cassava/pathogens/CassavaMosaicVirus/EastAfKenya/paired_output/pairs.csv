@@ -1,0 +1,3 @@
+Accession,BioSample,Organism_Name,Species,Isolate,Segment,GenBank_Title,Length,Nuc_Completeness,Geo_Location,Country,Host,Collection_Date
+NC_011583.1,,East African cassava mosaic Kenya virus,Begomovirus manihotiskenyaense,EACMKV-[K298],DNA A,"East African cassava mosaic Kenya virus DNA A, complete genome",2797,complete,"Kenya:Machakos, Mitaboni/Ngiini",Kenya,Manihot esculenta,
+NC_011584.1,,East African cassava mosaic Kenya virus,Begomovirus manihotiskenyaense,EACMKV-[K298],DNA B,"East African cassava mosaic Kenya virus DNA B, complete genome",2776,complete,"Kenya:Machakos, Mitaboni/Ngiini",Kenya,Manihot esculenta,
