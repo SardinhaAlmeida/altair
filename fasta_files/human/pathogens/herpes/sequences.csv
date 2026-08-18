@@ -1,0 +1,198 @@
+Accession,BioSample,Organism_Name,Species,Isolate,Segment,GenBank_Title,Length,Nuc_Completeness,Geo_Location,Country,Host,Collection_Date
+NC_001806.2,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human herpesvirus 1 strain 17, complete genome",152222,complete,"United Kingdom: Regional Virus Laboratory, Ruchill Hospital, Glasgow",United Kingdom,,
+PZ169677.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,A_d6_skin_culture,,"Human alphaherpesvirus 1 strain A_d6_skin_culture, complete genome",150736,complete,USA,USA,Homo sapiens,2009/2016
+PZ169678.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,A_d6_skin,,"Human alphaherpesvirus 1 strain A_d6_skin, complete genome",150663,complete,USA,USA,Homo sapiens,2009/2016
+PZ169679.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,A_d6_swab_culture,,"Human alphaherpesvirus 1 strain A_d6_swab_culture, complete genome",150493,complete,USA,USA,Homo sapiens,2009/2016
+PZ169681.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,A_d7_eye_culture,,"Human alphaherpesvirus 1 strain A_d7_eye_culture, complete genome",150698,complete,USA,USA,Homo sapiens,2009/2016
+PZ169683.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,A_d7_plasma,,"Human alphaherpesvirus 1 strain A_d7_plasma, complete genome",149922,complete,USA,USA,Homo sapiens,2009/2016
+PZ169687.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,X_d8_skin,,"Human alphaherpesvirus 1 strain X_d8_skin, complete genome",151207,complete,USA,USA,Homo sapiens,2009/2016
+PZ169688.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,Y_d8_eye,,"Human alphaherpesvirus 1 strain Y_d8_eye, complete genome",152571,complete,USA,USA,Homo sapiens,2009/2016
+PZ169689.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,Y_d8_skin_culture,,"Human alphaherpesvirus 1 strain Y_d8_skin_culture, complete genome",150583,complete,USA,USA,Homo sapiens,2009/2016
+PZ169690.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,Y_d8_skin,,"Human alphaherpesvirus 1 strain Y_d8_skin, complete genome",152426,complete,USA,USA,Homo sapiens,2009/2016
+PZ169693.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,W_d15_skin_culture,,"Human alphaherpesvirus 1 strain W_d15_skin_culture, complete genome",150277,complete,USA,USA,Homo sapiens,2009/2016
+PZ169694.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,W_d15_skin,,"Human alphaherpesvirus 1 strain W_d15_skin, complete genome",150207,complete,USA,USA,Homo sapiens,2009/2016
+PZ169695.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,B_d8_plasma_culture,,"Human alphaherpesvirus 1 strain B_d8_plasma_culture, complete genome",150431,complete,USA,USA,Homo sapiens,2009/2016
+PZ169696.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,B_d8_plasma,,"Human alphaherpesvirus 1 strain B_d8_plasma, complete genome",151056,complete,USA,USA,Homo sapiens,2009/2016
+PZ169698.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,B_d9_pharynx,,"Human alphaherpesvirus 1 strain B_d9_pharynx, complete genome",150642,complete,USA,USA,Homo sapiens,2009/2016
+PZ169709.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,D_d12_skin_culture,,"Human alphaherpesvirus 1 strain D_d12_skin_culture, complete genome",150287,complete,USA,USA,Homo sapiens,2009/2016
+PZ169710.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,D_d12_skin,,"Human alphaherpesvirus 1 strain D_d12_skin, complete genome",150681,complete,USA,USA,Homo sapiens,2009/2016
+PZ169711.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,F_d10_plasma_culture,,"Human alphaherpesvirus 1 strain F_d10_plasma_culture, complete genome",150403,complete,USA,USA,Homo sapiens,2009/2016
+PZ169713.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,Z_d9_eye_culture,,"Human alphaherpesvirus 1 strain Z_d9_eye_culture, complete genome",150753,complete,USA,USA,Homo sapiens,2009/2016
+PZ169716.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,Z_d10_culture,,"Human alphaherpesvirus 1 strain Z_d10_culture, complete genome",150594,complete,,,,
+PZ169717.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,Z_d10_skin,,"Human alphaherpesvirus 1 strain Z_d10_skin, complete genome",150427,complete,USA,USA,Homo sapiens,2009/2016
+PZ169719.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,Z_d40_skin_culture,,"Human alphaherpesvirus 1 strain Z_d40_skin_culture, complete genome",150670,complete,USA,USA,Homo sapiens,2009/2016
+PX969520.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Mutant Human alphaherpesvirus 1 clone McKrae-dsncRNA2, complete genome",152247,complete,,,,
+PX763612.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Mutant Human alphaherpesvirus 1 clone GFP-McKrae_v27, complete genome",153693,complete,,,,
+OZ348666.1,SAMEA120222666,Human alphaherpesvirus 1,Simplexvirus humanalpha1,137,,"Human alphaherpesvirus 1 isolate 137 genome assembly, complete genome: monopartite",152155,complete,Germany,Germany,Chlorocebus sabaeus,
+OZ348811.1,SAMEA120222667,Human alphaherpesvirus 1,Simplexvirus humanalpha1,138,,"Human alphaherpesvirus 1 isolate 138 genome assembly, complete genome: monopartite",151644,complete,Germany,Germany,Chlorocebus sabaeus,
+OZ348988.1,SAMEA120222669,Human alphaherpesvirus 1,Simplexvirus humanalpha1,140,,"Human alphaherpesvirus 1 isolate 140 genome assembly, complete genome: monopartite",151781,complete,Germany,Germany,Chlorocebus sabaeus,
+OZ348992.1,SAMEA120222665,Human alphaherpesvirus 1,Simplexvirus humanalpha1,136,,"Human alphaherpesvirus 1 isolate 136 genome assembly, complete genome: monopartite",152154,complete,Germany,Germany,Chlorocebus sabaeus,
+OZ349004.1,SAMEA120222668,Human alphaherpesvirus 1,Simplexvirus humanalpha1,139,,"Human alphaherpesvirus 1 isolate 139 genome assembly, complete genome: monopartite",151741,complete,Germany,Germany,Chlorocebus sabaeus,
+PV146402.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,SJZ196/2019,,"Human alphaherpesvirus 1 strain SJZ196/2019, complete genome",150552,complete,China,China,Homo sapiens,2019
+PV146403.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,GZ291/2015,,"Human alphaherpesvirus 1 strain GZ291/2015, complete genome",150609,complete,China,China,Homo sapiens,2015
+PQ569920.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,MacIntyre,,"Human alphaherpesvirus 1 isolate MacIntyre, complete genome",151817,complete,Spain,Spain,,2007-09-26
+OR771672.1,SAMN38051268,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1/USA/WA-UW-1B4/2020,,"Human alphaherpesvirus 1 isolate HSV1/USA/WA-UW-1B4/2020, complete genome",150875,complete,USA,USA,Homo sapiens,2020-03
+OR771685.1,SAMN38051240,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1/USA/WA-UW-2L9/2020,,"Human alphaherpesvirus 1 isolate HSV1/USA/WA-UW-2L9/2020, complete genome",151357,complete,USA,USA,Homo sapiens,2020-01
+OR723971.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,dsncRNA12,,"Mutant Human alphaherpesvirus 1 isolate dsncRNA12, complete genome",152106,complete,USA,USA,Homo sapiens,2021
+OQ724831.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-C1,,"Human alphaherpesvirus 1 isolate BP-C1, complete genome",152739,complete,"USA: Miami, FL",USA,Homo sapiens,2001
+OQ724832.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-C2,,"Human alphaherpesvirus 1 strain BP-C2, complete genome",152898,complete,"USA: Miami, FL",USA,Homo sapiens,2004
+OQ724833.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-C3,,"Human alphaherpesvirus 1 strain BP-C3, complete genome",154130,complete,"USA: Miami, FL",USA,Homo sapiens,2004
+OQ724834.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-C4,,"Human alphaherpesvirus 1 strain BP-C4, complete genome",152541,complete,"USA: Miami, FL",USA,Homo sapiens,2004
+OQ724835.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-C5,,"Human alphaherpesvirus 1 strain BP-C5, complete genome",152332,complete,"USA: Miami, FL",USA,Homo sapiens,2005
+OQ724836.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-C8,,"UNVERIFIED: Human alphaherpesvirus 1 strain BP-C8, complete genome",152674,complete,"USA: Miami, FL",USA,Homo sapiens,2005
+OQ724863.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-C9,,"Human alphaherpesvirus 1 strain BP-C9, complete genome",152893,complete,"USA: Miami, FL",USA,Homo sapiens,2005
+OQ724864.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-C11,,"Human alphaherpesvirus 1 strain BP-C11, complete genome",153030,complete,"USA: Miami, FL",USA,Homo sapiens,2008
+OQ724865.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-C12,,"Human alphaherpesvirus 1 strain BP-C12, complete genome",152858,complete,"USA: Miami, FL",USA,Homo sapiens,2010
+OQ724866.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-C14,,"Human alphaherpesvirus 1 strain BP-C14, complete genome",152567,complete,"USA: Miami, FL",USA,Homo sapiens,2015
+OQ724867.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-C15,,"Human alphaherpesvirus 1 strain BP-C15, complete genome",152381,complete,"USA: Miami, FL",USA,Homo sapiens,2015
+OQ724868.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K1,,"Human alphaherpesvirus 1 isolate BP-K1, complete genome",153167,complete,"USA: Miami, FL",USA,Homo sapiens,2002
+OQ724888.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K2,,"Human alphaherpesvirus 1 isolate BP-K2, complete genome",152311,complete,"USA: Miami, FL",USA,Homo sapiens,2009
+OQ724889.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K3,,"Human alphaherpesvirus 1 strain BP-K3, complete genome",152277,complete,"USA: Miami, FL",USA,Homo sapiens,2009
+OQ724890.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K4,,"Human alphaherpesvirus 1 strain BP-K4, complete genome",151917,complete,"USA: Miami, FL",USA,Homo sapiens,2009
+OQ724891.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K5,,"Human alphaherpesvirus 1 strain BP-K5, complete genome",154135,complete,"USA: Miami, FL",USA,Homo sapiens,2010
+OQ724892.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K6,,"Human alphaherpesvirus 1 strain BP-K6, complete genome",153130,complete,"USA: Miami, FL",USA,Homo sapiens,2010
+OQ724893.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K8,,"Human alphaherpesvirus 1 strain BP-K8, complete genome",154330,complete,"USA: Miami, FL",USA,Homo sapiens,2011
+OQ724894.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K9,,"Human alphaherpesvirus 1 strain BP-K9, complete genome",153885,complete,"USA: Miami, FL",USA,Homo sapiens,2011
+OQ724895.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K10,,"Human alphaherpesvirus 1 strain BP-K10, complete genome",151502,complete,"USA: Miami, FL",USA,Homo sapiens,2011
+OQ724910.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K11,,"Human alphaherpesvirus 1 strain BP-K11, complete genome",153536,complete,"USA: Miami, FL",USA,Homo sapiens,2011
+OQ724911.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K12,,"Human alphaherpesvirus 1 strain BP-K12, complete genome",152470,complete,"USA: Miami, FL",USA,Homo sapiens,2012
+OQ724912.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K13,,"Human alphaherpesvirus 1 strain BP-K13, complete genome",152231,complete,"USA: Miami, FL",USA,Homo sapiens,2014
+OQ724913.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K15,,"Human alphaherpesvirus 1 strain BP-K15, complete genome",173400,complete,"USA: Miami, FL",USA,Homo sapiens,2015
+OQ724914.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K16,,"Human alphaherpesvirus 1 strain BP-K16, complete genome",153180,complete,"USA: Miami, FL",USA,Homo sapiens,2015
+OQ724915.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-K14,,"Human alphaherpesvirus 1 isolate BP-K14, complete genome",155000,complete,"USA: Miami, FL",USA,Homo sapiens,2015
+OQ724932.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-L1,,"Human alphaherpesvirus 1 strain BP-L1, complete genome",152262,complete,USA: Miami FL,USA,Homo sapiens,2002
+OQ724933.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-L2,,"Human alphaherpesvirus 1 strain BP-L2, complete genome",153614,complete,USA: Miami FL,USA,Homo sapiens,2003
+OQ724934.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-L4,,"Human alphaherpesvirus 1 strain BP-L4, complete genome",151488,complete,USA: Miami FL,USA,Homo sapiens,2003
+OQ724935.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-L5,,"Human alphaherpesvirus 1 strain BP-L5, complete genome",153093,complete,USA: Miami FL,USA,Homo sapiens,2003
+OQ724936.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-L9,,"Human alphaherpesvirus 1 strain BP-L9, complete genome",153186,complete,USA: Miami FL,USA,Homo sapiens,2009
+OQ724938.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-L11,,"Human alphaherpesvirus 1 strain BP-L11, complete genome",153572,complete,USA: Miami FL,USA,Homo sapiens,2010
+OQ724939.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-L12,,"Human alphaherpesvirus 1 strain BP-L12, complete genome",153916,complete,USA: Miami FL,USA,Homo sapiens,2010
+OQ724940.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-L13,,"Human alphaherpesvirus 1 strain BP-L13, complete genome",152962,complete,USA: Miami FL,USA,Homo sapiens,2011
+OQ724941.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,BP-L14,,"Human alphaherpesvirus 1 strain BP-L14, complete genome",152371,complete,USA: Miami FL,USA,Homo sapiens,2012
+OP871840.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-11A,,"Human alphaherpesvirus 1 strain INV-11A, complete genome",154353,complete,USA,USA,Homo sapiens,
+OP871841.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-15B,,"Human alphaherpesvirus 1 strain INV-15B, complete genome",156713,complete,USA,USA,Homo sapiens,
+OP871842.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-16D,,"Human alphaherpesvirus 1 strain INV-16D, complete genome",155161,complete,USA,USA,Homo sapiens,
+OP871843.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-16E,,"Human alphaherpesvirus 1 strain INV-16E, complete genome",159092,complete,USA,USA,Homo sapiens,
+OP871844.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-17A,,"Human alphaherpesvirus 1 strain INV-17A, complete genome",154234,complete,USA,USA,Homo sapiens,
+OP871845.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-20A,,"Human alphaherpesvirus 1 strain INV-20A, complete genome",154095,complete,USA,USA,Homo sapiens,
+OP871846.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-20C,,"Human alphaherpesvirus 1 strain INV-20C, complete genome",154107,complete,USA,USA,Homo sapiens,
+OP871847.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-22B,,"Human alphaherpesvirus 1 strain INV-22B, complete genome",155163,complete,USA,USA,Homo sapiens,
+OP871848.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-22C,,"Human alphaherpesvirus 1 strain INV-22C, complete genome",153324,complete,USA,USA,Homo sapiens,
+OP871849.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-25B,,"Human alphaherpesvirus 1 strain INV-25B, complete genome",154157,complete,USA,USA,Homo sapiens,
+OP871850.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-25C,,"Human alphaherpesvirus 1 strain INV-25C, complete genome",153240,complete,USA,USA,Homo sapiens,
+OP871851.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-25D,,"Human alphaherpesvirus 1 strain INV-25D, complete genome",155512,complete,USA,USA,Homo sapiens,
+OP871852.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-NN,,"Human alphaherpesvirus 1 strain INV-NN, complete genome",155472,complete,USA,USA,Homo sapiens,
+OP871854.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-1G,,"Human alphaherpesvirus 1 strain INV-1G, complete genome",153201,complete,USA,USA,Homo sapiens,
+OP871855.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-2B,,"Human alphaherpesvirus 1 strain INV-2B, complete genome",155681,complete,USA,USA,Homo sapiens,
+OP871856.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-2C,,"Human alphaherpesvirus 1 strain INV-2C, complete genome",155161,complete,USA,USA,Homo sapiens,
+OP871857.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-7A,,"Human alphaherpesvirus 1 strain INV-7A, complete genome",153807,complete,USA,USA,Homo sapiens,
+OP871858.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-7E,,"Human alphaherpesvirus 1 strain INV-7E, complete genome",154992,complete,USA,USA,Homo sapiens,
+OP871859.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,INV-9B,,"Human alphaherpesvirus 1 strain INV-9B, complete genome",156328,complete,USA,USA,Homo sapiens,
+ON513441.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,NIVD4,,"Human alphaherpesvirus 1 isolate NIVD4, complete genome",152089,complete,China,China,Homo sapiens,2017-09-19
+OP297860.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v60_d3_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v60_d3_cu_gen_les, complete genome",152526,complete,,,Homo sapiens,
+OP297861.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v70_d1_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v70_d1_cu_gen_les, complete genome",149598,complete,,,Homo sapiens,
+OP297862.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v73_d4_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v73_d4_cu_gen_les, complete genome",153232,complete,,,Homo sapiens,
+OP297863.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v61_d2_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v61_d2_cu_gen_les, complete genome",150817,complete,,,Homo sapiens,
+OP297865.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v44_d2_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v44_d2_cu_gen_les, complete genome",153089,complete,,,Homo sapiens,
+OP297866.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v71_d395_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v71_d395_cu_gen_les, complete genome",151281,complete,,,Homo sapiens,
+OP297867.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v52_d84_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v52_d84_cu_gen_les, complete genome",150722,complete,,,Homo sapiens,
+OP297868.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v46_d349_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v46_d349_cu_gen_les, complete genome",150131,complete,,,Homo sapiens,
+OP297870.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v58_d1_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v58_d1_cu_gen_les, complete genome",151565,complete,,,Homo sapiens,
+OP297871.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v69_d2_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v69_d2_cu_gen_les, complete genome",151422,complete,,,Homo sapiens,
+OP297872.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v62_d3_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v62_d3_cu_gen_les, complete genome",149910,complete,,,Homo sapiens,
+OP297873.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v54_d71_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v54_d71_cu_gen_les, complete genome",150814,complete,,,Homo sapiens,
+OP297874.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v74_d193_cu_gen,,"Human alphaherpesvirus 1 strain HSV1-v74_d193_cu_gen, complete genome",150377,complete,,,Homo sapiens,
+OP297875.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v49_d257_cu_gen_les,,"Human alphaherpesvirus 1 strain v49_d257_cu_gen_les, complete genome",150049,complete,,,Homo sapiens,
+OP297876.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v59_d121_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v59_d121_cu_gen_les, complete genome",135445,complete,,,Homo sapiens,
+OP297877.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v66_d6_cu_gen,,"Human alphaherpesvirus 1 strain HSV1-v66_d6_cu_gen, complete genome",150184,complete,,,Homo sapiens,
+OP297879.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v63_d284_cu_oral,,"Human alphaherpesvirus 1 strain HSV1-v63_d284_cu_oral, complete genome",150722,complete,,,Homo sapiens,
+OP297880.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v68_d8_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v68_d8_cu_gen_les, complete genome",148988,complete,,,Homo sapiens,
+OP297881.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v45_d4_cu_gen_les,,"Human alphaherpesvirus 1 strain v45_d4_cu_gen_les, complete genome",150135,complete,,,Homo sapiens,
+OP297882.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v76_d266_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v76_d266_cu_gen_les, complete genome",150499,complete,,,Homo sapiens,
+OP297884.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v57_d3_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v57_d3_cu_gen_les, complete genome",156387,complete,,,Homo sapiens,
+OP297885.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v67_d346_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v67_d346_cu_gen_les, complete genome",149990,complete,,,Homo sapiens,
+OP297886.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-v72_d53_cu_gen_les,,"Human alphaherpesvirus 1 strain HSV1-v72_d53_cu_gen_les, complete genome",152277,complete,,,Homo sapiens,
+ON783214.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,B^3x1.1A,,"UNVERIFIED: Human alphaherpesvirus 1 strain B^3x1.1A, complete genome",152108,complete,USA,USA,Chlorocebus sabaeus,2015-01-01
+ON783215.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,B^3x1.1B,,"UNVERIFIED: Human alphaherpesvirus 1 strain B^3x1.1B, complete genome",153542,complete,USA,USA,Chlorocebus sabaeus,2015-01-01
+ON783216.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,B^3x1.1C,,"UNVERIFIED: Human alphaherpesvirus 1 strain B^3x1.1C, complete genome",151352,complete,USA,USA,Chlorocebus sabaeus,2015-01-01
+ON783217.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,B^3x1.1D,,"UNVERIFIED: Human alphaherpesvirus 1 strain B^3x1.1D, complete genome",154773,complete,USA,USA,Chlorocebus sabaeus,2015-01-01
+ON960054.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-San-Francisco-USA-1982-H193-CSF,,"Human alphaherpesvirus 1 strain HSV1-San-Francisco-USA-1982-H193-CSF, complete genome",150283,complete,USA,USA,Homo sapiens,1982
+ON960055.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-San-Francisco-USA-1982-H193-BB,,"Human alphaherpesvirus 1 strain HSV1-San-Francisco-USA-1982-H193-BB, complete genome",152645,complete,USA,USA,Homo sapiens,1982
+ON960056.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-San-Francisco-USA-1980-EKN,,"Human alphaherpesvirus 1 strain HSV1-San-Francisco-USA-1980-EKN, complete genome",152443,complete,USA,USA,Homo sapiens,1980
+ON960057.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-San-Francisco-USA-1979-DAB1,,"Human alphaherpesvirus 1 strain HSV1-San-Francisco-USA-1979-DAB1, complete genome",151117,complete,USA,USA,Homo sapiens,1979
+ON960058.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-San-Francisco-USA-1979-H144,,"Human alphaherpesvirus 1 strain HSV1-San-Francisco-USA-1979-H144, complete genome",151430,complete,USA,USA,Homo sapiens,1979
+ON960059.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-San-Francisco-USA-1974-HTZ,,"Human alphaherpesvirus 1 strain HSV1-San-Francisco-USA-1974-HTZ, complete genome",150357,complete,USA,USA,Homo sapiens,1974
+ON960060.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-San-Francisco-USA-1967-RE,,"Human alphaherpesvirus 1 strain HSV1-San-Francisco-USA-1967-RE, complete genome",152428,complete,USA,USA,Homo sapiens,1967
+ON960061.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV1-Atlanta-USA-1965-E377,,"Human alphaherpesvirus 1 strain HSV1-Atlanta-USA-1965-E377, complete genome",151177,complete,USA,USA,Homo sapiens,1965
+ON152715.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,astronaunt_in_orbit_rash_HSV_1,,"Human alphaherpesvirus 1 strain astronaunt_in_orbit_rash_HSV_1, complete genome",151508,complete,,,,
+ON152716.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,astronaunt_post_orbit_saliva_HSV_1,,"Human alphaherpesvirus 1 strain astronaunt_post_orbit_saliva_HSV_1, complete genome",151060,complete,,,,
+ON007132.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v40_unk_gen,,"Human alphaherpesvirus 1 strain v40_unk_gen, complete genome",150395,complete,,,,
+ON007136.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v48_d101_oral,,"Human alphaherpesvirus 1 strain v48_d101_oral, complete genome",150082,complete,,,,
+ON007137.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v42_d131_gen_les,,"Human alphaherpesvirus 1 strain v42_d131_gen_les, complete genome",135496,complete,,,,
+ON007138.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v42_d338_gen_les,,"Human alphaherpesvirus 1 strain v42_d338_gen_les, complete genome",135522,complete,,,,
+ON007142.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v49_d257_gen_les,,"Human alphaherpesvirus 1 strain v49_d257_gen_les, complete genome",150302,complete,,,,
+ON007143.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v46_d349_gen_les2,,"Human alphaherpesvirus 1 strain v46_d349_gen_les2, complete genome",150444,complete,,,,
+ON007144.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v46_d345_gen,,"Human alphaherpesvirus 1 strain v46_d345_gen, complete genome",150347,complete,,,,
+ON007145.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v45_d4_gen_les,,"Human alphaherpesvirus 1 strain v45_d4_gen_les, complete genome",150361,complete,,,,
+ON007146.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v46_d349_gen,,"Human alphaherpesvirus 1 strain v46_d349_gen, complete genome",135353,complete,,,,
+ON007149.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v49_d349_gen_les,,"Human alphaherpesvirus 1 strain v49_d349_gen_les, complete genome",150503,complete,,,,
+ON007150.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v46_d348_gen,,"Human alphaherpesvirus 1 strain v46_d348_gen, complete genome",135291,complete,,,,
+ON007151.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v46_d349_gen_les3,,"Human alphaherpesvirus 1 strain v46_d349_gen_les3, complete genome",150819,complete,,,,
+ON007154.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v40_y14_oral2,,"Human alphaherpesvirus 1 strain v40_y14_oral2, complete genome",151325,complete,,,,
+ON007158.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,v46_d349_gen_les1,,"Human alphaherpesvirus 1 strain v46_d349_gen_les1, complete genome",150373,complete,,,,
+OL638990.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,dsncRNA1,,"Human alphaherpesvirus 1 strain dsncRNA1, complete sequence",152373,complete,USA,USA,Homo sapiens,2018
+OL638991.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,McKrae,,"Human alphaherpesvirus 1 strain McKrae, complete sequence",152382,complete,USA,USA,Homo sapiens,1965
+BK012101.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"TPA_asm: Human alphaherpesvirus 1 strain 17, complete genome",152222,complete,,,Homo sapiens,
+MN925871.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"UNVERIFIED: Human alphaherpesvirus 1 strain Sample4_DOCK8, complete genome",150853,complete,USA,USA,Homo sapiens,2015
+MN159377.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,s17pp3,,"Human alphaherpesvirus 1 isolate s17pp3, complete genome",152245,complete,,,,
+MN159378.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,s17pp4,,"Human alphaherpesvirus 1 isolate s17pp4, complete genome",152288,complete,,,,
+MN159379.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,s17pp5,,"Human alphaherpesvirus 1 isolate s17pp5, complete genome",152244,complete,,,,
+MN159383.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,Sc16,,"Human alphaherpesvirus 1 isolate Sc16, complete genome",151223,complete,,,,
+MN136523.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain MacIntyre, complete genome",152476,complete,USA,USA,Homo sapiens,1951
+MN136524.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain McKrae, complete genome",152361,complete,USA,USA,Homo sapiens,1965
+MH480513.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,MCL-18-H-1091,,"Human alphaherpesvirus 1 isolate MCL-18-H-1091, complete genome",138790,complete,India,India,Homo sapiens,2018-05
+MH319852.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain NIV1613762, complete genome",147898,complete,India,India,Homo sapiens,2016-08
+MH999839.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain K86, complete genome",151610,complete,,,Homo sapiens,
+MH999840.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain Ty25, complete genome",151249,complete,,,Homo sapiens,
+MH999841.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain Ty148, complete genome",153234,complete,,,Homo sapiens,
+MH999842.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain HSV-H12113, complete genome",152599,complete,,,Homo sapiens,
+MH999844.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain HSV-H12114, complete genome",151678,complete,,,Homo sapiens,
+MH999845.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain HSV-H12117, complete genome",156077,complete,,,Homo sapiens,
+MH999846.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain HSV-H1215, complete genome",151140,complete,,,Homo sapiens,
+MH999847.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain HSV-H12118, complete genome",151809,complete,,,Homo sapiens,
+MH999848.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain HSV-H1311, complete genome",151461,complete,,,Homo sapiens,
+MH999849.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain HSV-H1312, complete genome",155011,complete,,,Homo sapiens,
+MH999850.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain HSV-H15119, complete genome",155156,complete,,,Homo sapiens,
+MH999851.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain HSV-H1412, complete genome",152094,complete,,,Homo sapiens,
+MH102298.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain HSV-v29_site16_day1, complete genome",151108,complete,,,,
+KY922718.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV-R-13,,"Human alphaherpesvirus 1 isolate HSV-R-13, complete genome",151636,complete,,,Homo sapiens,
+KY922719.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV-N-7,,"Human alphaherpesvirus 1 isolate HSV-N-7, complete genome",151765,complete,,,Homo sapiens,
+MF156584.1,SAMN06927022,Human alphaherpesvirus 1,Simplexvirus humanalpha1,K(delta)25/26,,"Human alphaherpesvirus 1 isolate K(delta)25/26, complete genome",149586,complete,not collected,,Homo sapiens,
+KX424525.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,ZW6,,"Human alphaherpesvirus 1 isolate ZW6, complete genome",152090,complete,China,China,Homo sapiens,2013
+LT594105.1,SAMEA4017987,Human alphaherpesvirus 1,Simplexvirus humanalpha1,172/2010,,"Human herpesvirus 1 isolate 172_2010 genome assembly, complete genome: monopartite",151217,complete,Germany,Germany,Homo sapiens,2010-01-11
+LT594106.1,SAMEA4017985,Human alphaherpesvirus 1,Simplexvirus humanalpha1,2158/2007,,"Human herpesvirus 1 isolate 2158_2007 genome assembly, complete genome: monopartite",150670,complete,Germany,Germany,Homo sapiens,2007-12-14
+LT594107.1,SAMEA4017986,Human alphaherpesvirus 1,Simplexvirus humanalpha1,3083/2008,,"Human herpesvirus 1 isolate 3083_2008 genome assembly, complete genome: monopartite",151283,complete,Germany,Germany,Homo sapiens,2008-12-18
+LT594108.1,SAMEA4017979,Human alphaherpesvirus 1,Simplexvirus humanalpha1,1319/2005,,"Human herpesvirus 1 isolate 1319_2005 genome assembly, complete genome: monopartite",151216,complete,Germany,Germany,Homo sapiens,2005-08-23
+LT594109.1,SAMEA4017983,Human alphaherpesvirus 1,Simplexvirus humanalpha1,270/2007,,"Human herpesvirus 1 isolate 270_2007 genome assembly, complete genome: monopartite",150791,complete,Germany,Germany,Homo sapiens,2007-02-09
+LT594110.1,SAMEA4017982,Human alphaherpesvirus 1,Simplexvirus humanalpha1,66/2007,,"Human herpesvirus 1 isolate 66_2007 genome assembly, complete genome: monopartite",150842,complete,Germany,Germany,Homo sapiens,2007-01-08
+LT594111.1,SAMEA4017980,Human alphaherpesvirus 1,Simplexvirus humanalpha1,1394/2005,,"Human herpesvirus 1 isolate 1394_2005 genome assembly, complete genome: monopartite",151304,complete,Germany,Germany,Homo sapiens,2005-09-05
+LT594112.1,SAMEA4017984,Human alphaherpesvirus 1,Simplexvirus humanalpha1,369/2007,,"Human herpesvirus 1 isolate 369_2007 genome assembly, complete genome: monopartite",150927,complete,Germany,Germany,Homo sapiens,2007-02-08
+LT594192.1,SAMEA4017977,Human alphaherpesvirus 1,Simplexvirus humanalpha1,160/1982,,"Human herpesvirus 1 isolate 160_1982 genome assembly, complete genome: monopartite",150711,complete,Germany,Germany,Homo sapiens,1982-06-16
+LT594457.1,SAMEA4017978,Human alphaherpesvirus 1,Simplexvirus humanalpha1,132/1998,,"Human herpesvirus 1 isolate 132_1998 genome assembly, complete genome: monopartite",150378,complete,Germany,Germany,Homo sapiens,1998-03-06
+KT887224.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,KOS 1.1,,"Human alphaherpesvirus 1 isolate KOS 1.1, complete genome",151794,complete,USA,USA,,1964
+KT899744.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,KOS,,"Human alphaherpesvirus 1 isolate KOS, complete genome",151974,complete,USA,USA,Homo sapiens,1964
+KT425109.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human alphaherpesvirus 1 strain KOS79, complete genome",135472,complete,,,Homo sapiens,
+KR781518.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human herpesvirus 1 strain dl1403 envelope glycoprotein C (gC) gene, complete sequence",525,complete,,,,
+KJ847330.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,HSV-1/0116209/India/2011,,"Human herpesvirus 1 isolate HSV-1/0116209/India/2011, complete genome",151024,complete,India,India,Homo sapiens,2011
+KF498959.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,RE,,"Human herpesvirus 1 isolate RE, complete genome",151255,complete,USA,USA,Homo sapiens,1967
+AB618031.1,SAMD00010721,Human alphaherpesvirus 1 strain RH2,Simplexvirus humanalpha1,,,"Herpes simplex virus (type 1 /strain RH2) DNA, nearly complete genome",149643,complete,,,,
+JQ780693.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human herpesvirus 1 strain KOS, complete genome",151024,complete,,,,
+JQ673480.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human herpesvirus 1 strain KOS, complete genome",152011,complete,,,Homo sapiens,
+JN415117.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human herpesvirus 1 strain RV_117 nonfunctional thymidine kinase (UL23) gene, complete sequence",1131,complete,Belgium,Belgium,Homo sapiens,2010
+JN415118.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human herpesvirus 1 strain RV_179 nonfunctional thymidine kinase (UL23) gene, complete sequence",1132,complete,Belgium,Belgium,Homo sapiens,2011
+JN415119.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human herpesvirus 1 strain HSV328058 nonfunctional thymidine kinase (UL23) gene, complete sequence",1130,complete,Belgium,Belgium,Homo sapiens,2006
+JN555585.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human herpesvirus 1 strain 17, complete genome",152222,complete,"United Kingdom: Regional Virus Laboratory, Ruchill Hospital, Glasgow",United Kingdom,,
+GU734771.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human herpesvirus 1 strain F, complete genome",152151,complete,,,,
+GU734772.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human herpesvirus 1 strain H129, complete genome",152066,complete,,,,
+FJ593289.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,"Human herpesvirus 1 transgenic strain 17, complete genome",165101,complete,,,Homo sapiens,
+X14112.1,,Human alphaherpesvirus 1,Simplexvirus humanalpha1,,,Human herpesvirus 1 complete genome,152261,complete,,,,

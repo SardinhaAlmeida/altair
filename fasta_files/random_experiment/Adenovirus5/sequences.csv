@@ -1,0 +1,43 @@
+Accession,BioSample,Organism_Name,Species,Isolate,Segment,GenBank_Title,Length,Nuc_Completeness,Geo_Location,Country,Host,Collection_Date
+AC_000008.1,,Human adenovirus 5,Mastadenovirus caesari,,,"Human adenovirus 5, complete genome",35938,complete,,,,
+PX146744.1,,Human adenovirus 5,Mastadenovirus caesari,hAdV-C5/Russia/SPE-RII-MH204038V/2024,,"Human adenovirus 5 isolate hAdV-C5/Russia/SPE-RII-MH204038V/2024, complete genome",35832,complete,"Russia: Saint Petersburg, Saint Petersburg",Russia,Homo sapiens,2024-04-16
+PX146745.1,,Human adenovirus 5,Mastadenovirus caesari,hAdV-C5/Russia/SPE-RII-MH204074V/2024,,"Human adenovirus 5 isolate hAdV-C5/Russia/SPE-RII-MH204074V/2024, complete genome",35869,complete,"Russia: Saint Petersburg, Saint Petersburg",Russia,Homo sapiens,2024-06-27
+PX146746.1,,Human adenovirus 5,Mastadenovirus caesari,hAdV-C/Russia/BU-RII-MH145796V/2023[P89H5F5],,"Human adenovirus 5 isolate hAdV-C/Russia/BU-RII-MH145796V/2023[P89H5F5], complete genome",35907,complete,"Russia: Republic of Buryatia, Ulan-Ude",Russia,Homo sapiens,2023-09-26
+PX146747.1,,Human adenovirus 5,Mastadenovirus caesari,hAdV-C5/Russia/KDA-RII-MH209690V/2024,,"Human adenovirus 5 isolate hAdV-C5/Russia/KDA-RII-MH209690V/2024, complete genome",35898,complete,"Russia: Krasnodar Krai, Novorossiysk",Russia,Homo sapiens,2024-06-20
+PX146748.1,,Human adenovirus 5,Mastadenovirus caesari,hAdV-C5/Russia/ROS-RII-MH209715V/2024,,"Human adenovirus 5 isolate hAdV-C5/Russia/ROS-RII-MH209715V/2024, complete genome",35871,complete,"Russia: Rostov Oblast, Rostov-on-Don",Russia,Homo sapiens,2024-07-04
+PP070539.1,SAMN39198885,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/8C10/2011,,"Human adenovirus 5 isolate HAdV-C5/USA/8C10/2011, complete genome",35912,complete,USA: WA,USA,Homo sapiens,2011-05
+OR876398.1,SAMN38454727,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/7D10/2010,,"Human adenovirus 5 isolate HAdV-C5/USA/7D10/2010, complete genome",35906,complete,USA: WA,USA,Homo sapiens,2010-11
+OR777154.1,SAMN38054980,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/1B6/2020,,"Human adenovirus 5 isolate HAdV-C5/USA/1B6/2020, complete genome",35911,complete,USA,USA,Homo sapiens,2020-03
+OR777157.1,SAMN38054971,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/1G2/2019,,"Human adenovirus 5 isolate HAdV-C5/USA/1G2/2019, complete genome",35906,complete,USA,USA,Homo sapiens,2019-04
+OR777173.1,SAMN38054962,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/7D6/2018,,"Human adenovirus 5 isolate HAdV-C5/USA/7D6/2018, complete genome",35916,complete,USA,USA,Homo sapiens,2018-10
+OR777174.1,SAMN38055000,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/8D7/2019,,"Human adenovirus 5 isolate HAdV-C5/USA/8D7/2019, complete genome",35914,complete,USA,USA,Homo sapiens,2019-01
+OR777181.1,SAMN38054986,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/12C7/2015,,"Human adenovirus 5 isolate HAdV-C5/USA/12C7/2015, complete genome",35915,complete,USA,USA,Homo sapiens,2015-04
+OR777190.1,SAMN38055006,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/12K3/2015,,"Human adenovirus 5 isolate HAdV-C5/USA/12K3/2015, complete genome",35906,complete,USA,USA,Homo sapiens,2015-09
+OR777205.1,SAMN38054965,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/12T6/2016,,"Human adenovirus 5 isolate HAdV-C5/USA/12T6/2016, complete genome",35902,complete,USA,USA,Homo sapiens,2016-01
+OR777217.1,SAMN38054957,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/13N10/2017,,"Human adenovirus 5 isolate HAdV-C5/USA/13N10/2017, complete genome",35916,complete,USA,USA,Homo sapiens,2017-03
+OR777218.1,SAMN38054958,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/13O1/2017,,"Human adenovirus 5 isolate HAdV-C5/USA/13O1/2017, complete genome",35912,complete,USA,USA,Homo sapiens,2017-03
+OR777232.1,SAMN38055017,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/16A4/2018,,"Human adenovirus 5 isolate HAdV-C5/USA/16A4/2018, complete genome",35916,complete,USA,USA,Homo sapiens,2018-09
+OR777241.1,SAMN38055004,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/16O1/2019,,"Human adenovirus 5 isolate HAdV-C5/USA/16O1/2019, complete genome",35904,complete,USA,USA,Homo sapiens,2019-01
+OR753099.1,SAMN33421326,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/8B3/2011,,"Human adenovirus 5 isolate HAdV-C5/USA/8B3/2011, complete genome",35907,complete,USA,USA,Homo sapiens,2011-05
+OR753108.1,SAMN33421237,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/7T6/2011,,"Human adenovirus 5 isolate HAdV-C5/USA/7T6/2011, complete genome",35906,complete,USA,USA,Homo sapiens,2011-03
+OR728260.1,SAMN37865664,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/WA-UW-6bd44/2021,,"Human adenovirus 5 strain HAdV-C5/USA/WA-UW-6bd44/2021, complete genome",35895,complete,USA: WA,USA,Homo sapiens,2021-01
+OR735179.1,SAMN33421321,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/8K6/2011,,"Human adenovirus 5 isolate HAdV-C5/USA/8K6/2011, complete genome",35930,complete,USA,USA,Homo sapiens,2011-09
+OR735183.1,SAMN33421370,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/3M4/2009,,"Human adenovirus 5 isolate HAdV-C5/USA/3M4/2009, complete genome",35902,complete,USA,USA,Homo sapiens,2009-07
+OR735188.1,SAMN33420903,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/8K9/2011,,"Human adenovirus 5 isolate HAdV-C5/USA/8K9/2011, complete genome",35930,complete,USA,USA,Homo sapiens,2011-09
+OQ518263.1,SAMN33421248,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/10B3/2012,,"Human adenovirus 5 isolate HAdV-C5/USA/10B3/2012, complete genome",35906,complete,USA,USA,Homo sapiens,2012-10
+OQ518268.1,SAMN33420911,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/8Q8/2011,,"Human adenovirus 5 isolate HAdV-C5/USA/8Q8/2011, complete genome",35903,complete,USA,USA,Homo sapiens,2011-11
+OQ518274.1,SAMN33421254,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/10C3/2012,,"Human adenovirus 5 isolate HAdV-C5/USA/10C3/2012, complete genome",35925,complete,USA,USA,Homo sapiens,2012-11
+OQ518275.1,SAMN33420918,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/6O9/2010,,"Human adenovirus 5 isolate HAdV-C5/USA/6O9/2010, complete genome",35908,complete,USA,USA,Homo sapiens,2010-08
+OQ518277.1,SAMN33421363,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/8E8/2011,,"Human adenovirus 5 isolate HAdV-C5/USA/8E8/2011, complete genome",35923,complete,USA,USA,Homo sapiens,2011-06
+OQ518283.1,SAMN33421258,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/5O8/2009,,"Human adenovirus 5 isolate HAdV-C5/USA/5O8/2009, complete genome",35940,complete,USA,USA,Homo sapiens,2009-12
+OQ518289.1,SAMN33420907,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/9T1/2012,,"Human adenovirus 5 isolate HAdV-C5/USA/9T1/2012, complete genome",35906,complete,USA,USA,Homo sapiens,2012-09
+OQ518296.1,SAMN33421271,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/10A5/2012,,"Human adenovirus 5 isolate HAdV-C5/USA/10A5/2012, complete genome",35906,complete,USA,USA,Homo sapiens,2012-10
+OQ518303.1,SAMN33421232,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/7J8/2011,,"Human adenovirus 5 isolate HAdV-C5/USA/7J8/2011, complete genome",35914,complete,USA,USA,Homo sapiens,2011-01
+OQ518305.1,SAMN33421276,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/5P3/2010,,"Human adenovirus 5 isolate HAdV-C5/USA/5P3/2010, complete genome",35906,complete,USA,USA,Homo sapiens,2010-01
+OQ518307.1,SAMN33421278,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/10D3/2012,,"Human adenovirus 5 isolate HAdV-C5/USA/10D3/2012, complete genome",35906,complete,USA,USA,Homo sapiens,2012-11
+OQ518319.1,SAMN33421285,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/5N1/2009,,"Human adenovirus 5 isolate HAdV-C5/USA/5N1/2009, complete genome",35914,complete,USA,USA,Homo sapiens,2009-12
+OQ518340.1,SAMN33421301,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/5I1/2009,,"Human adenovirus 5 isolate HAdV-C5/USA/5I1/2009, complete genome",35904,complete,USA,USA,Homo sapiens,2009-11
+OQ518353.1,SAMN33421312,Human adenovirus 5,Mastadenovirus caesari,HAdV-C5/USA/10E1/2012,,"Human adenovirus 5 isolate HAdV-C5/USA/10E1/2012, complete genome",35906,complete,USA,USA,Homo sapiens,2012-11
+KX868466.2,,Human adenovirus 5,Mastadenovirus caesari,GyK193,,"Human adenovirus 5 isolate GyK193, complete genome",35918,complete,Sweden,Sweden,Homo sapiens,2000
+AY601635.1,,Human adenovirus 5,Mastadenovirus caesari,,,"Human adenovirus type 5 strain NHRC Ad5FS 7151, complete genome",35931,complete,,,,
+M73260.1,,Human adenovirus 5,Mastadenovirus caesari,,,"Mastadenovirus h5 gene, complete genome",35935,complete,,,,

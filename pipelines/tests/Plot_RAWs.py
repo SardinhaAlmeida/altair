@@ -3,13 +3,22 @@ import os
 import numpy as np
 import pandas as pd
 from matplotlib.lines import Line2D
+from matplotlib.colors import to_hex
 
 # ---- helpers ---------------------------------------------------------------
-k_colors = {11: "red", 12: "blue", 13: "darkseagreen", 14: "grey"}
-k_sizes = {11: 3, 12: 1, 13: 1, 14: 1}
-
 def ensure_outdir(d):
     os.makedirs(d, exist_ok=True)
+
+def kmer_styles(df):
+    """Build plot styles from the k-mer lengths that are actually present."""
+    kmer_lengths = sorted(df["kmer_len"].unique())
+    color_map = plt.get_cmap("tab10", len(kmer_lengths))
+    k_colors = {
+        k: to_hex(color_map(index))
+        for index, k in enumerate(kmer_lengths)
+    }
+    k_sizes = {k: 3 for k in kmer_lengths}
+    return kmer_lengths, k_colors, k_sizes
 
 def topdown_axes(ax, x, y, title):
     ax.set_title(title)
@@ -26,7 +35,7 @@ def topdown_axes(ax, x, y, title):
     ax.yaxis.set_label_coords(-0.05, 0.5)
     ax.tick_params(axis='y', labelrotation=90)
 
-def legend_k(ax):
+def legend_k(ax, k_colors):
     legend_items = [
         Line2D([0],[0], marker='o', color='w', markerfacecolor=c, markersize=6, label=f'k={k}')
         for k, c in k_colors.items()
@@ -53,15 +62,12 @@ def hist_raws(df, out_png, va):
             dpi=300, bbox_inches='tight')    
     plt.close()
 
-def plot_3d_raws(df, out_png, va):
+def plot_3d_raws(df, out_png, va, k_colors, k_sizes):
     x = df["genome_idx"]
     y = df["position"]
     z = df["kmer_len"]
 
     colors = df["kmer_len"]
-    k_colors = {11: "red", 12: "blue", 13: "darkseagreen" , 14: "grey"}
-    k_sizes = {11: 3, 12: 1, 13: 1, 14: 1}
-
     fig = plt.figure(figsize=(18,10))
     ax = fig.add_subplot(projection="3d")
 
@@ -86,13 +92,13 @@ def plot_3d_raws(df, out_png, va):
 
     ax.invert_zaxis()
 
-    legend_k(ax)
+    legend_k(ax, k_colors)
 
     plt.title(f"3D RAWs Distribution [{va}]", pad=20)
     plt.savefig(f"{out_png}3d_raws_distribution.png", dpi=300)
     plt.close()
 
-def plot_3d_top_view(df, out_png, va):
+def plot_3d_top_view(df, out_png, va, k_colors, k_sizes):
     x = df["genome_idx"]
     y = df["position"]
     z = df["kmer_len"]
@@ -110,11 +116,11 @@ def plot_3d_top_view(df, out_png, va):
 
     topdown_axes(ax, x, y, f"Top-Down View of 3D RAWs Distribution [{va}]")
 
-    legend_k(ax)
+    legend_k(ax, k_colors)
     plt.savefig(f"{out_png}3d_raws_distribution_topdown.png", dpi=300, bbox_inches='tight')
     plt.close()
 
-def plot_top_view_marked(df, out_png, va):
+def plot_top_view_marked(df, out_png, va, k_colors, k_sizes):
     x = df["genome_idx"]
     y = df["position"]
     z = df["kmer_len"]
@@ -139,19 +145,19 @@ def plot_top_view_marked(df, out_png, va):
         x[mask_base], y[mask_base], z[mask_base],
         s=45,                     # slightly larger ring than points
         facecolors='none',        # hollow
-        edgecolors='black',         # highlight color
+        edgecolors='orange',         # highlight color
         linewidths=0.8,
         zorder=10
     )
 
     topdown_axes(ax3, x, y, f"Top-Down View of 3D RAWs Distribution (GC% 48-52 marked) [{va}]")
 
-    legend_k(ax3)
+    legend_k(ax3, k_colors)
     plt.savefig(f"{out_png}/3d_raws_distribution_topdown_gc48_52_marked.png",
                 dpi=300, bbox_inches='tight')
     plt.close()
 
-def plot_top_view_45_55(df, out_png, va):
+def plot_top_view_45_55(df, out_png, va, k_colors, k_sizes):
 
     mask = df["gc_pct"].between(45, 55)
 
@@ -174,12 +180,12 @@ def plot_top_view_45_55(df, out_png, va):
     )
 
     topdown_axes(ax3, x_sub, y_sub, f"Top-Down View of 3D RAWs Distribution (GC% 45-55 only) [{va}]")
-    legend_k(ax3)
+    legend_k(ax3, k_colors)
     plt.savefig(f"{out_png}/3d_raws_distribution_topdown_gc45_55.png",
                 dpi=300, bbox_inches='tight')
     plt.close()
 
-def plot_top_view_highlight(df, out_png, va):
+def plot_top_view_highlight(df, out_png, va, k_colors, k_sizes):
     mask = df["gc_pct"].between(45, 55)
     x_sub = df.loc[mask, "genome_idx"].values
     y_sub = df.loc[mask, "position"].values
@@ -213,13 +219,13 @@ def plot_top_view_highlight(df, out_png, va):
     )
 
     topdown_axes(ax3, x_sub, y_sub, f"Top-Down View of 3D RAWs Distribution (GC% 45-55 only with 48-52% Highlight) [{va}]")
-    legend_k(ax3)
+    legend_k(ax3, k_colors)
 
     plt.savefig(f"{out_png}/3d_raws_distribution_topdown_gc45_55_highlight.png",
                 dpi=300, bbox_inches='tight')
     plt.close()
 
-def gc_vs_kmer_length(df, out_png, va):
+def gc_vs_kmer_length(df, out_png, va, kmer_lengths):
     plt.figure(figsize=(10, 7))
     plt.scatter(pd.to_numeric(df["kmer_len"]), df["gc_pct"], s=5, alpha=0.7)
 
@@ -228,7 +234,7 @@ def gc_vs_kmer_length(df, out_png, va):
 
     plt.axhspan(45, 55, color='lightgreen', alpha=0.3)
 
-    plt.xticks(np.arange(11, 15, 1))  # from 0% to 100% every 5%
+    plt.xticks(kmer_lengths)
     plt.yticks(np.arange(0, 101, 5))  # from 0% to 100% every 5%
     plt.grid(True, linestyle=":", alpha=0.6)
 
@@ -253,12 +259,34 @@ def run_plots(input_csv: str, outputs_dir: str, variant_name: str):
         header=None,
         names=["genome_idx", "position", "raw", "gc_pct", "kmer_len"]
     )
-    
+
+    if df.empty:
+        raise ValueError(f"No RAW records found in {input_csv}")
+
+    for column in ["genome_idx", "position", "gc_pct", "kmer_len"]:
+        df[column] = pd.to_numeric(df[column], errors="raise")
+
+    kmer_lengths, k_colors, k_sizes = kmer_styles(df)
+
     hist_raws(df, outputs_dir, variant_name)
-    plot_3d_raws(df, outputs_dir, variant_name)
-    plot_3d_top_view(df, outputs_dir, variant_name)
-    plot_top_view_marked(df, outputs_dir, variant_name)
-    plot_top_view_45_55(df, outputs_dir, variant_name)
-    plot_top_view_highlight(df, outputs_dir, variant_name)
-    gc_vs_kmer_length(df, outputs_dir, variant_name)
+    plot_3d_raws(df, outputs_dir, variant_name, k_colors, k_sizes)
+    plot_3d_top_view(df, outputs_dir, variant_name, k_colors, k_sizes)
+    plot_top_view_marked(df, outputs_dir, variant_name, k_colors, k_sizes)
+
+    has_gc_45_55 = df["gc_pct"].between(45, 55).any()
+
+    if has_gc_45_55:
+        plot_top_view_45_55(
+            df, outputs_dir, variant_name, k_colors, k_sizes
+        )
+        plot_top_view_highlight(
+            df, outputs_dir, variant_name, k_colors, k_sizes
+        )
+    else:
+        print(
+            f"Warning: no RAWs found in the GC 45–55% interval "
+            f"[{variant_name}]. Filtered plots were skipped."
+        )
+
+    gc_vs_kmer_length(df, outputs_dir, variant_name, kmer_lengths)
     results_csv(df, outputs_dir, variant_name)

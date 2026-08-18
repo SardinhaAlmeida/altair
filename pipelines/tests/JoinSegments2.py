@@ -44,10 +44,12 @@ def read_fasta(path):
 
     return records
 
+def normalize_accession(accession):
+    accession = (accession or "").strip()
+    return re.sub(r"\.\d+$", "", accession)
 
 def extract_accession(header):
-    return header.split()[0]
-
+    return normalize_accession(header.split()[0])
 
 def classify_component(segment, title):
     text = f"{segment} {title}".lower()
@@ -102,8 +104,7 @@ def read_csv_rows(path):
 
 
 def get_accession(row):
-    return (row.get("Accession") or "").strip()
-
+    return normalize_accession(row.get("Accession"))
 
 def get_title(row):
     return row.get("GenBank_Title", "") or ""

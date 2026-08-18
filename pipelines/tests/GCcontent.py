@@ -21,13 +21,56 @@ def process_fasta(input_file, output_file):
             outfile.write(f"{sequence_index}\t{position_sequence}\t{sequence}\t{gc:.2f}\t{kmer}\n")
 
 def main():
-    parser = argparse.ArgumentParser(description="Calculate GC content from .eg file.")
-    parser.add_argument("-i", "--input", nargs="+", required=True, help="Input .eg file(s). Globs like k*.eg are allowed (shell-expanded).")
+    parser = argparse.ArgumentParser(
+    description=(
+        "Calculate GC content for RAW sequences stored in AltaiR .eg files. "
+        "The generated records are merged into merged_gc.csv, and plots can "
+        "optionally be created with --plot."
+    ),
+    epilog="""
+        Example:
+
+            python GCcontent.py \\
+            -i "fasta_files/cassava/cassava.fasta-k*.eg" \\
+            -p "fasta_files/cassava/results"
+        """,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+
     parser.add_argument(
-    "-s", "--save",action="store_true",help="Keep the generated *-gc.eg files (default: delete after merge).")
-    parser.add_argument("-p", "--plot", default=None, help="Generate plots. Provide output folder.")
+        "-i",
+        "--input",
+        nargs="+",
+        required=True,
+        metavar="FILE",
+        help=(
+            "One or more input .eg files or glob patterns. "
+            "Example: 'fasta_files/cassava/cassava.fasta-k*.eg'."
+        ),
+    )
+
+    parser.add_argument(
+        "-s",
+        "--save",
+        action="store_true",
+        help=(
+            "Keep the generated intermediate *-gc.eg files. "
+            "By default, they are deleted after merged_gc.csv is created."
+        ),
+    )
+
+    parser.add_argument(
+        "-p",
+        "--plot",
+        metavar="OUTPUT_DIR",
+        default=None,
+        help=(
+            "Generate plots and GC-filtered CSV files in OUTPUT_DIR. "
+            "If omitted, only merged_gc.csv is generated."
+        ),
+    )
     args = parser.parse_args()
-    
+
     # Expand globs manually (for safety on some systems)
     input_files = []
     for pattern in args.input:
@@ -84,6 +127,16 @@ def main():
 
     print(f"Merged {len(generated_gc_files)} file(s) → {merged_csv}")
 
+    if args.plot:
+            # Generate plots using Plot_RAWs module
+            print("[>] Generating plots...")
+            # Infer variant name from folder of the input files
+            variant_name = os.path.basename(os.path.dirname(os.path.abspath(input_files[0])))
+            print(f"[i] Variant detected: {variant_name}")
+
+            outdir = (args.plot).rstrip("/\\") + "/"
+            Plot_RAWs.run_plots(merged_csv, outdir, variant_name)
+
     if not args.save:
         deleted = 0
         for path in generated_gc_files:
@@ -93,16 +146,7 @@ def main():
             except OSError as e:
                 print(f"Warning: couldn't delete {path}: {e}")
     
-    if args.plot:
-        # Generate plots using Plot_RAWs module
-        print("[>] Generating plots...")
-        # Infer variant name from folder of the input files
-        variant_name = os.path.basename(os.path.dirname(os.path.abspath(input_files[0])))
-        print(f"[i] Variant detected: {variant_name}")
 
-        outdir = (args.plot).rstrip("/\\") + "/"
-        Plot_RAWs.run_plots(merged_csv, outdir, variant_name)
-    
 if __name__ == "__main__":
     main()
 
