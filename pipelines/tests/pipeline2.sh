@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+pipeline_started_at=$SECONDS
+
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
 usage() {
@@ -57,13 +59,6 @@ Examples:
      ../../fasta_files/cassava/pathogens/CassavaMosaicVirus/Begomovirus_manihotis \
      ACMV \
      user@example.com
-
-  $0 analyse \
-     ../../fasta_files/synthetic/synthetic_pathogens/60AT \
-     ../../fasta_files/synthetic/synthetic_hosts/40AT/synthetic_h_40at.fasta \
-     P60 \
-     11 \
-     13
 
   $0 analyse \
      ../../fasta_files/cassava/pathogens/CassavaMosaicVirus/Begomovirus_manihotis/ACMV_joined.fasta \
@@ -419,7 +414,8 @@ analyse_workflow() {
 
     require_script "$script_dir/run_raw.sh"
     require_script "$script_dir/GCcontent.py"
-    require_script "$script_dir/Plot_RAWs.py"
+    require_script "$script_dir/Filter_mRAWs.py"
+    require_script "$script_dir/Plot_RAWs3.py"
 
     print_separator
     echo "Host-pathogen analysis workflow"
@@ -460,8 +456,32 @@ analyse_workflow() {
     echo "[2/2] Calculating GC content and generating plots..."
 
     python3 "$script_dir/GCcontent.py" \
-        -i "${raw_files[@]}" \
-        -p "$results_dir"
+        -i "${raw_files[@]}"
+
+    local host_name
+    host_name="$(basename "$host_fasta")"
+    host_name="${host_name%.*}"
+
+    python3 "$script_dir/Filter_mRAWs.py" \
+        --altair "$(command -v AltaiR)" \
+        --host "$host_fasta" \
+        --input "$raw_dir/merged_gc.csv" \
+        --output "$raw_dir/merged_mraw_gc.csv"
+
+    python3 "$script_dir/Plot_RAWs3.py" \
+        "$raw_dir/merged_gc.csv" "$results_dir/raws" \
+        --pathogen-name "$pathogen_group" --host-name "$host_name" \
+        --word-label RAWs
+
+    if [[ -s "$raw_dir/merged_mraw_gc.csv" ]]; then
+        MPLBACKEND=Agg python3 "$script_dir/Plot_RAWs3.py" \
+            "$raw_dir/merged_mraw_gc.csv" \
+            "$results_dir/mraws" \
+            --pathogen-name "$pathogen_group" --host-name "$host_name" \
+            --word-label mRAWs
+    else
+        echo "No mRAWs retained; skipping plots."
+    fi
 
     echo "[2/2] Completed."
     echo
@@ -605,3 +625,8 @@ case "$1" in
             "$kmax"
         ;;
 esac
+
+pipeline_elapsed=$((SECONDS - pipeline_started_at))
+printf "Total pipeline runtime: %02dh %02dm %02ds (%d seconds)\n" \
+    "$((pipeline_elapsed / 3600))" "$((pipeline_elapsed / 60 % 60))" \
+    "$((pipeline_elapsed % 60))" "$pipeline_elapsed"
