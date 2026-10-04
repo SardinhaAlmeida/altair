@@ -39,7 +39,7 @@ def kmer_styles(df):
     """Use the original Plot_RAWs.py colours, with a fallback for other lengths."""
     kmer_lengths = sorted(df["kmer_len"].unique())
     color_map = plt.get_cmap("tab10", len(kmer_lengths))
-    original_colors = {11: "red", 12: "blue", 13: "darkseagreen", 14: "grey"}
+    original_colors = {11: "red", 12: "blue", 13: "darkseagreen", 14: "magenta"}
     k_colors = {
         k: original_colors.get(k, to_hex(color_map(index)))
         for index, k in enumerate(kmer_lengths)
@@ -95,7 +95,7 @@ def scatter_occurrences(ax, df, k_colors, ordinary_size=1):
 def distribution_topdown_axes(ax, x, y, title):
     heading, _, context = title.partition(" [")
     heading = heading.replace(" (GC", "\n(GC")
-    ax.set_title(heading + "\n" + context.rstrip("]"), fontsize=14, pad=12)
+    ax.set_title(heading + "\n" + context.rstrip("]"), fontsize=14, y=0.95, pad=0)
     ax.set_xlabel("Genome Index")
     ax.set_ylabel("Position in Genome", labelpad=15)
     ax.set_xlim3d(x.min() - 0.5, x.max() + 0.5)
@@ -110,7 +110,7 @@ def distribution_topdown_axes(ax, x, y, title):
     ax.invert_zaxis()
     ax.view_init(elev=90, azim=180)  # top-down
     ax.set_proj_type('ortho')
-    ax.set_box_aspect([7.5, 7.5, 1], zoom=1.04)
+    ax.set_box_aspect([7.5, 8.1, 1], zoom=1.08)
     ax.yaxis.set_label_coords(-0.05, 0.5)
     ax.tick_params(axis='y', labelrotation=90)
 
@@ -126,10 +126,21 @@ def save_topdown_plot(df, fig, path, **kwargs):
     corners = np.array(list(product(ax.get_xlim(), ax.get_ylim(), ax.get_zlim())))
     px, py, _ = proj3d.proj_transform(*corners.T, ax.get_proj())
     pixels = ax.transData.transform(np.column_stack([px, py]))
-    if ax.get_legend() is not None:
-        right_edge = ax.transAxes.inverted().transform(pixels.max(axis=0))[0]
-        ax.get_legend().set_bbox_to_anchor((right_edge, 1.0))
-        fig.canvas.draw()
+    # Align the title and legend in one compact row above the projected plot.
+    legend = ax.get_legend()
+    title_box = ax.title.get_window_extent(renderer)
+    legend_box = legend.get_window_extent(renderer) if legend is not None else None
+    header_height = max(title_box.height, legend_box.height if legend_box else 0)
+    gap = fig.dpi * 0.30
+    header_top = pixels[:, 1].max() + gap + header_height
+    inverse = ax.transAxes.inverted()
+    ax.title.set_position(inverse.transform([
+        pixels[:, 0].mean(), header_top - header_height / 2]))
+    ax.title.set_verticalalignment("center")
+    if legend is not None:
+        legend.borderaxespad = 0
+        legend.set_bbox_to_anchor(inverse.transform([pixels[:, 0].max(), header_top]))
+    fig.canvas.draw()
     boxes = [Bbox.from_extents(*pixels.min(axis=0), *pixels.max(axis=0))]
     for artist in ax.findobj(Text):
         if artist.get_visible() and artist.get_text():
