@@ -29,32 +29,31 @@ pgroup=$(basename "$pdir")      # EastAf
 pbase=$(basename "$PATHOGEN");  pbase="${pbase%.*}"   # EA_CMV
 ANALYSIS_NAME=${ANALYSIS_NAME:-$hbase-$pbase}
 
-# 1) Run AltaiR in an isolated directory. The RAW .eg files are written next
-# to PATHOGEN; fixed-name plot files are written to the current directory.
+# Keep every output in the selected analysis directory.
+dest=${RESULTS_DIR:-$host_dir/$pgroup/results/$ANALYSIS_NAME}
+mkdir -p "$dest"
+dest=$(cd "$dest" && pwd -P)
+RESULTS_DIR="$dest"
+
+# Run with a temporary pathogen copy: AltaiR writes RAW files beside its
+# pathogen input, so this also isolates outputs from other analyses.
 work_dir=$(mktemp -d)
 cleanup() {
   rm -rf -- "$work_dir"
 }
 trap cleanup EXIT
+pathogen_filename=$(basename "$PATHOGEN")
+cp "$PATHOGEN" "$work_dir/$pathogen_filename"
 
 (
   cd "$work_dir"
-  AltaiR raw -min "$KMIN" -max "$KMAX" -f -p "$HOST" "$PATHOGEN"
+  AltaiR raw -min "$KMIN" -max "$KMAX" -f -p "$HOST" "$work_dir/$pathogen_filename"
 )
 
-# 2) Destination beside host, under the pathogen’s parent dir name
-dest="$host_dir/$pgroup"
-mkdir -p "$dest"
-
-# Delete previous files produced directly in the RAW destination, without
-# deleting files stored in its results subdirectory.
-echo "[i] Cleaning previous AltaiR files inside: $dest"
-find "$dest" -maxdepth 1 -type f -delete
-
 # 3) Move outputs over (keep filenames, including .fasta part if present)
-src_dir="$pdir"
+src_dir="$work_dir"
 moved_any=false
-for f in "$src_dir/$pbase.fasta"-k*.eg "$src_dir/$pbase"-k*.eg; do
+for f in "$src_dir/$pathogen_filename"-k*.eg "$src_dir/$pbase"-k*.eg; do
   [ -e "$f" ] || continue
   mv "$f" "$dest/"
   moved_any=true
@@ -81,15 +80,6 @@ if [ ! -s "$dest/CGplot.sh" ]; then
   echo "AltaiR did not generate a non-empty CGplot.sh file." >&2
   exit 1
 fi
-
-# Use <RAW directory>/results when the caller does not provide a destination.
-if [ -z "$RESULTS_DIR" ]; then
-  RESULTS_DIR="$dest/results"
-else
-  mkdir -p "$RESULTS_DIR"
-  RESULTS_DIR=$(cd "$RESULTS_DIR" && pwd -P)
-fi
-mkdir -p "$RESULTS_DIR"
 
 # CGplot.sh expects CG-data.eg in its working directory and creates
 # CGplot.pdf there. Move that PDF to its single final location afterwards.

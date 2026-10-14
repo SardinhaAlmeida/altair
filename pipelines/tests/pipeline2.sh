@@ -41,6 +41,10 @@ Workflows:
       <analysis_name>.fasta. If neither exists, the directory must contain
       exactly one non-empty .fasta, .fa, or .fna file.
 
+      All analysis outputs are stored under the host directory in
+      <pathogen_group>/results/<analysis_name>/.
+      Use a different analysis name to preserve each run.
+
   no workflow argument
       Run the complete preparation and analysis pipeline for a segmented
       pathogen dataset.
@@ -399,6 +403,7 @@ analyse_workflow() {
     local host_dir
     local raw_dir
     local results_dir
+    local k
     local -a raw_files
 
     pathogen_filename="$(basename "$pathogen_fasta")"
@@ -406,8 +411,8 @@ analyse_workflow() {
     pathogen_group="$(basename "$(dirname "$pathogen_fasta")")"
     host_dir="$(dirname "$host_fasta")"
 
-    raw_dir="$host_dir/$pathogen_group"
-    results_dir="$raw_dir/results/$analysis_name"
+    results_dir="$host_dir/$pathogen_group/results/$analysis_name"
+    raw_dir="$results_dir"
 
     require_command python3
     require_command AltaiR
@@ -415,7 +420,7 @@ analyse_workflow() {
     require_script "$script_dir/run_raw.sh"
     require_script "$script_dir/GCcontent.py"
     require_script "$script_dir/Filter_mRAWs.py"
-    require_script "$script_dir/Plot_RAWs3.py"
+    require_script "$script_dir/Plot_RAWs3_copy.py"
 
     print_separator
     echo "Host-pathogen analysis workflow"
@@ -435,16 +440,22 @@ analyse_workflow() {
         "$host_fasta" \
         "$pathogen_fasta" \
         "$kmin" \
-        "$kmax"
+        "$kmax" \
+        "$results_dir" \
+        "$analysis_name"
 
     echo "[1/2] Completed."
     echo
 
     shopt -s nullglob
-    raw_files=(
-        "$raw_dir/${pathogen_filename}"-k*.eg
-        "$raw_dir/${pathogen_stem}"-k*.eg
-    )
+    raw_files=()
+    for ((k = kmin; k <= kmax; k++)); do
+        if [[ -f "$raw_dir/${pathogen_filename}-k${k}.eg" ]]; then
+            raw_files+=("$raw_dir/${pathogen_filename}-k${k}.eg")
+        elif [[ -f "$raw_dir/${pathogen_stem}-k${k}.eg" ]]; then
+            raw_files+=("$raw_dir/${pathogen_stem}-k${k}.eg")
+        fi
+    done
     shopt -u nullglob
 
     if [[ "${#raw_files[@]}" -eq 0 ]]; then
@@ -468,13 +479,13 @@ analyse_workflow() {
         --input "$raw_dir/merged_gc.csv" \
         --output "$raw_dir/merged_mraw_gc.csv"
 
-    python3 "$script_dir/Plot_RAWs3.py" \
+    python3 "$script_dir/Plot_RAWs3_copy.py" \
         "$raw_dir/merged_gc.csv" "$results_dir/raws" \
         --pathogen-name "$pathogen_group" --host-name "$host_name" \
         --word-label RAWs
 
     if [[ -s "$raw_dir/merged_mraw_gc.csv" ]]; then
-        MPLBACKEND=Agg python3 "$script_dir/Plot_RAWs3.py" \
+        MPLBACKEND=Agg python3 "$script_dir/Plot_RAWs3_copy.py" \
             "$raw_dir/merged_mraw_gc.csv" \
             "$results_dir/mraws" \
             --pathogen-name "$pathogen_group" --host-name "$host_name" \
