@@ -7,6 +7,8 @@ usage() {
     echo "Usage: $0 <pathogen_directory> <output_fasta_name> <email> [api_key]" >&2
     echo "The directory may contain either sequences.csv (complete genomes) or" >&2
     echo "paired_output/{pairs,unpaired_A,unpaired_B}.csv (segmented genomes)." >&2
+    echo "In segmented mode, paired_output/unknown_component.csv is also downloaded" >&2
+    echo "if present, so that segments.py --fasta can label those records." >&2
     echo "Example:" >&2
     echo "  $0 ../../fasta_files/cassava/pathogens/CassavaMosaicVirus/EastAfKenya EA_CMV.fasta user@example.com" >&2
 }
@@ -68,6 +70,7 @@ paired_dir="$pathogen_dir/paired_output"
 pairs_csv="$paired_dir/pairs.csv"
 unpaired_a_csv="$paired_dir/unpaired_A.csv"
 unpaired_b_csv="$paired_dir/unpaired_B.csv"
+unknown_csv="$paired_dir/unknown_component.csv"
 sequences_csv="$pathogen_dir/sequences.csv"
 
 output_file="$pathogen_dir/$output_name"
@@ -102,6 +105,9 @@ input_csvs=()
 if [[ -f "$pairs_csv" && -f "$unpaired_a_csv" && -f "$unpaired_b_csv" ]]; then
     input_mode="segmented"
     input_csvs=("$pairs_csv" "$unpaired_a_csv" "$unpaired_b_csv")
+    if [[ -f "$unknown_csv" ]]; then
+        input_csvs+=("$unknown_csv")
+    fi
 elif [[ -f "$sequences_csv" ]]; then
     input_mode="complete"
     input_csvs=("$sequences_csv")

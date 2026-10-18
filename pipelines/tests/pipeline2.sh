@@ -23,8 +23,12 @@ Usage:
 Workflows:
   prepare
       (This command was made for Bipartite Begomoviruses to handle DNA-A and DNA-B components)
-      Classify the metadata, download nucleotide sequences,
-      and organise paired and unpaired DNA components.
+      Classify the metadata, download nucleotide sequences, label records
+      without a DNA-A/DNA-B label by sequence similarity, and write unpadded
+      DNA components plus a .layout.tsv for plotting. Optional
+      manual_components.csv and manual_pairs.csv files in the pathogen
+      directory are applied, as are the quality filters listed in an optional
+      segments_options.txt (see segments.py).
 
   complete
       Download every accession from sequences.csv as an independent complete
@@ -37,7 +41,8 @@ Workflows:
         - a directory containing the FASTA.
 
       If a directory is supplied, the script first looks for files named from
-      <analysis_name>, including <analysis_name>_joined.fasta and
+      <analysis_name>, preferring <analysis_name>_segments.fasta over
+      legacy <analysis_name>_joined.fasta and
       <analysis_name>.fasta. If neither exists, the directory must contain
       exactly one non-empty .fasta, .fa, or .fna file.
 
@@ -65,7 +70,7 @@ Examples:
      user@example.com
 
   $0 analyse \
-     ../../fasta_files/cassava/pathogens/CassavaMosaicVirus/Begomovirus_manihotis/ACMV_joined.fasta \
+     ../../fasta_files/cassava/pathogens/CassavaMosaicVirus/Begomovirus_manihotis/ACMV_segments.fasta \
      ../../fasta_files/cassava/hosts/tmeb117/TMEB117.fa \
      ACMV \
      11 \
@@ -160,6 +165,9 @@ resolve_pathogen_fasta() {
 
     # Prefer a file that explicitly matches the supplied analysis name.
     for candidate in \
+        "$pathogen_dir/${analysis_name}_segments.fasta" \
+        "$pathogen_dir/${analysis_name}_segments.fa" \
+        "$pathogen_dir/${analysis_name}_segments.fna" \
         "$pathogen_dir/${analysis_name}_joined.fasta" \
         "$pathogen_dir/${analysis_name}_joined.fa" \
         "$pathogen_dir/${analysis_name}_joined.fna" \
@@ -248,7 +256,8 @@ prepare_workflow() {
     local metadata_csv="$pathogen_dir/sequences.csv"
     local paired_dir="$pathogen_dir/paired_output"
     local downloaded_fasta="$pathogen_dir/${output_prefix}.fasta"
-    local joined_fasta="$pathogen_dir/${output_prefix}_joined.fasta"
+    local components_fasta="$pathogen_dir/${output_prefix}_segments.fasta"
+    local layout_metadata="$pathogen_dir/${output_prefix}_segments.layout.tsv"
     local required_csv
 
     if [[ -z "$email" ]]; then
@@ -273,19 +282,20 @@ prepare_workflow() {
     echo "Output prefix      : $output_prefix"
     echo "Metadata CSV       : $metadata_csv"
     echo "Downloaded FASTA   : $downloaded_fasta"
-    echo "Organised FASTA    : $joined_fasta"
+    echo "Component FASTA    : $components_fasta"
+    echo "Display layout     : $layout_metadata"
     print_separator
     echo
 
-    echo "[1/3] Classifying viral genome components..."
+    echo "[1/4] Classifying viral genome components from metadata..."
 
     python3 "$script_dir/segments.py" \
         "$metadata_csv"
 
-    echo "[1/3] Completed."
+    echo "[1/4] Completed."
     echo
 
-    echo "[2/3] Downloading and validating nucleotide sequences..."
+    echo "[2/4] Downloading and validating nucleotide sequences..."
 
     if [[ -n "$api_key" ]]; then
         bash "$script_dir/get_fasta.sh" \
@@ -300,7 +310,20 @@ prepare_workflow() {
             "$email"
     fi
 
-    echo "[2/3] Completed."
+    echo "[2/4] Completed."
+    echo
+
+    if [[ ! -s "$downloaded_fasta" ]]; then
+        fail "downloaded FASTA not found or empty: $downloaded_fasta"
+    fi
+
+    echo "[3/4] Labelling unknown components by similarity and pairing again..."
+
+    python3 "$script_dir/segments.py" \
+        "$metadata_csv" \
+        --fasta "$downloaded_fasta"
+
+    echo "[3/4] Completed."
     echo
 
     for required_csv in \
@@ -313,31 +336,29 @@ prepare_workflow() {
         fi
     done
 
-    if [[ ! -s "$downloaded_fasta" ]]; then
-        fail "downloaded FASTA not found or empty: $downloaded_fasta"
-    fi
-
-    echo "[3/3] Organising paired and unpaired DNA components..."
+    echo "[4/4] Organising paired and unpaired DNA components..."
 
     python3 "$script_dir/JoinSegments2.py" \
         "$paired_dir/pairs.csv" \
         "$paired_dir/unpaired_A.csv" \
         "$paired_dir/unpaired_B.csv" \
         "$downloaded_fasta" \
-        "$joined_fasta"
+        "$components_fasta" \
+        --metadata "$layout_metadata"
 
-    if [[ ! -s "$joined_fasta" ]]; then
-        fail "organised FASTA was not created or is empty: $joined_fasta"
+    if [[ ! -s "$components_fasta" || ! -s "$layout_metadata" ]]; then
+        fail "component FASTA or display layout was not created: $components_fasta"
     fi
 
-    echo "[3/3] Completed."
+    echo "[4/4] Completed."
     echo
 
     print_separator
     echo "Preparation workflow completed successfully"
     print_separator
     echo "Downloaded FASTA : $downloaded_fasta"
-    echo "Organised FASTA  : $joined_fasta"
+    echo "Component FASTA  : $components_fasta"
+    echo "Display layout   : $layout_metadata"
     print_separator
 }
 
@@ -405,6 +426,16 @@ analyse_workflow() {
     local results_dir
     local k
     local -a raw_files
+    local layout_metadata="${pathogen_fasta%.*}.layout.tsv"
+    local -a metadata_args=()
+
+    if [[ -f "$layout_metadata" ]]; then
+        [[ -s "$layout_metadata" ]] || fail "display layout is empty: $layout_metadata"
+        metadata_args=(--metadata "$layout_metadata")
+    elif [[ "$(basename "$pathogen_fasta")" == *_segments.* ]] || \
+        grep -qE '^>[^[:space:]]+ \| genome_idx=[0-9]+ \| component=[AB] \| status=' "$pathogen_fasta"; then
+        fail "unpadded components require their display layout: $layout_metadata"
+    fi
 
     pathogen_filename="$(basename "$pathogen_fasta")"
     pathogen_stem="${pathogen_filename%.*}"
@@ -431,6 +462,9 @@ analyse_workflow() {
     echo "k-mer range        : $kmin-$kmax"
     echo "RAW directory      : $raw_dir"
     echo "Results directory  : $results_dir"
+    if [[ "${#metadata_args[@]}" -gt 0 ]]; then
+        echo "Display layout     : $layout_metadata"
+    fi
     print_separator
     echo
 
@@ -463,6 +497,12 @@ analyse_workflow() {
     fi
 
     mkdir -p "$results_dir"
+    if [[ "${#metadata_args[@]}" -gt 0 ]]; then
+        if [[ "$layout_metadata" != "$results_dir/${pathogen_stem}.layout.tsv" ]]; then
+            cp "$layout_metadata" "$results_dir/${pathogen_stem}.layout.tsv"
+        fi
+        metadata_args=(--metadata "$results_dir/${pathogen_stem}.layout.tsv")
+    fi
 
     echo "[2/2] Calculating GC content and generating plots..."
 
@@ -482,14 +522,14 @@ analyse_workflow() {
     python3 "$script_dir/Plot_RAWs3_copy.py" \
         "$raw_dir/merged_gc.csv" "$results_dir/raws" \
         --pathogen-name "$pathogen_group" --host-name "$host_name" \
-        --word-label RAWs
+        --word-label RAWs "${metadata_args[@]}"
 
     if [[ -s "$raw_dir/merged_mraw_gc.csv" ]]; then
         MPLBACKEND=Agg python3 "$script_dir/Plot_RAWs3_copy.py" \
             "$raw_dir/merged_mraw_gc.csv" \
             "$results_dir/mraws" \
             --pathogen-name "$pathogen_group" --host-name "$host_name" \
-            --word-label mRAWs
+            --word-label mRAWs "${metadata_args[@]}"
     else
         echo "No mRAWs retained; skipping plots."
     fi
@@ -622,7 +662,7 @@ case "$1" in
 
         echo
 
-        pathogen_fasta="$pathogen_dir/${output_prefix}_joined.fasta"
+        pathogen_fasta="$pathogen_dir/${output_prefix}_segments.fasta"
 
         if [[ ! -s "$pathogen_fasta" ]]; then
             fail "prepared pathogen FASTA not found or empty: $pathogen_fasta"

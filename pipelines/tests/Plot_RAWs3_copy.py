@@ -4,6 +4,7 @@
 Input: headerless genome_idx,position,raw,gc_pct,kmer_len CSV.
 Profiles pool occurrences at the same position across all genome indices and k.
 GC is the occurrence-weighted GC of words, not the reference genome's GC.
+Optional --metadata maps unpadded component records to genome rows and display positions.
 """
 import argparse
 import json
@@ -37,6 +38,66 @@ from matplotlib.colors import to_hex
 def ensure_outdir(d):
     os.makedirs(d, exist_ok=True)
 
+def read_segment_layout(path):
+    """Read the record-order mapping written beside an unpadded component FASTA."""
+    layout = pd.read_csv(path, sep="\t", keep_default_na=False)
+    required = {"record_idx", "genome_idx", "component", "accession", "length", "b_offset"}
+    if not required.issubset(layout.columns) or layout.empty:
+        raise ValueError("Layout must contain component records and columns: " + ", ".join(sorted(required)))
+    for column in ("record_idx", "genome_idx", "length", "b_offset"):
+        values = pd.to_numeric(layout[column], errors="raise")
+        if not np.isfinite(values).all() or (values % 1 != 0).any():
+            raise ValueError(f"Layout {column} must contain finite integers")
+        if (values < (0 if column == "b_offset" else 1)).any():
+            raise ValueError(f"Invalid layout {column}")
+        layout[column] = values.astype(int)
+    if layout.record_idx.tolist() != list(range(1, len(layout) + 1)):
+        raise ValueError("Layout record_idx must follow FASTA record order, starting at 1")
+    if not layout.component.isin(("A", "B")).all() or (layout.accession == "").any():
+        raise ValueError("Layout requires A/B components and nonempty accessions")
+    if layout.duplicated(["genome_idx", "component"]).any():
+        raise ValueError("Layout has duplicate components for the same genome")
+    if sorted(layout.genome_idx.unique()) != list(range(1, int(layout.genome_idx.max()) + 1)):
+        raise ValueError("Layout genome indices must be consecutive, starting at 1")
+    max_a = int(layout.loc[layout.component == "A", "length"].max()) if (layout.component == "A").any() else 0
+    if layout.b_offset.nunique() != 1 or int(layout.b_offset.iloc[0]) < max_a + 500:
+        raise ValueError("Layout requires one common DNA-B offset with at least 500 empty positions")
+    return layout
+
+
+def apply_segment_layout(df, metadata_path):
+    """Keep source coordinates as columns; transform a copy for display only."""
+    layout = read_segment_layout(metadata_path)
+    records = layout.set_index("record_idx")
+    result = df.copy()
+    result["record_idx"] = result.genome_idx.astype(int)
+    if not result.record_idx.isin(records.index).all():
+        raise ValueError("RAW record index is missing from layout metadata")
+    result["segment_position"] = result.position.astype(int)
+    lengths = result.record_idx.map(records.length)
+    if (result.segment_position + result.kmer_len - 1 > lengths).any():
+        raise ValueError("RAW occurrence extends beyond the component length in metadata")
+    for column in ("genome_idx", "component", "accession"):
+        result[column] = result.record_idx.map(records[column])
+    offsets = np.where(result.component == "B", int(layout.b_offset.iloc[0]), 0)
+    result["position"] = result.segment_position + offsets
+    ends = layout.length + np.where(layout.component == "B", layout.b_offset, 0)
+    result.attrs["segment_layout"] = {
+        "records": layout.to_dict("records"),
+        "position_max": int(ends.max()),
+        "genome_max": int(layout.genome_idx.max()),
+        "b_offset": int(layout.b_offset.iloc[0]),
+    }
+    return result
+
+
+def display_extents(df):
+    layout = df.attrs.get("segment_layout", {})
+    end = layout.get("position_max", int(df.position.max()))
+    last_genome = layout.get("genome_max", int(df.genome_idx.max()))
+    return max(250, int(np.ceil(end / 250)) * 250), max(5, int(np.ceil(last_genome / 5)) * 5)
+
+
 def kmer_styles(df):
     """Use the original Plot_RAWs.py colours, with a fallback for other lengths."""
     kmer_lengths = sorted(df["kmer_len"].unique())
@@ -49,16 +110,19 @@ def kmer_styles(df):
     k_sizes = {k: 3 for k in kmer_lengths}
     return kmer_lengths, k_colors, k_sizes
 
-def topdown_axes(ax, x, y, title):
+def topdown_axes(ax, x, y, title, layout=None):
     """Shared per-k limits and a fine grid with readable, aligned tick labels."""
     position_max = max(250, int(np.ceil(x.max() / 250)) * 250)
     genome_max = max(5, int(np.ceil(y.max() / 5)) * 5)
+    if layout:
+        position_max = max(250, int(np.ceil(layout["position_max"] / 250)) * 250)
+        genome_max = max(5, int(np.ceil(layout["genome_max"] / 5)) * 5)
     # Use multiples of the distribution views' 250 bp / 5 genome intervals.
     # For larger datasets, retain the fine grid but space the labels farther apart.
     position_step = 250 * max(1, int(np.ceil(position_max / (250 * 28))))
     genome_step = 5 * max(1, int(np.ceil(genome_max / (5 * 32))))
     ax.set_title(title, pad=18, fontsize=18)
-    ax.set_xlabel("Position in Genome", fontsize=18, labelpad=12)
+    ax.set_xlabel("Display position" if layout else "Position in Genome", fontsize=18, labelpad=12)
     ax.set_ylabel("Genome Index", fontsize=18, labelpad=12)
     ax.set_xlim(0, position_max)
     ax.set_ylim(-0.5, genome_max + 0.5)
@@ -94,17 +158,20 @@ def scatter_occurrences(ax, df, k_colors, ordinary_size=1):
                    alpha=0.9, zorder=layer, **options)
 
 
-def distribution_topdown_axes(ax, x, y, title):
+def distribution_topdown_axes(ax, x, y, title, layout=None):
     heading, _, context = title.partition(" [")
     heading = heading.replace(" (GC", "\n(GC")
     ax.set_title(heading + "\n" + context.rstrip("]"), fontsize=14, y=0.95, pad=0)
     ax.set_xlabel("Genome Index")
-    ax.set_ylabel("Position in Genome", labelpad=15)
-    ax.set_xlim3d(x.min() - 0.5, x.max() + 0.5)
+    ax.set_ylabel("Display position" if layout else "Position in Genome", labelpad=15)
+    ax.set_xlim3d(0.5 if layout else x.min() - 0.5,
+                  layout["genome_max"] + 0.5 if layout else x.max() + 0.5)
     position_max = max(250, int(np.ceil(y.max() / 250)) * 250)
+    if layout:
+        position_max = max(250, int(np.ceil(layout["position_max"] / 250)) * 250)
     ax.set_yticks(np.arange(0, position_max + 1, 250))
     ax.set_ylim3d(position_max, 0)  # azim=180 projects increasing y to the left
-    if len(x): ax.set_xticks(np.arange(0, x.max(), 5))
+    if len(x): ax.set_xticks(np.arange(0, layout["genome_max"] + 1 if layout else x.max(), 5))
     ax.set_zticks([])
     ax.set_zlabel("")
     # Exclude the empty axis from tight-bbox calculations as well as drawing.
@@ -192,9 +259,13 @@ def plot_3d_raws(df, out_png, va, k_colors, k_sizes):
 
     scatter_occurrences(ax, df, k_colors)
 
+    if df.attrs.get("segment_layout"):
+        layout = df.attrs["segment_layout"]
+        ax.set_xlim3d(0.5, layout["genome_max"] + 0.5)
+        ax.set_ylim3d(0, display_extents(df)[0])
     ax.zaxis._axinfo['juggled'] = (1, 2, 0)  # moves the Z-axis pane to the left
     ax.set_xlabel("Genome Index", labelpad=10, fontsize=12)
-    ax.set_ylabel("Position in Genome", labelpad=14, fontsize=12)
+    ax.set_ylabel("Display position" if df.attrs.get("segment_layout") else "Position in Genome", labelpad=14, fontsize=12)
     ax.set_zlabel("")
     ax.text2D(-0.12, 0.50, "k-mer Length", transform=ax.transAxes, fontsize=12, rotation=90, va="center")
     ax.tick_params(axis="both", labelsize=10, pad=3)
@@ -232,7 +303,7 @@ def plot_3d_top_view(df, out_png, va, k_colors, k_sizes):
 
     scatter_occurrences(ax, df, k_colors)
 
-    distribution_topdown_axes(ax, x, y, f"Top-Down View of 3D RAWs Distribution [{va}]")
+    distribution_topdown_axes(ax, x, y, f"Top-Down View of 3D RAWs Distribution [{va}]", df.attrs.get("segment_layout"))
 
     legend_k(ax, k_colors)
     save_topdown_plot(df, plt.gcf(), f"{out_png}/3d_raws_distribution_topdown.png", dpi=300, bbox_inches='tight')
@@ -263,7 +334,7 @@ def plot_top_view_marked(df, out_png, va, k_colors, k_sizes):
         zorder=10
     )
 
-    distribution_topdown_axes(ax3, x, y, f"Top-Down View of 3D RAWs Distribution (GC% 48-52 marked) [{va}]")
+    distribution_topdown_axes(ax3, x, y, f"Top-Down View of 3D RAWs Distribution (GC% 48-52 marked) [{va}]", df.attrs.get("segment_layout"))
 
     legend_k(ax3, k_colors)
     save_topdown_plot(df, plt.gcf(), f"{out_png}/3d_raws_distribution_topdown_gc48_52_marked.png",
@@ -287,7 +358,7 @@ def plot_top_view_45_55(df, out_png, va, k_colors, k_sizes):
 
     scatter_occurrences(ax3, df.loc[mask], k_colors)
 
-    distribution_topdown_axes(ax3, x_sub, y_sub, f"Top-Down View of 3D RAWs Distribution (GC% 45-55 only) [{va}]")
+    distribution_topdown_axes(ax3, x_sub, y_sub, f"Top-Down View of 3D RAWs Distribution (GC% 45-55 only) [{va}]", df.attrs.get("segment_layout"))
     legend_k(ax3, k_colors)
     save_topdown_plot(df, plt.gcf(), f"{out_png}/3d_raws_distribution_topdown_gc45_55.png",
                 dpi=300, bbox_inches='tight')
@@ -324,7 +395,7 @@ def plot_top_view_highlight(df, out_png, va, k_colors, k_sizes):
 
     scatter_occurrences(ax3, df.loc[mask], k_colors)
 
-    distribution_topdown_axes(ax3, x_sub, y_sub, f"Top-Down View of 3D RAWs Distribution (GC% 45-55 only with 48-52% Highlight) [{va}]")
+    distribution_topdown_axes(ax3, x_sub, y_sub, f"Top-Down View of 3D RAWs Distribution (GC% 45-55 only with 48-52% Highlight) [{va}]", df.attrs.get("segment_layout"))
     legend_k(ax3, k_colors)
 
     save_topdown_plot(df, plt.gcf(), f"{out_png}/3d_raws_distribution_topdown_gc45_55_highlight.png",
@@ -404,7 +475,7 @@ def plot_top_view_per_k(df, output_dir, variant_name, k_colors, k_sizes, highlig
                       markeredgewidth=0.8, markersize=np.sqrt(45), label='GC 48–52%')],
                       loc='lower right', bbox_to_anchor=(1.0, 1.015),
                       borderaxespad=0, borderpad=0, frameon=False, fontsize=14)
-        topdown_axes(ax, y_all, x_all, make_title('RAW positional distribution', variant_name, f'k = {int(k)}'))
+        topdown_axes(ax, y_all, x_all, make_title('RAW positional distribution', variant_name, f'k = {int(k)}'), df.attrs.get('segment_layout'))
         ax.text(0.0, 1.015, f'n = {len(subset):,} RAWs', transform=ax.transAxes, ha='left', va='bottom', fontsize=14)
         save_plot(df.attrs.get('word_label', 'RAWs'), fig, os.path.join(output_dir, f'raw_position_topdown_k{int(k)}.png'), dpi=300, bbox_inches='tight')
         save_interactive_topdown(df, subset, output_dir, variant_name, k, k_colors[k], highlight_gc)
@@ -412,11 +483,15 @@ def plot_top_view_per_k(df, output_dir, variant_name, k_colors, k_sizes, highlig
 def save_interactive_topdown(df, subset, output_dir, variant_name, k, color, highlight_gc=True):
     """Fill the HTML template with the points for one k-mer length."""
     label = df.attrs.get("word_label", "RAWs")
+    columns = ["position", "genome_idx", "raw", "gc_pct", "kmer_len"]
+    extra_columns = ["component", "segment_position", "accession"] if df.attrs.get("segment_layout") else []
+    xmax, ymax = display_extents(df)
     payload = {
-        "rows": subset[["position", "genome_idx", "raw", "gc_pct", "kmer_len"]].values.tolist(),
-        "xmax": max(250, int(np.ceil(df.position.max() / 250)) * 250),
-        "ymax": max(5, int(np.ceil(df.genome_idx.max() / 5)) * 5),
+        "rows": subset[columns + extra_columns].values.tolist(),
+        "xmax": xmax, "ymax": ymax,
         "color": color, "highlight": highlight_gc, "label": label,
+        "position_label": "Display position" if extra_columns else "Position in Genome",
+        "extra_columns": ["Component", "Position in component", "Accession"] if extra_columns else [],
     }
     # Escape HTML script delimiters even if an input word contains unexpected text.
     data = json.dumps(payload, ensure_ascii=True).replace("<", "\\u003c")
@@ -437,8 +512,47 @@ def window_profiles(counts, gc_sums, window):
     )
     return raw_counts, mean_gc
 
+
+def positional_profiles(df, window=51):
+    """Pool profiles, clipping each record's window at its real component ends."""
+    layout = df.attrs.get("segment_layout")
+    end = layout["position_max"] if layout else int(df.position.max())
+    positions = np.arange(1, end + 1)
+    indices = df.position.to_numpy(dtype=int) - 1
+    targets = np.bincount(indices[df.gc_pct.between(48, 52)], minlength=end).astype(float)
+    if not layout:
+        counts = np.bincount(indices, minlength=end).astype(float)
+        gc_sums = np.bincount(indices, weights=df.gc_pct, minlength=end)
+        window_counts, mean_gc = window_profiles(counts, gc_sums, window)
+        return positions, window_counts, mean_gc, targets
+
+    window_counts = np.zeros(end)
+    window_gc = np.zeros(end)
+    covered = np.zeros(end, dtype=bool)
+    groups = {int(record): rows for record, rows in df.groupby("record_idx", sort=False)}
+    for record in layout["records"]:
+        offset = record["b_offset"] if record["component"] == "B" else 0
+        length = record["length"]
+        span = slice(offset, offset + length)
+        covered[span] = True
+        rows = groups.get(record["record_idx"])
+        if rows is None:
+            continue
+        local_indices = rows.segment_position.to_numpy(dtype=int) - 1
+        counts = np.bincount(local_indices, minlength=length).astype(float)
+        gc_sums = np.bincount(local_indices, weights=rows.gc_pct, minlength=length)
+        counts, means = window_profiles(counts, gc_sums, window)
+        window_counts[span] += counts
+        window_gc[span] += np.nan_to_num(means) * counts
+    mean_gc = np.divide(window_gc, window_counts, out=np.full(end, np.nan), where=window_counts > 0)
+    window_counts[~covered] = np.nan
+    targets[~covered] = np.nan
+    return positions, window_counts, mean_gc, targets
+
+
 def plot_gradient_profile(
-    positions, raw_counts, mean_gc, target_counts, output_path, title, window, word_label="RAWs"
+    positions, raw_counts, mean_gc, target_counts, output_path, title, window, word_label="RAWs",
+    position_label="Position in genome",
 ):
     fig, raw_ax = plt.subplots(figsize=(15, 6))
     gc_ax = raw_ax.twinx()
@@ -473,7 +587,7 @@ def plot_gradient_profile(
         colorbar.set_label("48–52% GC RAWs at exact position")
 
     raw_ax.set(
-        xlabel="Position in genome", ylabel="RAWs in window",
+        xlabel=position_label, ylabel="RAWs in window",
         xlim=(positions[0], positions[-1]), ylim=(0, None),
     )
     raw_ax.xaxis.set_major_locator(MultipleLocator(500))
@@ -489,7 +603,8 @@ def plot_gradient_profile(
     plt.close(fig)
 
 def plot_exact_target_counts(
-    positions, raw_counts, target_counts, output_path, title, window, word_label="RAWs"
+    positions, raw_counts, target_counts, output_path, title, window, word_label="RAWs",
+    position_label="Position in genome",
 ):
     fig, (raw_ax, target_ax) = plt.subplots(
         2, 1, sharex=True, figsize=(15, 7),
@@ -499,7 +614,7 @@ def plot_exact_target_counts(
     target_ax.plot(positions, target_counts, color="#b91c1c", linewidth=1.2)
     raw_ax.set_ylabel("All RAWs in window")
     target_ax.set_ylabel("48–52% GC RAWs\nat exact position")
-    target_ax.set_xlabel("Position in genome")
+    target_ax.set_xlabel(position_label)
     for axis in (raw_ax, target_ax):
         axis.set_ylim(bottom=0)
         axis.grid(True, alpha=0.2)
@@ -515,7 +630,7 @@ def plot_exact_target_counts(
     save_plot(word_label, fig, output_path, dpi=200)
     plt.close(fig)
 
-def run_plots(input_csv, outputs_dir, pathogen_name, host_name, word_label="RAWs"):
+def run_plots(input_csv, outputs_dir, pathogen_name, host_name, word_label="RAWs", metadata_path=None):
     if word_label not in ("RAWs", "mRAWs"):
         raise ValueError("word_label must be RAWs or mRAWs")
     ensure_outdir(outputs_dir)
@@ -535,6 +650,8 @@ def run_plots(input_csv, outputs_dir, pathogen_name, host_name, word_label="RAWs
         raise ValueError("Invalid coordinate or GC percentage")
     if not (df.raw.str.len() == df.kmer_len).all():
         raise ValueError("Word lengths do not match kmer_len")
+    if metadata_path is not None:
+        df = apply_segment_layout(df, metadata_path)
     df.attrs["word_label"] = word_label
     title = f"Pathogen: {pathogen_name.replace('_', ' ')} | Host: {host_name.replace('_', ' ')}"
     lengths, colors, sizes = kmer_styles(df)
@@ -550,17 +667,13 @@ def run_plots(input_csv, outputs_dir, pathogen_name, host_name, word_label="RAWs
     slug = "".join(c if c.isalnum() or c in "-_" else "_"
                    for c in f"{pathogen_name}_{host_name}")
     results_csv(df, outputs_dir, slug)
-    positions = np.arange(1, int(df.position.max()) + 1)
-    indices = df.position.to_numpy(dtype=int) - 1
-    counts = np.bincount(indices, minlength=len(positions)).astype(float)
-    gc_sums = np.bincount(indices, weights=df.gc_pct, minlength=len(positions))
-    targets = np.bincount(indices[df.gc_pct.between(48, 52)], minlength=len(positions))
-    window_counts, mean_gc = window_profiles(counts, gc_sums, 51)
+    positions, window_counts, mean_gc, targets = positional_profiles(df, 51)
+    position_label = "Display position" if metadata_path is not None else "Position in genome"
     plot_gradient_profile(positions, window_counts, mean_gc, targets,
         Path(outputs_dir) / "raw_gc_profile_window51_exact_target_count_gradient.png",
-        title, 51, word_label)
+        title, 51, word_label, position_label)
     plot_exact_target_counts(positions, window_counts, targets,
-        Path(outputs_dir) / "raw_window51_target_count_window1.png", title, 51, word_label)
+        Path(outputs_dir) / "raw_window51_target_count_window1.png", title, 51, word_label, position_label)
     print(f"Saved {word_label} plots to {outputs_dir}: {len(df):,} occurrences")
 
 
@@ -571,9 +684,10 @@ def main():
     parser.add_argument("--pathogen-name", "--virus-name", dest="pathogen_name", required=True)
     parser.add_argument("--host-name", required=True)
     parser.add_argument("--word-label", choices=("RAWs", "mRAWs"), default="RAWs")
+    parser.add_argument("--metadata", type=Path, help="Component layout TSV from JoinSegments2.py")
     args = parser.parse_args()
     run_plots(args.input_csv, args.output_dir, args.pathogen_name,
-              args.host_name, args.word_label)
+              args.host_name, args.word_label, args.metadata)
 
 
 if __name__ == "__main__":

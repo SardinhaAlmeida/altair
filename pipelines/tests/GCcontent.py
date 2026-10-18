@@ -1,5 +1,5 @@
 import argparse, re, os, glob, csv
-import Plot_RAWs2 as Plot_RAWs
+import Plot_RAWs3_copy as Plot_RAWs
 
 def gc_content(sequence):
     """Calculate the GC content of a DNA sequence."""
@@ -149,4 +149,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

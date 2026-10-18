@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
+"""Prepare unpadded DNA components and a layout table for display coordinates."""
+import argparse
 import csv
-import math
 import re
-import sys
 from pathlib import Path
 
 WRAP = 80
-PAD_BASE = "A"
-STEP = 500
+MIN_GAP = 500
+STEP = 250
+LAYOUT_FIELDS = ("record_idx", "genome_idx", "component", "accession", "length", "b_offset")
 
 
 def read_fasta(path):
@@ -87,11 +88,8 @@ def normalize_common_title(title_a="", title_b=""):
 
 
 def compute_b_start(max_a_len, step=STEP):
-    """
-    DNA-B starts at the next common multiple of STEP,
-    always at least STEP bases after the longest DNA-A.
-    """
-    return math.ceil((max_a_len + step) / step) * step
+    """Return the display offset (B position 1 is offset + 1), not a base count to write."""
+    return ((max_a_len + MIN_GAP + step - 1) // step) * step
 
 
 def wrap_seq(seq, width=WRAP):
@@ -112,6 +110,14 @@ def get_title(row):
 
 def get_segment(row):
     return row.get("Segment", "") or ""
+
+
+def get_component(row):
+    """Use the Component column written by segments.py; classify older CSVs from metadata."""
+    component = (row.get("Component") or "").strip().upper()
+    if component in ("A", "B"):
+        return component
+    return classify_component(get_segment(row), get_title(row))
 
 
 def load_pairs_csv(path):
@@ -137,8 +143,8 @@ def load_pairs_csv(path):
         row_a = rows[i]
         row_b = rows[i + 1]
 
-        comp_a = classify_component(get_segment(row_a), get_title(row_a))
-        comp_b = classify_component(get_segment(row_b), get_title(row_b))
+        comp_a = get_component(row_a)
+        comp_b = get_component(row_b)
 
         if comp_a != "A" or comp_b != "B":
             raise ValueError(
@@ -169,7 +175,7 @@ def load_unpaired_csv(path, expected_component):
 
     for csv_line, row in enumerate(rows, start=2):
         accession = get_accession(row)
-        component = classify_component(get_segment(row), get_title(row))
+        component = get_component(row)
 
         if not accession:
             warnings.append(f"{path.name}: line {csv_line} ignored because Accession is empty.")
@@ -188,220 +194,87 @@ def load_unpaired_csv(path, expected_component):
     return accepted, warnings
 
 
-def main():
-    if len(sys.argv) != 6:
-        print(
-            "Usage:\n"
-            "  python3 JoinSegments2.py pairs.csv unpaired_A.csv unpaired_B.csv input_sequences.fasta output_joined.fasta"
-        )
-        sys.exit(1)
+def prepare_components(pairs_csv, unpaired_a_csv, unpaired_b_csv,
+                       input_fasta, output_fasta, metadata_path=None):
+    input_fasta, output_fasta = Path(input_fasta), Path(output_fasta)
+    metadata_path = Path(metadata_path) if metadata_path else output_fasta.with_suffix(".layout.tsv")
+    inputs = [Path(pairs_csv), Path(unpaired_a_csv), Path(unpaired_b_csv), input_fasta]
+    for path in inputs:
+        if not path.is_file():
+            raise FileNotFoundError(f"Input not found: {path}")
+    if output_fasta.resolve() == metadata_path.resolve() or any(
+        output.resolve() == path.resolve()
+        for output in (output_fasta, metadata_path) for path in inputs
+    ):
+        raise ValueError("FASTA, layout and input paths must be distinct")
 
-    pairs_csv = Path(sys.argv[1])
-    unpaired_a_csv = Path(sys.argv[2])
-    unpaired_b_csv = Path(sys.argv[3])
-    input_fasta = Path(sys.argv[4])
-    output_fasta = Path(sys.argv[5])
+    pairs = load_pairs_csv(Path(pairs_csv))
+    unpaired_a, warnings_a = load_unpaired_csv(Path(unpaired_a_csv), "A")
+    unpaired_b, warnings_b = load_unpaired_csv(Path(unpaired_b_csv), "B")
+    records = read_fasta(input_fasta)
+    genomes = []
+    missing = []
 
-    for path, label in [
-        (pairs_csv, "pairs.csv"),
-        (unpaired_a_csv, "unpaired_A.csv"),
-        (unpaired_b_csv, "unpaired_B.csv"),
-        (input_fasta, "input FASTA"),
-    ]:
-        if not path.exists():
-            raise FileNotFoundError(f"{label} not found: {path}")
+    # Keep an available component even when its expected partner was not downloaded.
+    for row_a, row_b in pairs + [(row, None) for row in unpaired_a] + [(None, row) for row in unpaired_b]:
+        components = []
+        for component, row in (("A", row_a), ("B", row_b)):
+            if row is None:
+                continue
+            accession = get_accession(row)
+            record = records.get(accession)
+            if record is None or not record["seq"]:
+                missing.append(accession)
+                continue
+            components.append((component, accession, record["seq"]))
+        if components:
+            title = normalize_common_title(get_title(row_a or {}), get_title(row_b or {}))
+            genomes.append((title, components))
 
-    pairs = load_pairs_csv(pairs_csv)
-    unpaired_a_rows, warnings_a = load_unpaired_csv(unpaired_a_csv, "A")
-    unpaired_b_rows, warnings_b = load_unpaired_csv(unpaired_b_csv, "B")
-    warnings = warnings_a + warnings_b
-
-    fasta_records = read_fasta(input_fasta)
-
-    missing_accessions = []
-    usable_a_lengths = []
-    usable_b_lengths = []
-
-    for row_a, row_b in pairs:
-        acc_a = get_accession(row_a)
-        acc_b = get_accession(row_b)
-
-        if acc_a in fasta_records:
-            usable_a_lengths.append(len(fasta_records[acc_a]["seq"]))
-        else:
-            missing_accessions.append(acc_a)
-
-        if acc_b in fasta_records:
-            usable_b_lengths.append(len(fasta_records[acc_b]["seq"]))
-        else:
-            missing_accessions.append(acc_b)
-
-    for row_a in unpaired_a_rows:
-        acc_a = get_accession(row_a)
-
-        if acc_a in fasta_records:
-            usable_a_lengths.append(len(fasta_records[acc_a]["seq"]))
-        else:
-            missing_accessions.append(acc_a)
-
-    for row_b in unpaired_b_rows:
-        acc_b = get_accession(row_b)
-
-        if acc_b in fasta_records:
-            usable_b_lengths.append(len(fasta_records[acc_b]["seq"]))
-        else:
-            missing_accessions.append(acc_b)
-
-    if not usable_a_lengths and not usable_b_lengths:
+    if not genomes:
         raise ValueError("No usable DNA-A or DNA-B records found in FASTA.")
 
-    max_a_len = max(usable_a_lengths) if usable_a_lengths else 0
-    max_b_len = max(usable_b_lengths) if usable_b_lengths else 0
+    max_a_len = max((len(seq) for _, parts in genomes
+                     for component, _, seq in parts if component == "A"), default=0)
+    b_offset = compute_b_start(max_a_len)
+    layout = []
+    with output_fasta.open("w", encoding="utf-8") as fasta:
+        for genome_idx, (title, components) in enumerate(genomes, start=1):
+            status = "PAIR" if len(components) == 2 else f"{components[0][0]}_ONLY"
+            for component, accession, seq in components:
+                record_idx = len(layout) + 1
+                fasta.write(f">{accession} | genome_idx={genome_idx} | component={component} | "
+                            f"status={status} | {title}\n{wrap_seq(seq)}\n")
+                layout.append(dict(zip(LAYOUT_FIELDS, (
+                    record_idx, genome_idx, component, accession, len(seq), b_offset))))
+    with metadata_path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=LAYOUT_FIELDS, delimiter="\t")
+        writer.writeheader()
+        writer.writerows(layout)
 
-    b_start = compute_b_start(max_a_len, STEP)
-    common_total_len = b_start + max_b_len
+    print(f"Wrote {len(layout)} unpadded components for {len(genomes)} genomes: {output_fasta}")
+    print(f"Layout metadata: {metadata_path}")
+    print(f"Common DNA-B first display position: {b_offset + 1}")
+    print(f"Visual gap after longest DNA-A: {b_offset - max_a_len} positions")
+    if missing:
+        print("Missing or empty accessions: " + ", ".join(sorted(set(missing))))
+    for warning in warnings_a + warnings_b:
+        print(f"Warning: {warning}")
+    return layout
 
-    joined_entries = []
 
-    complete_pairs_written = 0
-    unpaired_a_written = 0
-    unpaired_b_written = 0
-    skipped_pairs = 0
-    skipped_unpaired_a = 0
-    skipped_unpaired_b = 0
-
-    # Complete pairs:
-    # DNA-A + A-gap until B_start + DNA-B + final A-padding.
-    for row_a, row_b in pairs:
-        acc_a = get_accession(row_a)
-        acc_b = get_accession(row_b)
-
-        if acc_a not in fasta_records or acc_b not in fasta_records:
-            skipped_pairs += 1
-            continue
-
-        seq_a = fasta_records[acc_a]["seq"]
-        seq_b = fasta_records[acc_b]["seq"]
-
-        gap_len = b_start - len(seq_a)
-        right_pad_len = common_total_len - (len(seq_a) + gap_len + len(seq_b))
-
-        if gap_len < 0 or right_pad_len < 0:
-            raise ValueError(f"Invalid padding for pair {acc_a} / {acc_b}.")
-
-        joined_seq = seq_a + (PAD_BASE * gap_len) + seq_b + (PAD_BASE * right_pad_len)
-
-        common_title = normalize_common_title(get_title(row_a), get_title(row_b))
-        if not common_title:
-            common_title = f"{acc_a}_{acc_b}"
-
-        header = (
-            f"{common_title} | status=PAIR | "
-            f"A={acc_a} | B={acc_b} | "
-            f"A_len={len(seq_a)} | B_start={b_start} | gap={gap_len} | "
-            f"B_len={len(seq_b)} | right_pad={right_pad_len} | joined_len={len(joined_seq)}"
-        )
-
-        joined_entries.append((header, joined_seq))
-        complete_pairs_written += 1
-
-    # Unpaired DNA-A:
-    # DNA-A on the left + A-padding until common_total_len.
-    for row_a in unpaired_a_rows:
-        acc_a = get_accession(row_a)
-
-        if acc_a not in fasta_records:
-            skipped_unpaired_a += 1
-            continue
-
-        seq_a = fasta_records[acc_a]["seq"]
-        right_pad_len = common_total_len - len(seq_a)
-
-        if right_pad_len < 0:
-            raise ValueError(f"Invalid right padding for unpaired DNA-A {acc_a}.")
-
-        joined_seq = seq_a + (PAD_BASE * right_pad_len)
-
-        common_title = normalize_common_title(get_title(row_a), "")
-        if not common_title:
-            common_title = acc_a
-
-        header = (
-            f"{common_title} | status=A_ONLY | "
-            f"A={acc_a} | B=missing | "
-            f"A_len={len(seq_a)} | B_start={b_start} | "
-            f"right_pad={right_pad_len} | joined_len={len(joined_seq)}"
-        )
-
-        joined_entries.append((header, joined_seq))
-        unpaired_a_written += 1
-
-    # Unpaired DNA-B:
-    # A-padding until B_start + DNA-B on the right + final A-padding.
-    for row_b in unpaired_b_rows:
-        acc_b = get_accession(row_b)
-
-        if acc_b not in fasta_records:
-            skipped_unpaired_b += 1
-            continue
-
-        seq_b = fasta_records[acc_b]["seq"]
-
-        left_pad_len = b_start
-        right_pad_len = common_total_len - (left_pad_len + len(seq_b))
-
-        if right_pad_len < 0:
-            raise ValueError(f"Invalid right padding for unpaired DNA-B {acc_b}.")
-
-        joined_seq = (PAD_BASE * left_pad_len) + seq_b + (PAD_BASE * right_pad_len)
-
-        common_title = normalize_common_title("", get_title(row_b))
-        if not common_title:
-            common_title = acc_b
-
-        header = (
-            f"{common_title} | status=B_ONLY | "
-            f"A=missing | B={acc_b} | "
-            f"B_start={b_start} | left_pad={left_pad_len} | "
-            f"B_len={len(seq_b)} | right_pad={right_pad_len} | joined_len={len(joined_seq)}"
-        )
-
-        joined_entries.append((header, joined_seq))
-        unpaired_b_written += 1
-
-    with open(output_fasta, "w", encoding="utf-8") as out:
-        for header, seq in joined_entries:
-            out.write(f">{header}\n")
-            out.write(wrap_seq(seq) + "\n")
-
-    print("Done.")
-    print(f"Complete pairs in pairs.csv: {len(pairs)}")
-    print(f"Unpaired DNA-A rows in unpaired_A.csv: {len(unpaired_a_rows)}")
-    print(f"Unpaired DNA-B rows in unpaired_B.csv: {len(unpaired_b_rows)}")
-    print(f"Complete pairs written: {complete_pairs_written}")
-    print(f"Unpaired DNA-A written: {unpaired_a_written}")
-    print(f"Unpaired DNA-B written: {unpaired_b_written}")
-    print(f"Skipped complete pairs because of missing FASTA accession: {skipped_pairs}")
-    print(f"Skipped unpaired DNA-A because of missing FASTA accession: {skipped_unpaired_a}")
-    print(f"Skipped unpaired DNA-B because of missing FASTA accession: {skipped_unpaired_b}")
-    print(f"Common DNA-B start position: {b_start}")
-    print(f"Common output length: {common_total_len}")
-    print(f"Wrote: {output_fasta}")
-
-    if missing_accessions:
-        missing_unique = sorted(set(x for x in missing_accessions if x))
-        print(f"Missing accessions in FASTA: {len(missing_unique)}")
-        for acc in missing_unique[:20]:
-            print(f"  - {acc}")
-        if len(missing_unique) > 20:
-            print(f"  ... and {len(missing_unique) - 20} more")
-
-    if warnings:
-        print("Warnings:")
-        for warning in warnings[:30]:
-            print(f"  - {warning}")
-        if len(warnings) > 30:
-            print(f"  ... and {len(warnings) - 30} more")
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("pairs_csv", type=Path)
+    parser.add_argument("unpaired_a_csv", type=Path)
+    parser.add_argument("unpaired_b_csv", type=Path)
+    parser.add_argument("input_fasta", type=Path)
+    parser.add_argument("output_fasta", type=Path)
+    parser.add_argument("--metadata", type=Path,
+                        help="Output layout TSV (default: output FASTA with .layout.tsv suffix)")
+    args = parser.parse_args()
+    prepare_components(args.pairs_csv, args.unpaired_a_csv, args.unpaired_b_csv,
+                       args.input_fasta, args.output_fasta, args.metadata)
 
 
 if __name__ == "__main__":
