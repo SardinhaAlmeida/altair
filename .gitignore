@@ -1,0 +1,65 @@
+# ---------------------------------------------------------------------------
+# altair -- files kept out of the repository
+#
+# Genomic sequences are not distributed: they are retrieved again by the
+# scripts and metadata that ARE tracked here (GetFasta.sh / Get*Genome.sh,
+# sequences.csv and the selection settings of each collection).
+# ---------------------------------------------------------------------------
+
+# --- Sequence data -------------------------------------------------------
+*.fasta
+*.fa
+*.fna
+*.fas
+*.ffn
+*.faa
+*.fastq
+*.fq
+*.fasta.gz
+*.fa.gz
+*.fastq.gz
+*.fq.gz
+*.2bit
+*.sa
+*.bwt
+*.fai
+
+# --- Archives (GitHub rejects any file over 100 MB) ----------------------
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.bz2
+*.xz
+
+# --- Oversized outputs of the herpes control run (above GitHub's 100 MB) --
+fasta_files/cassava/hosts/tme204/herpes/merged_gc.csv
+fasta_files/cassava/hosts/tme204/herpes/herpes.fasta-k13.eg
+
+# --- Python --------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+venv/
+.venv/
+pipelines/venv/
+
+# --- C build artefacts ---------------------------------------------------
+*.o
+*.d
+*.so
+*.a
+src/CMakeFiles/
+src/Makefile
+src/cmake_install.cmake
+src/CMakeCache.txt
+src/*.bin
+
+# --- Editors and operating systems ---------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
