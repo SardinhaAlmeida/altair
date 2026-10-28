@@ -1,0 +1,50 @@
+{
+  "input": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/Alphapolyomavirus_mauratus/merged_gc.csv",
+  "host": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/human.fa",
+  "output": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/Alphapolyomavirus_mauratus/merged_mraw_gc.csv",
+  "altair": "/home/saraalmeida/miniconda3/envs/altair/bin/AltaiR",
+  "ignore_ir": false,
+  "membership": "Selected AltaiR DNA host models; no independent matching",
+  "input_occurrences": 2648,
+  "retained_occurrences": 1884,
+  "input_unique_words": 449,
+  "retained_unique_words": 308,
+  "by_k": {
+    "13": {
+      "occurrences": {
+        "retained": 44
+      },
+      "unique_words": {
+        "retained": 9
+      }
+    },
+    "14": {
+      "occurrences": {
+        "retained": 356,
+        "rejected_suffix_absent": 28,
+        "rejected_prefix_absent": 28,
+        "rejected_both_absent": 16
+      },
+      "unique_words": {
+        "retained": 63,
+        "rejected_suffix_absent": 7,
+        "rejected_prefix_absent": 7,
+        "rejected_both_absent": 2
+      }
+    },
+    "15": {
+      "occurrences": {
+        "retained": 1484,
+        "rejected_suffix_absent": 264,
+        "rejected_prefix_absent": 264,
+        "rejected_both_absent": 164
+      },
+      "unique_words": {
+        "rejected_suffix_absent": 44,
+        "rejected_prefix_absent": 46,
+        "retained": 236,
+        "rejected_both_absent": 35
+      }
+    }
+  }
+}

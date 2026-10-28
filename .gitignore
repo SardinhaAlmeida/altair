@@ -63,3 +63,12 @@ Thumbs.db
 *.swp
 *~
 .idea/
+
+# --- Others ---------------------------------------------------------------
+
+validation_runs
+validation_tools
+*.eg
+*.sh
+*.md
+

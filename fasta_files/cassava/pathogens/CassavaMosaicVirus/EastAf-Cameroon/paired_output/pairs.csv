@@ -1,0 +1,3 @@
+Accession,BioSample,Organism_Name,Species,Isolate,Segment,GenBank_Title,Length,Nuc_Completeness,Geo_Location,Country,Host,Collection_Date,Component
+JN165089.1,,East African cassava mosaic Cameroon virus-Ghana,Begomovirus manihotiscameroonense,EACMCV,DNA-A,"East African cassava mosaic Cameroon virus-Ghana isolate EACMCV segment DNA-A, complete sequence",2800,complete,Ghana,Ghana,Manihot esculenta,2008,A
+JN165087.1,,East African cassava mosaic Cameroon virus-Ghana,Begomovirus manihotiscameroonense,EACMCV,DNA-B,"East African cassava mosaic Cameroon virus-Ghana isolate EACMCV segment DNA-B, complete sequence",2734,complete,Ghana,Ghana,Manihot esculenta,2008,B

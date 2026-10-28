@@ -1,0 +1,4 @@
+Accession,BioSample,Organism_Name,Species,Isolate,Segment,GenBank_Title,Length,Nuc_Completeness,Geo_Location,Country,Host,Collection_Date
+MN156296.1,,Tomato severe rugose virus,Begomovirus solanumseverugosi,,DNA-A,"Tomato severe rugose virus strain ES183 segment DNA-A, complete sequence",2592,complete,Brazil: Venda Nova do Imigrante-ES,Brazil,Solanum lycopersicum,2016-07
+MN059848.1,,Tomato severe rugose virus,Begomovirus solanumseverugosi,,DNA-A,"Tomato severe rugose virus strain ES176 segment DNA-A, complete sequence",2592,complete,Brazil: Venda Nova do Imigrante-ES,Brazil,Solanum lycopersicum,2016-07
+MN059849.1,,Tomato severe rugose virus,Begomovirus solanumseverugosi,,DNA-B,"Tomato severe rugose virus strain ES176 segment DNA-B, complete sequence",2571,complete,Brazil: Venda Nova do Imigrante-ES,Brazil,Solanum lycopersicum,2016-07

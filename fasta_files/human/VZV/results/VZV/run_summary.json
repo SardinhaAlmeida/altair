@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "workflow": "complete",
+  "analysis_name": "VZV",
+  "started_at_utc": "2026-10-23T17:07:42Z",
+  "finished_at_utc": "2026-10-23T17:15:56+00:00",
+  "elapsed_seconds": 494,
+  "exit_code": 0,
+  "working_directory": "/home/saraalmeida/UA/ano5/Tese/altair",
+  "inputs": {
+    "pathogen_fasta": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/VZV/VZV.fasta",
+      "exists": false
+    },
+    "host_fasta": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/human.fa",
+      "exists": true,
+      "size_bytes": 3161809285,
+      "sha256": "2fac5b2ee10e945b9c51641699bbf22cdc5013459e84c7e797bb5900df6ede5a"
+    },
+    "sequences.csv": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/VZV/sequences.csv",
+      "exists": true,
+      "size_bytes": 4144,
+      "sha256": "2523fb0897c33602ca776ed2084cb20cd6ad07920b1a77f4167dbe86df2afeb4"
+    },
+    "manual_components.csv": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/VZV/manual_components.csv",
+      "exists": false
+    },
+    "manual_pairs.csv": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/VZV/manual_pairs.csv",
+      "exists": false
+    },
+    "segments_options.txt": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/VZV/segments_options.txt",
+      "exists": false
+    },
+    "layout": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/VZV/VZV.layout.tsv",
+      "exists": false
+    }
+  },
+  "parameters": {
+    "kmin": 10,
+    "kmax": 12,
+    "ignore_ir": false
+  },
+  "altair": {
+    "path": "/home/saraalmeida/miniconda3/envs/altair/bin/AltaiR",
+    "exists": true,
+    "size_bytes": 154208,
+    "sha256": "9e563670ce6bb01e754ba949fa9ed66d6f1eb54e4da4f0d10699fc3d782a028e",
+    "version": "v1.1"
+  },
+  "python_version": "3.11.13 | packaged by conda-forge | (main, Jun  4 2025, 14:48:23) [GCC 13.3.0]",
+  "scripts": {
+    "pipeline.sh": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/pipeline.sh",
+      "exists": true,
+      "size_bytes": 21514,
+      "sha256": "5777a7680978ec1fc6463af51b05ea775b0c250c47b8c8451d10e7f7d3d38cf4"
+    },
+    "get_fasta.sh": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/get_fasta.sh",
+      "exists": true,
+      "size_bytes": 13953,
+      "sha256": "29dec43625f5a76eaa86752e644bed5858fcaa769342e00ebab250bee47dafea"
+    },
+    "GetSegments.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/GetSegments.py",
+      "exists": true,
+      "size_bytes": 33654,
+      "sha256": "af4c4eab4ff9e758c3d3c196968450361bee7138154db5bbe182004da12a661e"
+    },
+    "JoinSegments.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/JoinSegments.py",
+      "exists": true,
+      "size_bytes": 9590,
+      "sha256": "a07eaadf3f7224b34c213f5849324dc2aa227bb4c1eb80b661874ce94c177c13"
+    },
+    "run_raw.sh": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/run_raw.sh",
+      "exists": true,
+      "size_bytes": 3385,
+      "sha256": "a9ad0a4ec479eebe63f03112ed68d9a6cc7dddfce766b174f5e75c1dfbe601f7"
+    },
+    "GCcontent.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/GCcontent.py",
+      "exists": true,
+      "size_bytes": 5183,
+      "sha256": "dd2d13934792b693bb4e840de3499cd5c32ca478ae1553d892f9e25c7a7fbb38"
+    },
+    "Filter_mRAWs.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/Filter_mRAWs.py",
+      "exists": true,
+      "size_bytes": 10225,
+      "sha256": "342f020d156af2fcd3369c541a6b7053beb89104cfb92af5f56cd8b1fac6a6e8"
+    },
+    "Plot_Raws.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/Plot_Raws.py",
+      "exists": true,
+      "size_bytes": 31952,
+      "sha256": "583ed17255dffc07131dee04cbd07c0050eddea45559fb6f76c7f0291bdd7eff"
+    },
+    "run_summary.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/run_summary.py",
+      "exists": true,
+      "size_bytes": 6895,
+      "sha256": "c10b08c4ebc3e8a8b72b35c0790cf1b652ea3f12e632081df13ab19fae25330c"
+    }
+  },
+  "output_directory": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/VZV/results/VZV",
+  "prepared_artifacts": {
+    "pathogen_fasta": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/VZV/VZV.fasta",
+      "exists": true,
+      "size_bytes": 2533773,
+      "sha256": "1cc124ec1baac7f9d6a1588d3a3dc6b70d7ea903779ff13b4ba065a4f01aeb31"
+    },
+    "layout": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/VZV/VZV.layout.tsv",
+      "exists": false
+    }
+  },
+  "output_counts": {
+    "raw_occurrences_by_k": {
+      "10": 0,
+      "11": 0,
+      "12": 5249
+    },
+    "missing_raw_k": [],
+    "raw_occurrences": 5249,
+    "mraw_occurrences": 5249
+  },
+  "output_files": [
+    "AVG-data.eg",
+    "AVGplot.sh",
+    "CG-data.eg",
+    "CGplot.sh",
+    "VZV.fasta-k10.eg",
+    "VZV.fasta-k11.eg",
+    "VZV.fasta-k12.eg",
+    "VZV_CGplot.pdf",
+    "merged_gc.csv",
+    "merged_mraw_gc.csv",
+    "merged_mraw_gc.summary.json",
+    "mraws/3d_raws_distribution.png",
+    "mraws/3d_raws_distribution_topdown.png",
+    "mraws/3d_raws_distribution_topdown_gc45_55.png",
+    "mraws/3d_raws_distribution_topdown_gc45_55_highlight.png",
+    "mraws/3d_raws_distribution_topdown_gc48_52_marked.png",
+    "mraws/gc%_vs_kmer.png",
+    "mraws/mraws_gc_45_55_VZV_human.csv",
+    "mraws/mraws_gc_48_52_VZV_human.csv",
+    "mraws/number_raws.png",
+    "mraws/raw_gc_profile_window51_exact_target_count_gradient.png",
+    "mraws/raw_position_topdown_k12.html",
+    "mraws/raw_position_topdown_k12.png",
+    "mraws/raw_window51_target_count_window1.png",
+    "raws/3d_raws_distribution.png",
+    "raws/3d_raws_distribution_topdown.png",
+    "raws/3d_raws_distribution_topdown_gc45_55.png",
+    "raws/3d_raws_distribution_topdown_gc45_55_highlight.png",
+    "raws/3d_raws_distribution_topdown_gc48_52_marked.png",
+    "raws/gc%_vs_kmer.png",
+    "raws/number_raws.png",
+    "raws/raw_gc_profile_window51_exact_target_count_gradient.png",
+    "raws/raw_position_topdown_k12.html",
+    "raws/raw_position_topdown_k12.png",
+    "raws/raw_window51_target_count_window1.png",
+    "raws/raws_gc_45_55_VZV_human.csv",
+    "raws/raws_gc_48_52_VZV_human.csv"
+  ],
+  "output_inventory_note": "Files present at completion; an existing analysis directory may also contain earlier outputs."
+}

@@ -1,0 +1,34 @@
+{
+  "input": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/HSV-1/results/HSV-1/merged_gc.csv",
+  "host": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/human.fa",
+  "output": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/HSV-1/results/HSV-1/merged_mraw_gc.csv",
+  "altair": "/home/saraalmeida/miniconda3/envs/altair/bin/AltaiR",
+  "ignore_ir": false,
+  "membership": "Selected AltaiR DNA host models; no independent matching",
+  "input_occurrences": 8536,
+  "retained_occurrences": 8464,
+  "input_unique_words": 968,
+  "retained_unique_words": 960,
+  "by_k": {
+    "11": {
+      "occurrences": {
+        "retained": 36
+      },
+      "unique_words": {
+        "retained": 4
+      }
+    },
+    "12": {
+      "occurrences": {
+        "retained": 8428,
+        "rejected_suffix_absent": 36,
+        "rejected_prefix_absent": 36
+      },
+      "unique_words": {
+        "retained": 956,
+        "rejected_prefix_absent": 4,
+        "rejected_suffix_absent": 4
+      }
+    }
+  }
+}

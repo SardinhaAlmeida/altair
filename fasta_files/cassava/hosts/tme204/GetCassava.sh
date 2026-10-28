@@ -1,7 +1,10 @@
 #!/bin/bash
+
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")" || exit 1
 #
 # conda install -c bioconda entrez-direct --yes
 #
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
 # H1
 efetch -id CM037096.1 -db nucleotide -format fasta > H1_C1.fa
 efetch -id CM037097.1 -db nucleotide -format fasta > H1_C2.fa

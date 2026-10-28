@@ -1,0 +1,19 @@
+Download started: qui 30 jul 2026 14:10:46 WEST
+Pathogen directory: /home/saraalmeida/UA/ano5/Tese/altair/fasta_files/random_experiment/phage_phiCD119_pathogen
+Input mode: complete
+Input CSV: /home/saraalmeida/UA/ano5/Tese/altair/fasta_files/random_experiment/phage_phiCD119_pathogen/sequences.csv
+Output FASTA: /home/saraalmeida/UA/ano5/Tese/altair/fasta_files/random_experiment/phage_phiCD119_pathogen/Phage_PhiCD116.fasta
+curl version: curl 8.14.1 (x86_64-conda-linux-gnu) libcurl/8.14.1 OpenSSL/3.6.2 zlib/1.3.1 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.67.0
+
+Expected unique total records: 2
+
+Downloading NC_007917.1 ...
+OK: NC_007917.1
+Downloading AY855346.1 ...
+OK: AY855346.1
+
+Download finished: qui 30 jul 2026 14:10:48 WEST
+Expected records: 2
+Downloaded records: 2
+SUCCESS: all records downloaded and validated correctly.
+Output FASTA: /home/saraalmeida/UA/ano5/Tese/altair/fasta_files/random_experiment/phage_phiCD119_pathogen/Phage_PhiCD116.fasta

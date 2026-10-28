@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "workflow": "complete",
+  "analysis_name": "HSV-2",
+  "started_at_utc": "2026-10-23T16:57:20Z",
+  "finished_at_utc": "2026-10-23T17:06:30+00:00",
+  "elapsed_seconds": 550,
+  "exit_code": 0,
+  "working_directory": "/home/saraalmeida/UA/ano5/Tese/altair",
+  "inputs": {
+    "pathogen_fasta": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/HSV-2/HSV-2.fasta",
+      "exists": false
+    },
+    "host_fasta": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/human.fa",
+      "exists": true,
+      "size_bytes": 3161809285,
+      "sha256": "2fac5b2ee10e945b9c51641699bbf22cdc5013459e84c7e797bb5900df6ede5a"
+    },
+    "sequences.csv": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/HSV-2/sequences.csv",
+      "exists": true,
+      "size_bytes": 4087,
+      "sha256": "b494a5f13150c6ccf4bbfc37d8b4f4307c125ce058c85ff03bace8836f9a7ac0"
+    },
+    "manual_components.csv": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/HSV-2/manual_components.csv",
+      "exists": false
+    },
+    "manual_pairs.csv": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/HSV-2/manual_pairs.csv",
+      "exists": false
+    },
+    "segments_options.txt": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/HSV-2/segments_options.txt",
+      "exists": false
+    },
+    "layout": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/HSV-2/HSV-2.layout.tsv",
+      "exists": false
+    }
+  },
+  "parameters": {
+    "kmin": 10,
+    "kmax": 12,
+    "ignore_ir": false
+  },
+  "altair": {
+    "path": "/home/saraalmeida/miniconda3/envs/altair/bin/AltaiR",
+    "exists": true,
+    "size_bytes": 154208,
+    "sha256": "9e563670ce6bb01e754ba949fa9ed66d6f1eb54e4da4f0d10699fc3d782a028e",
+    "version": "v1.1"
+  },
+  "python_version": "3.11.13 | packaged by conda-forge | (main, Jun  4 2025, 14:48:23) [GCC 13.3.0]",
+  "scripts": {
+    "pipeline.sh": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/pipeline.sh",
+      "exists": true,
+      "size_bytes": 21514,
+      "sha256": "5777a7680978ec1fc6463af51b05ea775b0c250c47b8c8451d10e7f7d3d38cf4"
+    },
+    "get_fasta.sh": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/get_fasta.sh",
+      "exists": true,
+      "size_bytes": 13953,
+      "sha256": "29dec43625f5a76eaa86752e644bed5858fcaa769342e00ebab250bee47dafea"
+    },
+    "GetSegments.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/GetSegments.py",
+      "exists": true,
+      "size_bytes": 33654,
+      "sha256": "af4c4eab4ff9e758c3d3c196968450361bee7138154db5bbe182004da12a661e"
+    },
+    "JoinSegments.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/JoinSegments.py",
+      "exists": true,
+      "size_bytes": 9590,
+      "sha256": "a07eaadf3f7224b34c213f5849324dc2aa227bb4c1eb80b661874ce94c177c13"
+    },
+    "run_raw.sh": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/run_raw.sh",
+      "exists": true,
+      "size_bytes": 3385,
+      "sha256": "a9ad0a4ec479eebe63f03112ed68d9a6cc7dddfce766b174f5e75c1dfbe601f7"
+    },
+    "GCcontent.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/GCcontent.py",
+      "exists": true,
+      "size_bytes": 5183,
+      "sha256": "dd2d13934792b693bb4e840de3499cd5c32ca478ae1553d892f9e25c7a7fbb38"
+    },
+    "Filter_mRAWs.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/Filter_mRAWs.py",
+      "exists": true,
+      "size_bytes": 10225,
+      "sha256": "342f020d156af2fcd3369c541a6b7053beb89104cfb92af5f56cd8b1fac6a6e8"
+    },
+    "Plot_Raws.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/Plot_Raws.py",
+      "exists": true,
+      "size_bytes": 31952,
+      "sha256": "583ed17255dffc07131dee04cbd07c0050eddea45559fb6f76c7f0291bdd7eff"
+    },
+    "run_summary.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/run_summary.py",
+      "exists": true,
+      "size_bytes": 6895,
+      "sha256": "c10b08c4ebc3e8a8b72b35c0790cf1b652ea3f12e632081df13ab19fae25330c"
+    }
+  },
+  "output_directory": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/HSV-2/results/HSV-2",
+  "prepared_artifacts": {
+    "pathogen_fasta": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/HSV-2/HSV-2.fasta",
+      "exists": true,
+      "size_bytes": 2851438,
+      "sha256": "8450ff9fbee2a8f00cdf80573a370c33926bc8f80946b00a9595f77949da3109"
+    },
+    "layout": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/herpes/HSV-2/HSV-2.layout.tsv",
+      "exists": false
+    }
+  },
+  "output_counts": {
+    "raw_occurrences_by_k": {
+      "10": 0,
+      "11": 50,
+      "12": 7207
+    },
+    "missing_raw_k": [],
+    "raw_occurrences": 7257,
+    "mraw_occurrences": 7157
+  },
+  "output_files": [
+    "AVG-data.eg",
+    "AVGplot.sh",
+    "CG-data.eg",
+    "CGplot.sh",
+    "HSV-2.fasta-k10.eg",
+    "HSV-2.fasta-k11.eg",
+    "HSV-2.fasta-k12.eg",
+    "HSV-2_CGplot.pdf",
+    "merged_gc.csv",
+    "merged_mraw_gc.csv",
+    "merged_mraw_gc.summary.json",
+    "mraws/3d_raws_distribution.png",
+    "mraws/3d_raws_distribution_topdown.png",
+    "mraws/3d_raws_distribution_topdown_gc45_55.png",
+    "mraws/3d_raws_distribution_topdown_gc45_55_highlight.png",
+    "mraws/3d_raws_distribution_topdown_gc48_52_marked.png",
+    "mraws/gc%_vs_kmer.png",
+    "mraws/mraws_gc_45_55_HSV-2_human.csv",
+    "mraws/mraws_gc_48_52_HSV-2_human.csv",
+    "mraws/number_raws.png",
+    "mraws/raw_gc_profile_window51_exact_target_count_gradient.png",
+    "mraws/raw_position_topdown_k11.html",
+    "mraws/raw_position_topdown_k11.png",
+    "mraws/raw_position_topdown_k12.html",
+    "mraws/raw_position_topdown_k12.png",
+    "mraws/raw_window51_target_count_window1.png",
+    "raws/3d_raws_distribution.png",
+    "raws/3d_raws_distribution_topdown.png",
+    "raws/3d_raws_distribution_topdown_gc45_55.png",
+    "raws/3d_raws_distribution_topdown_gc45_55_highlight.png",
+    "raws/3d_raws_distribution_topdown_gc48_52_marked.png",
+    "raws/gc%_vs_kmer.png",
+    "raws/number_raws.png",
+    "raws/raw_gc_profile_window51_exact_target_count_gradient.png",
+    "raws/raw_position_topdown_k11.html",
+    "raws/raw_position_topdown_k11.png",
+    "raws/raw_position_topdown_k12.html",
+    "raws/raw_position_topdown_k12.png",
+    "raws/raw_window51_target_count_window1.png",
+    "raws/raws_gc_45_55_HSV-2_human.csv",
+    "raws/raws_gc_48_52_HSV-2_human.csv"
+  ],
+  "output_inventory_note": "Files present at completion; an existing analysis directory may also contain earlier outputs."
+}

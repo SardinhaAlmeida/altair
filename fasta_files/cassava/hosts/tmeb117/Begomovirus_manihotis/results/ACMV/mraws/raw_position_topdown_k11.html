@@ -1,0 +1,139 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mRAWs positional distribution — Pathogen: Begomovirus manihotis | Host: TME117 — k = 11</title>
+
+<style>
+    body {
+        font: 15px system-ui, sans-serif;
+        margin: 20px;
+        color: #18212b
+    }
+
+    h1 {
+        font-size: 20px
+    }
+
+    button {
+        padding: 7px 14px;
+        cursor: pointer
+    }
+
+    canvas {
+        display: block;
+        width: 100%;
+        height: 70vh;
+        min-height: 400px;
+        border: 1px solid #ccc;
+        touch-action: none
+    }
+
+    #details {
+        margin-top: 15px;
+        max-height: 350px;
+        overflow: auto
+    }
+
+    table {
+        border-collapse: collapse
+    }
+
+    td,
+    th {
+        padding: 7px 14px;
+        border: 1px solid #ddd;
+        text-align: left
+    }
+
+    td.seq {
+        font-family: monospace;
+        user-select: text
+    }
+
+    #tip {
+        position: fixed;
+        pointer-events: none;
+        white-space: pre;
+        background: #fff;
+        border: 1px solid #777;
+        padding: 8px;
+        display: none;
+        max-width: 90vw;
+        overflow: hidden
+    }
+</style>
+
+<h1>mRAWs positional distribution — Pathogen: Begomovirus manihotis | Host: TME117 — k = 11</h1>
+<p>Hover to inspect; click to keep details below and select a sequence to copy. Scroll to zoom; drag to pan. Orange
+    rings: GC 48–52%.</p>
+<p><button id="reset">Reset view</button> <span id="count"></span></p>
+<canvas id="plot" aria-label="Interactive positional distribution"></canvas>
+<div id="details">Click a dot to see its sequence and metadata. Overlapping occurrences are listed together.</div>
+<div id="tip"></div>
+<script id="raw-data" type="application/json">{"rows": [[3682, 1, "GGACCCCGCGC", 90.91, 11, "B", 182, "J02058"], [3530, 5, "GGACCCCGCGC", 90.91, 11, "B", 30, "PP503027"], [30, 22, "GGACCCCGCGC", 90.91, 11, "A", 30, "LC658343"], [30, 23, "GGACCCCGCGC", 90.91, 11, "A", 30, "LC658342"], [30, 46, "GGACCCCGCGC", 90.91, 11, "A", 30, "KJ887763"], [30, 47, "GGACCCCGCGC", 90.91, 11, "A", 30, "KJ887764"], [30, 51, "GGACCCCGCGC", 90.91, 11, "A", 30, "KJ887766"], [30, 52, "GGACCCCGCGC", 90.91, 11, "A", 30, "KJ887767"], [30, 56, "GGACCCCGCGC", 90.91, 11, "A", 30, "KJ887771"], [30, 57, "GGACCCCGCGC", 90.91, 11, "A", 30, "KJ887772"], [30, 58, "GGACCCCGCGC", 90.91, 11, "A", 30, "KJ887773"], [29, 61, "GGACCCCGCGC", 90.91, 11, "A", 29, "KJ887776"], [595, 216, "CCGGGCGGACA", 81.82, 11, "A", 595, "KJ887901"], [30, 263, "GGACCCCGCGC", 90.91, 11, "A", 30, "KJ887911"], [30, 269, "GGACCCCGCGC", 90.91, 11, "A", 30, "KJ887907"], [13, 310, "CGGCCCCCCGT", 90.91, 11, "A", 13, "MT821861"], [3531, 330, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887591"], [4403, 330, "CCGCGGGTTAC", 72.73, 11, "B", 903, "KJ887591"], [3531, 331, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887592"], [4403, 331, "CCGCGGGTTAC", 72.73, 11, "B", 903, "KJ887592"], [3530, 332, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887593"], [4401, 332, "CCGCGGGTTAC", 72.73, 11, "B", 901, "KJ887593"], [3531, 333, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887624"], [3531, 334, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887582"], [3530, 335, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887583"], [3531, 337, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887584"], [4403, 340, "CCGCGGGTTAC", 72.73, 11, "B", 903, "KJ887588"], [4403, 341, "CCGCGGGTTAC", 72.73, 11, "B", 903, "KJ887589"], [3531, 342, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887590"], [4403, 342, "CCGCGGGTTAC", 72.73, 11, "B", 903, "KJ887590"], [3531, 343, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887594"], [3530, 344, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887631"], [3530, 345, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887632"], [3530, 348, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887597"], [3531, 349, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887598"], [3531, 350, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887599"], [3531, 351, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887600"], [4404, 351, "CCGCGGGTTAC", 72.73, 11, "B", 904, "KJ887600"], [3530, 353, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887602"], [3530, 354, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887603"], [3529, 355, "GGACCCCGCGC", 90.91, 11, "B", 29, "KJ887604"], [3531, 356, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887605"], [3532, 357, "GGACCCCGCGC", 90.91, 11, "B", 32, "KJ887606"], [3531, 358, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887607"], [3531, 367, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887616"], [3531, 370, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887619"], [3531, 371, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887620"], [3531, 372, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887621"], [3531, 373, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887622"], [3531, 376, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887626"], [3531, 377, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887627"], [4404, 377, "CCGCGGGTTAC", 72.73, 11, "B", 904, "KJ887627"], [3531, 379, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887629"], [3531, 380, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887630"], [3531, 382, "GGACCCCGCGC", 90.91, 11, "B", 31, "KJ887751"], [3530, 383, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887752"], [3530, 384, "GGACCCCGCGC", 90.91, 11, "B", 30, "LC722237"], [3554, 424, "GCCCCGCGTTG", 81.82, 11, "B", 54, "MH646720"], [6010, 457, "GCCCCGCGTTG", 81.82, 11, "B", 2510, "MH646704"], [3530, 468, "GGACCCCGCGC", 90.91, 11, "B", 30, "HG530121"], [3530, 470, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887634"], [3530, 472, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887636"], [3530, 473, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887638"], [3529, 474, "GGACCCCGCGC", 90.91, 11, "B", 29, "KJ887651"], [3530, 475, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887681"], [3530, 476, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887692"], [3530, 477, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887705"], [3530, 478, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887706"], [3530, 479, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887707"], [3530, 480, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887710"], [3529, 481, "GGACCCCGCGC", 90.91, 11, "B", 29, "KJ887739"], [3530, 482, "GGACCCCGCGC", 90.91, 11, "B", 30, "KJ887741"], [3529, 483, "GGACCCCGCGC", 90.91, 11, "B", 29, "KJ887743"], [3528, 484, "GGACCCCGCGC", 90.91, 11, "B", 28, "KJ887744"]], "xmax": 6500, "ymax": 505, "color": "red", "highlight": true, "label": "mRAWs", "position_label": "Display position", "extra_columns": ["Component", "Position in component", "Accession"]}</script>
+
+<script>
+    'use strict';
+    const data = JSON.parse(document.getElementById('raw-data').textContent);
+    const canvas = document.getElementById('plot'), ctx = canvas.getContext('2d'), tip = document.getElementById('tip');
+    const margin = { left: 80, right: 25, top: 25, bottom: 65 }; let width, height, view, drag = null, bins = new Map();
+    const groups = new Map();
+    for (const row of data.rows) { const key = row[0] + ',' + row[1]; if (!groups.has(key)) groups.set(key, []); groups.get(key).push(row); }
+    document.getElementById('count').textContent = data.rows.length.toLocaleString() + ' ' + data.label + ' occurrences';
+    function reset() { view = { x0: 0, x1: data.xmax, y0: -0.5, y1: data.ymax + 0.5 }; draw(); }
+    function px(x) { return margin.left + (x - view.x0) / (view.x1 - view.x0) * (width - margin.left - margin.right); }
+    function py(y) { return height - margin.bottom - (y - view.y0) / (view.y1 - view.y0) * (height - margin.top - margin.bottom); }
+    function step(span) { const base = 10 ** Math.floor(Math.log10(span / 10)); return [1, 2, 5, 10].map(v => v * base).find(v => v >= span / 10); }
+    function draw() {
+        ctx.clearRect(0, 0, width, height); ctx.font = '12px system-ui'; ctx.fillStyle = '#333'; ctx.strokeStyle = '#ddd'; ctx.lineWidth = 1;
+        for (let axis = 0; axis < 2; axis++) {
+            const low = axis ? view.y0 : view.x0, high = axis ? view.y1 : view.x1, inc = Math.max(1, step(high - low));
+            for (let v = Math.ceil(low / inc) * inc; v <= high; v += inc) {
+                ctx.beginPath();
+                if (axis) { const y = py(v); ctx.moveTo(margin.left, y); ctx.lineTo(width - margin.right, y); ctx.textAlign = 'right'; ctx.fillText(Math.round(v).toLocaleString(), margin.left - 8, y + 4); }
+                else { const x = px(v); ctx.moveTo(x, margin.top); ctx.lineTo(x, height - margin.bottom); ctx.textAlign = 'center'; ctx.fillText(Math.round(v).toLocaleString(), x, height - margin.bottom + 22); }
+                ctx.stroke();
+            }
+        }
+        ctx.textAlign = 'center'; ctx.fillText('Position in Genome', width / 2, height - 15); ctx.save(); ctx.translate(18, height / 2); ctx.rotate(-Math.PI / 2); ctx.fillText('Genome Index', 0, 0); ctx.restore();
+        bins = new Map(); ctx.save(); ctx.beginPath(); ctx.rect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom); ctx.clip();
+        for (const rows of groups.values()) {
+            const row = rows[0], x = px(row[0]), y = py(row[1]); if (x < margin.left || x > width - margin.right || y < margin.top || y > height - margin.bottom) continue;
+            ctx.fillStyle = data.color; ctx.beginPath(); ctx.arc(x, y, 2.5, 0, 2 * Math.PI); ctx.fill();
+            if (data.highlight && rows.some(r => r[3] >= 48 && r[3] <= 52)) { ctx.strokeStyle = 'orange'; ctx.beginPath(); ctx.arc(x, y, 6, 0, 2 * Math.PI); ctx.stroke(); }
+            const key = Math.floor(x / 12) + ',' + Math.floor(y / 12); if (!bins.has(key)) bins.set(key, []); bins.get(key).push({ x, y, rows });
+        }
+        ctx.restore();
+    }
+    function locate(e) { const rect = canvas.getBoundingClientRect(); return { x: e.clientX - rect.left, y: e.clientY - rect.top }; }
+    function hit(p) {
+        let best = null, distance = 81; const bx = Math.floor(p.x / 12), by = Math.floor(p.y / 12);
+        for (let x = bx - 1; x <= bx + 1; x++)for (let y = by - 1; y <= by + 1; y++)for (const point of bins.get(x + ',' + y) || []) { const d = (point.x - p.x) ** 2 + (point.y - p.y) ** 2; if (d < distance) { best = point; distance = d; } }
+        return best;
+    }
+    function inspect(point) {
+        const container = document.getElementById('details'); container.replaceChildren(); if (!point) return;
+        const heading = document.createElement('p'); heading.textContent = point.rows.length + ' occurrence(s) at position ' + point.rows[0][0] + ', genome ' + point.rows[0][1]; container.append(heading);
+        const table = document.createElement('table'), head = document.createElement('tr'); for (const name of ['Sequence', 'Position', 'Genome index', 'GC %', 'k']) { const cell = document.createElement('th'); cell.textContent = name; head.append(cell); } table.append(head);
+        for (const row of point.rows) { const tr = document.createElement('tr'); for (const [i, value] of [row[2], row[0], row[1], row[3], row[4]].entries()) { const cell = document.createElement('td'); cell.textContent = value; if (i === 0) cell.className = 'seq'; tr.append(cell); } table.append(tr); } container.append(table);
+    }
+    canvas.addEventListener('pointerdown', e => { drag = { start: locate(e), view: { ...view }, moved: false }; canvas.setPointerCapture(e.pointerId); tip.style.display = 'none'; });
+    canvas.addEventListener('pointermove', e => {
+        const p = locate(e); if (drag) {
+            const dx = p.x - drag.start.x, dy = p.y - drag.start.y; if (Math.hypot(dx, dy) > 3) drag.moved = true;
+            if (drag.moved) { const sx = (drag.view.x1 - drag.view.x0) / (width - margin.left - margin.right), sy = (drag.view.y1 - drag.view.y0) / (height - margin.top - margin.bottom); view = { x0: drag.view.x0 - dx * sx, x1: drag.view.x1 - dx * sx, y0: drag.view.y0 + dy * sy, y1: drag.view.y1 + dy * sy }; draw(); } return;
+        }
+        const point = hit(p); tip.style.display = point ? 'block' : 'none'; if (point) { const r = point.rows[0]; tip.textContent = r[2] + '\nPosition: ' + r[0] + ' | Genome: ' + r[1] + '\nGC: ' + r[3] + '% | k: ' + r[4] + (point.rows.length > 1 ? '\n' + point.rows.length + ' overlapping occurrences — click to list' : ''); tip.style.left = Math.min(e.clientX + 12, window.innerWidth - tip.offsetWidth - 8) + 'px'; tip.style.top = Math.max(0, Math.min(e.clientY + 12, window.innerHeight - tip.offsetHeight - 8)) + 'px'; }
+    });
+    canvas.addEventListener('pointerup', e => { if (drag && !drag.moved) inspect(hit(locate(e))); drag = null; });
+    canvas.addEventListener('pointercancel', () => { drag = null; }); canvas.addEventListener('pointerleave', () => { tip.style.display = 'none'; });
+    canvas.addEventListener('wheel', e => {
+        e.preventDefault(); tip.style.display = 'none'; const p = locate(e), factor = Math.exp(Math.max(-1, Math.min(1, e.deltaY * 0.002)));
+        const x = view.x0 + (p.x - margin.left) / (width - margin.left - margin.right) * (view.x1 - view.x0), y = view.y0 + (height - margin.bottom - p.y) / (height - margin.top - margin.bottom) * (view.y1 - view.y0);
+        if ((view.x1 - view.x0) * factor < 1 || (view.y1 - view.y0) * factor < 0.1) return;
+        view = { x0: x + (view.x0 - x) * factor, x1: x + (view.x1 - x) * factor, y0: y + (view.y0 - y) * factor, y1: y + (view.y1 - y) * factor }; draw();
+    }, { passive: false });
+    document.getElementById('reset').onclick = reset;
+    function resize() { const rect = canvas.getBoundingClientRect(), ratio = window.devicePixelRatio || 1; width = rect.width; height = rect.height; canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio); ctx.setTransform(ratio, 0, 0, ratio, 0, 0); if (view) draw(); else reset(); }
+    window.addEventListener('resize', resize); resize();
+</script>

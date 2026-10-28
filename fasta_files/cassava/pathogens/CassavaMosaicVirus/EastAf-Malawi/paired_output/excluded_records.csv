@@ -1,0 +1,11 @@
+Accession,Reason,Component,Host,Length,GenBank_Title
+NC_038877.1,host not recorded,A,,2804,"East African cassava mosaic Malawi virus-Malawi[K] AV1, AV2 and AC1 genes, (isolate MK)"
+NC_022644.1,RefSeq copy: identical to JX658684,B,Manihot esculenta,2754,"East African cassava mosaic Malawi virus clone EACMMV[MA:S8:07]B segment DNA-B, complete sequence"
+NC_022645.1,RefSeq copy: identical to JX658694,A,Manihot esculenta,2804,"East African cassava mosaic Malawi virus clone EACMMV[MA:07:S4] AV2 (AV2), CP (AV1), REn (AC3), TrAP (AC2), and Rep genes, complete cds"
+MT821888.1,UNVERIFIED GenBank record,A,Manihot esculenta,2804,"UNVERIFIED: East African cassava mosaic Malawi virus isolate W-Ka-ZM38-M segment DNA-A, complete sequence"
+KY885003.1,UNVERIFIED GenBank record,A,Manihot esculenta,2788,"UNVERIFIED: East African cassava mosaic Malawi virus isolate EACMMV_MAL_SA13a segment DNA-A, complete sequence"
+JX658683.1,UNVERIFIED GenBank record,UNKNOWN,Manihot esculenta,2737,"UNVERIFIED: East African cassava mosaic Malawi virus clone EACMCV[MA:24N:07]B NSP (BV1) gene, complete cds; and MP-like (BC1) gene, complete sequence"
+JX658685.1,UNVERIFIED GenBank record,UNKNOWN,Manihot esculenta,2788,"UNVERIFIED: East African cassava mosaic Malawi virus clone EACMMV[MA:07:8s] AV2 (AV2) gene, complete cds; and CP-like (AV1), REn-like (AC3), TrAP-like (AC2), and Rep-like genes, complete sequence"
+JX658686.1,UNVERIFIED GenBank record,UNKNOWN,Manihot esculenta,2810,"UNVERIFIED: East African cassava mosaic Malawi virus clone EACMMV[MA:07:9s] AV2 (AV2) gene, complete cds; CP-like (AV1) gene, complete sequence; and REn (AC3), TrAP (AC2), and Rep genes, complete cds"
+JX658688.1,UNVERIFIED GenBank record,UNKNOWN,Nicotiana benthamiana,2790,"UNVERIFIED: East African cassava mosaic Malawi virus clone EACMMV[MA:07:6s] AV2 (AV2) and CP (AV1) genes, complete cds; REn-like (AC3) gene, complete sequence; and TrAP (AC2) and Rep genes, complete cds"
+JX658693.1,UNVERIFIED GenBank record,UNKNOWN,Manihot esculenta,2806,"UNVERIFIED: East African cassava mosaic Malawi virus clone EACMMV[MA:07:s18] AV2-like (AV2) gene, complete sequence; and CP (AV1), REn (AC3), TrAP (AC2), and Rep genes, complete cds"

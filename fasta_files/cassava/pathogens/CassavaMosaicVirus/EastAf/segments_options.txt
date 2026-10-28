@@ -1,0 +1,4 @@
+--exclude-unverified
+--host=Manihot esculenta
+--max-ambiguous=0.01
+--max-length-deviation=0.10

@@ -1,0 +1,50 @@
+{
+  "input": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/rabbits/host/Rabbit_Hemorrhagic/merged_gc.csv",
+  "host": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/rabbits/host/GCF_964237555.1_mOryCun1.1_genomic.fna",
+  "output": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/rabbits/host/Rabbit_Hemorrhagic/merged_mraw_gc.csv",
+  "altair": "/home/saraalmeida/miniconda3/envs/altair/bin/AltaiR",
+  "ignore_ir": false,
+  "membership": "Selected AltaiR DNA host models; no independent matching",
+  "input_occurrences": 107586,
+  "retained_occurrences": 85320,
+  "input_unique_words": 11078,
+  "retained_unique_words": 8730,
+  "by_k": {
+    "12": {
+      "occurrences": {
+        "retained": 655
+      },
+      "unique_words": {
+        "retained": 50
+      }
+    },
+    "13": {
+      "occurrences": {
+        "retained": 11073,
+        "rejected_suffix_absent": 596,
+        "rejected_prefix_absent": 596,
+        "rejected_both_absent": 59
+      },
+      "unique_words": {
+        "rejected_prefix_absent": 49,
+        "retained": 1114,
+        "rejected_suffix_absent": 49,
+        "rejected_both_absent": 6
+      }
+    },
+    "14": {
+      "occurrences": {
+        "retained": 73592,
+        "rejected_suffix_absent": 8691,
+        "rejected_prefix_absent": 8693,
+        "rejected_both_absent": 3631
+      },
+      "unique_words": {
+        "retained": 7566,
+        "rejected_suffix_absent": 923,
+        "rejected_prefix_absent": 937,
+        "rejected_both_absent": 384
+      }
+    }
+  }
+}

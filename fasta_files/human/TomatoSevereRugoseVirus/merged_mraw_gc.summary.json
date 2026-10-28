@@ -1,0 +1,62 @@
+{
+  "input": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/TomatoSevereRugoseVirus/merged_gc.csv",
+  "host": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/human.fa",
+  "output": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/TomatoSevereRugoseVirus/merged_mraw_gc.csv",
+  "altair": "/home/saraalmeida/miniconda3/envs/altair/bin/AltaiR",
+  "ignore_ir": false,
+  "membership": "Selected AltaiR DNA host models; no independent matching",
+  "input_occurrences": 81681,
+  "retained_occurrences": 59487,
+  "input_unique_words": 2482,
+  "retained_unique_words": 1767,
+  "by_k": {
+    "11": {
+      "occurrences": {
+        "retained": 191
+      },
+      "unique_words": {
+        "retained": 1
+      }
+    },
+    "12": {
+      "occurrences": {
+        "retained": 1286,
+        "rejected_suffix_absent": 191,
+        "rejected_prefix_absent": 191
+      },
+      "unique_words": {
+        "retained": 29,
+        "rejected_suffix_absent": 1,
+        "rejected_prefix_absent": 1
+      }
+    },
+    "13": {
+      "occurrences": {
+        "retained": 10145,
+        "rejected_suffix_absent": 1114,
+        "rejected_prefix_absent": 1114,
+        "rejected_both_absent": 554
+      },
+      "unique_words": {
+        "retained": 338,
+        "rejected_prefix_absent": 27,
+        "rejected_suffix_absent": 24,
+        "rejected_both_absent": 8
+      }
+    },
+    "14": {
+      "occurrences": {
+        "retained": 47865,
+        "rejected_suffix_absent": 6103,
+        "rejected_both_absent": 6823,
+        "rejected_prefix_absent": 6104
+      },
+      "unique_words": {
+        "rejected_both_absent": 175,
+        "retained": 1399,
+        "rejected_suffix_absent": 236,
+        "rejected_prefix_absent": 243
+      }
+    }
+  }
+}

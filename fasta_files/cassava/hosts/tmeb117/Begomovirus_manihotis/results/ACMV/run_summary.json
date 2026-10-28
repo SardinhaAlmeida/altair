@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "workflow": "analyse",
+  "analysis_name": "ACMV",
+  "started_at_utc": "2026-10-18T22:11:34Z",
+  "finished_at_utc": "2026-10-18T22:21:41+00:00",
+  "elapsed_seconds": 607,
+  "exit_code": 0,
+  "working_directory": "/home/saraalmeida/UA/ano5/Tese/altair",
+  "inputs": {
+    "pathogen_fasta": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/pathogens/CassavaMosaicVirus/Begomovirus_manihotis/ACMV_segments.fasta",
+      "exists": true,
+      "size_bytes": 1504281,
+      "sha256": "ff5bac74479d228abbc25cb7bf1dcdae2faf825fa2ea8583ead0e485bca8f911"
+    },
+    "host_fasta": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/hosts/tmeb117/TME117.fa",
+      "exists": true,
+      "size_bytes": 1347200124,
+      "sha256": "7ab6da7ac325061497ac6cc3a5b02bab1cc05770284bb394b167870c054a8795"
+    },
+    "layout": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/pathogens/CassavaMosaicVirus/Begomovirus_manihotis/ACMV_segments.layout.tsv",
+      "exists": true,
+      "size_bytes": 15354,
+      "sha256": "6cb9606898d3731ab4af678047f7d86c302d0f4187b2e0121f2e38397ae00aee"
+    }
+  },
+  "parameters": {
+    "kmin": 11,
+    "kmax": 13,
+    "ignore_ir": false
+  },
+  "altair": {
+    "path": "/home/saraalmeida/miniconda3/envs/altair/bin/AltaiR",
+    "exists": true,
+    "size_bytes": 154208,
+    "sha256": "9e563670ce6bb01e754ba949fa9ed66d6f1eb54e4da4f0d10699fc3d782a028e",
+    "version": "v1.1"
+  },
+  "python_version": "3.11.13 | packaged by conda-forge | (main, Jun  4 2025, 14:48:23) [GCC 13.3.0]",
+  "scripts": {
+    "pipeline.sh": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/pipeline.sh",
+      "exists": true,
+      "size_bytes": 21514,
+      "sha256": "5777a7680978ec1fc6463af51b05ea775b0c250c47b8c8451d10e7f7d3d38cf4"
+    },
+    "get_fasta.sh": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/get_fasta.sh",
+      "exists": true,
+      "size_bytes": 13953,
+      "sha256": "29dec43625f5a76eaa86752e644bed5858fcaa769342e00ebab250bee47dafea"
+    },
+    "GetSegments.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/GetSegments.py",
+      "exists": true,
+      "size_bytes": 33654,
+      "sha256": "af4c4eab4ff9e758c3d3c196968450361bee7138154db5bbe182004da12a661e"
+    },
+    "JoinSegments.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/JoinSegments.py",
+      "exists": true,
+      "size_bytes": 9590,
+      "sha256": "a07eaadf3f7224b34c213f5849324dc2aa227bb4c1eb80b661874ce94c177c13"
+    },
+    "run_raw.sh": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/run_raw.sh",
+      "exists": true,
+      "size_bytes": 3385,
+      "sha256": "a9ad0a4ec479eebe63f03112ed68d9a6cc7dddfce766b174f5e75c1dfbe601f7"
+    },
+    "GCcontent.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/GCcontent.py",
+      "exists": true,
+      "size_bytes": 5183,
+      "sha256": "dd2d13934792b693bb4e840de3499cd5c32ca478ae1553d892f9e25c7a7fbb38"
+    },
+    "Filter_mRAWs.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/Filter_mRAWs.py",
+      "exists": true,
+      "size_bytes": 10225,
+      "sha256": "342f020d156af2fcd3369c541a6b7053beb89104cfb92af5f56cd8b1fac6a6e8"
+    },
+    "Plot_Raws.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/Plot_Raws.py",
+      "exists": true,
+      "size_bytes": 31952,
+      "sha256": "583ed17255dffc07131dee04cbd07c0050eddea45559fb6f76c7f0291bdd7eff"
+    },
+    "run_summary.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/run_summary.py",
+      "exists": true,
+      "size_bytes": 6895,
+      "sha256": "c10b08c4ebc3e8a8b72b35c0790cf1b652ea3f12e632081df13ab19fae25330c"
+    }
+  },
+  "output_directory": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/hosts/tmeb117/Begomovirus_manihotis/results/ACMV",
+  "output_counts": {
+    "raw_occurrences_by_k": {
+      "11": 74,
+      "12": 4131,
+      "13": 61300
+    },
+    "missing_raw_k": [],
+    "raw_occurrences": 65505,
+    "mraw_occurrences": 57493
+  },
+  "output_files": [
+    "ACMV_CGplot.pdf",
+    "ACMV_segments.fasta-k11.eg",
+    "ACMV_segments.fasta-k12.eg",
+    "ACMV_segments.fasta-k13.eg",
+    "ACMV_segments.layout.tsv",
+    "AVG-data.eg",
+    "AVGplot.sh",
+    "CG-data.eg",
+    "CGplot.sh",
+    "merged_gc.csv",
+    "merged_mraw_gc.csv",
+    "merged_mraw_gc.summary.json",
+    "mraws/3d_raws_distribution.png",
+    "mraws/3d_raws_distribution_topdown.png",
+    "mraws/3d_raws_distribution_topdown_gc45_55.png",
+    "mraws/3d_raws_distribution_topdown_gc45_55_highlight.png",
+    "mraws/3d_raws_distribution_topdown_gc48_52_marked.png",
+    "mraws/gc%_vs_kmer.png",
+    "mraws/mraws_gc_45_55_Begomovirus_manihotis_TME117.csv",
+    "mraws/mraws_gc_48_52_Begomovirus_manihotis_TME117.csv",
+    "mraws/number_raws.png",
+    "mraws/raw_gc_profile_window51_exact_target_count_gradient.png",
+    "mraws/raw_position_topdown_k11.html",
+    "mraws/raw_position_topdown_k11.png",
+    "mraws/raw_position_topdown_k12.html",
+    "mraws/raw_position_topdown_k12.png",
+    "mraws/raw_position_topdown_k13.html",
+    "mraws/raw_position_topdown_k13.png",
+    "mraws/raw_window51_target_count_window1.png",
+    "raws/3d_raws_distribution.png",
+    "raws/3d_raws_distribution_topdown.png",
+    "raws/3d_raws_distribution_topdown_gc45_55.png",
+    "raws/3d_raws_distribution_topdown_gc45_55_highlight.png",
+    "raws/3d_raws_distribution_topdown_gc48_52_marked.png",
+    "raws/gc%_vs_kmer.png",
+    "raws/number_raws.png",
+    "raws/raw_gc_profile_window51_exact_target_count_gradient.png",
+    "raws/raw_position_topdown_k11.html",
+    "raws/raw_position_topdown_k11.png",
+    "raws/raw_position_topdown_k12.html",
+    "raws/raw_position_topdown_k12.png",
+    "raws/raw_position_topdown_k13.html",
+    "raws/raw_position_topdown_k13.png",
+    "raws/raw_window51_target_count_window1.png",
+    "raws/raws_gc_45_55_Begomovirus_manihotis_TME117.csv",
+    "raws/raws_gc_48_52_Begomovirus_manihotis_TME117.csv"
+  ],
+  "output_inventory_note": "Files present at completion; an existing analysis directory may also contain earlier outputs."
+}

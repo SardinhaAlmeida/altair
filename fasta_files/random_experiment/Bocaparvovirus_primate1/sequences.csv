@@ -1,0 +1,166 @@
+Accession,BioSample,Organism_Name,Species,Isolate,Segment,GenBank_Title,Length,Nuc_Completeness,Geo_Location,Country,Host,Collection_Date
+NC_075120,,Bocaparvovirus primate1,Bocaparvovirus primate1,Salvador1,,"Primate bocaparvovirus 1 isolate Salvador1, complete genome",5543,complete,Brazil,Brazil,Homo sapiens,2005
+NC_012564,,Human bocavirus 3,Bocaparvovirus primate1,,,"Human bocavirus 3, complete genome",5242,complete,Australia,Australia,Homo sapiens,2001-08
+LC922662,,Bocaparvovirus primate1,Bocaparvovirus primate1,HBoV1_Fukushima_OH915_2025,,"Bocaparvovirus primate1 HBoV1_Fukushima_OH915_2025 RNA, complete genome",5542,complete,Japan:Fukushima,Japan,Homo sapiens,2025
+PQ605427,,Bocaparvovirus primate1,Bocaparvovirus primate1,JN_13,,"Bocaparvovirus primate1 isolate JN_13, complete genome",5348,complete,China: Jinan,China,Homo sapiens,2020
+LC889291,,Bocaparvovirus primate1,Bocaparvovirus primate1,HBoV1_Fukushima_HR599_2023,,"Bocaparvovirus primate1 HBoV1_Fukushima_HR599_2023 DNA, nearly complete genome",5543,complete,Japan:Fukushima,Japan,Homo sapiens,2023
+LC889292,,Bocaparvovirus primate1,Bocaparvovirus primate1,HBoV1_Fukushima_OH471_2024,,"Bocaparvovirus primate1 HBoV1_Fukushima_OH471_2024 DNA, nearly complete genome",5446,complete,Japan:Fukushima,Japan,Homo sapiens,2024
+LC889293,,Bocaparvovirus primate1,Bocaparvovirus primate1,HBoV1_Fukushima_OH485_2024,,"Bocaparvovirus primate1 HBoV1_Fukushima_OH485_2024 DNA, nearly complete genome",5545,complete,Japan:Fukushima,Japan,Homo sapiens,2024
+LC889294,,Bocaparvovirus primate1,Bocaparvovirus primate1,HBoV1_Fukushima_OH49_2023,,"Bocaparvovirus primate1 HBoV1_Fukushima_OH49_2023 DNA, nearly complete genome",5536,complete,Japan:Fukushima,Japan,Homo sapiens,2023
+LC889295,,Bocaparvovirus primate1,Bocaparvovirus primate1,HBoV1_Fukushima_OH51_2023,,"Bocaparvovirus primate1 HBoV1_Fukushima_OH51_2023 DNA, nearly complete genome",5543,complete,Japan:Fukushima,Japan,Homo sapiens,2023
+LC889296,,Bocaparvovirus primate1,Bocaparvovirus primate1,HBoV1_Fukushima_OR651_2022,,"Bocaparvovirus primate1 HBoV1_Fukushima_OR651_2022 DNA, nearly complete genome",5542,complete,Japan:Fukushima,Japan,Homo sapiens,2022
+LC889297,,Bocaparvovirus primate1,Bocaparvovirus primate1,HBoV1_Fukushima_OR979_2023,,"Bocaparvovirus primate1 HBoV1_Fukushima_OR979_2023 DNA, nearly complete genome",5543,complete,Japan:Fukushima,Japan,Homo sapiens,2023
+LC832987,,Human bocavirus 1,Bocaparvovirus primate1,HBoV1/human/Japan/NIID24-146/2024,,"Human bocavirus 1 HBoV1/human/Japan/NIID24-146/2024 DNA, complete genome",5348,complete,Japan,Japan,Homo sapiens,2024
+LC823187,,Bocaparvovirus primate1,Bocaparvovirus primate1,HBoV1_Fukushima_OH113_2023,,"Bocaparvovirus primate1 HBoV1_Fukushima_OH113_2023 DNA, nearly complete genome",5448,complete,Japan: Fukushima,Japan,Homo sapiens,2023
+LC823188,,Bocaparvovirus primate1,Bocaparvovirus primate1,HBoV1_Fukushima_OH54_2023,,"Bocaparvovirus primate1 HBoV1_Fukushima_OH54_2023 DNA, nearly complete genome",5544,complete,Japan: Fukushima,Japan,Homo sapiens,2023
+PP625017,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2018_4218_BoV-2,,"Human bocavirus 1 isolate Yunnan/2018_4218_BoV-2, complete genome",5204,complete,China,China,Homo sapiens,2018-04-09
+PP625018,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2018_4270_BoV-3,,"Human bocavirus 1 isolate Yunnan/2018_4270_BoV-3, complete genome",5201,complete,China,China,Homo sapiens,2018-04-24
+PP625019,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2018_0496_BoV-6,,"Human bocavirus 1 isolate Yunnan/2018_0496_BoV-6, complete genome",5200,complete,China,China,Homo sapiens,2018-06-11
+PP625020,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2018_4433_BoV-12,,"Human bocavirus 1 isolate Yunnan/2018_4433_BoV-12, complete genome",5201,complete,China,China,Homo sapiens,2018-07-02
+PP625021,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2018_0635_BoV-14,,"Human bocavirus 1 isolate Yunnan/2018_0635_BoV-14, complete genome",5200,complete,China,China,Homo sapiens,2018-07-30
+PP625022,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2018_4532_BoV-16,,"Human bocavirus 1 isolate Yunnan/2018_4532_BoV-16, complete genome",5200,complete,China,China,Homo sapiens,2018-08-14
+PP625023,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2018_0763_BoV-17,,"Human bocavirus 1 isolate Yunnan/2018_0763_BoV-17, complete genome",5200,complete,China,China,Homo sapiens,2018-09-12
+PP625024,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2018_0796_BoV-18,,"Human bocavirus 1 isolate Yunnan/2018_0796_BoV-18, complete genome",5202,complete,China,China,Homo sapiens,2018-09-20
+PP625025,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2018_0829_BoV-21,,"Human bocavirus 1 isolate Yunnan/2018_0829_BoV-21, complete genome",5206,complete,China,China,Homo sapiens,2018-10-09
+PP625026,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2018_4759_BoV-22,,"Human bocavirus 1 isolate Yunnan/2018_4759_BoV-22, complete genome",5202,complete,China,China,Homo sapiens,2018-11-15
+PP625027,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2018_3002_BoV-24,,"Human bocavirus 1 isolate Yunnan/2018_3002_BoV-24, complete genome",5202,complete,China,China,Homo sapiens,2018-12-10
+PP625028,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2018_0066_BoV-27,,"Human bocavirus 1 isolate Yunnan/2018_0066_BoV-27, complete genome",5200,complete,China,China,Homo sapiens,2019-01-21
+PP625029,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_2292_BoV-29,,"Human bocavirus 1 isolate Yunnan/2019_2292_BoV-29, complete genome",5200,complete,China,China,Homo sapiens,2019-03-27
+PP625030,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_0318_BoV-31,,"Human bocavirus 1 isolate Yunnan/2019_0318_BoV-31, complete genome",5205,complete,China,China,Homo sapiens,2019-04-15
+PP625031,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_4437_BoV-32,,"Human bocavirus 1 isolate Yunnan/2019_4437_BoV-32, complete genome",5202,complete,China,China,Homo sapiens,2019-06-20
+PP625032,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_2595_BoV-33,,"Human bocavirus 1 isolate Yunnan/2019_2595_BoV-33, complete genome",5204,complete,China,China,Homo sapiens,2019-07-14
+PP625033,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_2769_BoV-34,,"Human bocavirus 1 isolate Yunnan/2019_2769_BoV-34, complete genome",5204,complete,China,China,Homo sapiens,2019-09-11
+PP625034,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_0867_BoV-35,,"Human bocavirus 1 isolate Yunnan/2019_0867_BoV-35, complete genome",5202,complete,China,China,Homo sapiens,2019-10-28
+PP625035,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_0917_BoV-36,,"Human bocavirus 1 isolate Yunnan/2019_0917_BoV-36, complete genome",5202,complete,China,China,Homo sapiens,2019-11-11
+PP625036,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_4811_BoV-37,,"Human bocavirus 1 isolate Yunnan/2019_4811_BoV-37, complete genome",5202,complete,China,China,Homo sapiens,2019-11-11
+PP625037,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_0950_BoV-38,,"Human bocavirus 1 isolate Yunnan/2019_0950_BoV-38, complete genome",5201,complete,China,China,Homo sapiens,2019-11-25
+PP625038,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_4834_BoV-39,,"Human bocavirus 1 isolate Yunnan/2019_4834_BoV-39, complete genome",5204,complete,China,China,Homo sapiens,2019-11-21
+PP625039,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_4865_BoV-40,,"Human bocavirus 1 isolate Yunnan/2019_4865_BoV-40, complete genome",5201,complete,China,China,Homo sapiens,2019-12-02
+PP625040,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_1012_BoV-41,,"Human bocavirus 1 isolate Yunnan/2019_1012_BoV-41, complete genome",5208,complete,China,China,Homo sapiens,2019-12-16
+PP625041,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2019_0961_BoV-42,,"Human bocavirus 1 isolate Yunnan/2019_0961_BoV-42, complete genome",5201,complete,China,China,Homo sapiens,2019-11-27
+PP625042,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2021_2105_BoV-50,,"Human bocavirus 1 isolate Yunnan/2021_2105_BoV-50, complete genome",5200,complete,China,China,Homo sapiens,2021-02-25
+PP625043,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2021_0421_BoV-58,,"Human bocavirus 1 isolate Yunnan/2021_0421_BoV-58, complete genome",5207,complete,China,China,Homo sapiens,2021-05-31
+PP625044,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2021_1036_BoV-61,,"Human bocavirus 1 isolate Yunnan/2021_1036_BoV-61, complete genome",5199,complete,China,China,Homo sapiens,2020-12-29
+PP625045,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_4420_BoV-72,,"Human bocavirus 1 isolate Yunnan/2020_4420_BoV-72, complete genome",5200,complete,China,China,Homo sapiens,2020-12-17
+PP625046,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_0994_BoV-73,,"Human bocavirus 1 isolate Yunnan/2020_0994_BoV-73, complete genome",5204,complete,China,China,Homo sapiens,2020-12-16
+PP625047,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_0989_BoV-74,,"Human bocavirus 1 isolate Yunnan/2020_0989_BoV-74, complete genome",5204,complete,China,China,Homo sapiens,2020-12-16
+PP625048,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_4416_BoV-75,,"Human bocavirus 1 isolate Yunnan/2020_4416_BoV-75, complete genome",5206,complete,China,China,Homo sapiens,2020-12-15
+PP625049,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_3145_BoV-78,,"Human bocavirus 1 isolate Yunnan/2020_3145_BoV-78, complete genome",5202,complete,China,China,Homo sapiens,2020-12-12
+PP625050,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_0973_BoV-79,,"Human bocavirus 1 isolate Yunnan/2020_0973_BoV-79, complete genome",5202,complete,China,China,Homo sapiens,2020-12-07
+PP625051,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_0964_BoV-80,,"Human bocavirus 1 isolate Yunnan/2020_0964_BoV-80, complete genome",5204,complete,China,China,Homo sapiens,2020-12-07
+PP625052,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_0561_BoV-81,,"Human bocavirus 1 isolate Yunnan/2020_0561_BoV-81, complete genome",5202,complete,China,China,Homo sapiens,2020-07-14
+PP625053,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_0951_BoV-86,,"Human bocavirus 1 isolate Yunnan/2020_0951_BoV-86, complete genome",5204,complete,China,China,Homo sapiens,2020-11-30
+PP625054,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_0901_BoV-94,,"Human bocavirus 1 isolate Yunnan/2020_0901_BoV-94, complete genome",5202,complete,China,China,Homo sapiens,2020-11-10
+PP625055,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_3064_BoV-95,,"Human bocavirus 1 isolate Yunnan/2020_3064_BoV-95, complete genome",5200,complete,China,China,Homo sapiens,2020-11-07
+PP625056,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_2993_BoV-96,,"Human bocavirus 1 isolate Yunnan/2020_2993_BoV-96, complete genome",5201,complete,China,China,Homo sapiens,2020-10-10
+PP625057,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2020_0815_BoV-97,,"Human bocavirus 1 isolate Yunnan/2020_0815_BoV-97, complete genome",5200,complete,China,China,Homo sapiens,2020-10-12
+PP625058,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2021_2286_BoV-100,,"Human bocavirus 1 isolate Yunnan/2021_2286_BoV-100, complete genome",5201,complete,China,China,Homo sapiens,2021-04-15
+PP625059,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2021_4067_BoV-102,,"Human bocavirus 1 isolate Yunnan/2021_4067_BoV-102, complete genome",5200,complete,China,China,Homo sapiens,2021-03-30
+PP625060,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2021_0842_BoV-104,,"Human bocavirus 1 isolate Yunnan/2021_0842_BoV-104, complete genome",5199,complete,China,China,Homo sapiens,2021-10-19
+PP625061,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2021_0545_BoV-106,,"Human bocavirus 1 isolate Yunnan/2021_0545_BoV-106, complete genome",5200,complete,China,China,Homo sapiens,2021-07-12
+PP625062,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2021_2519_BoV-109,,"Human bocavirus 1 isolate Yunnan/2021_2519_BoV-109, complete genome",5200,complete,China,China,Homo sapiens,2021-06-18
+PP625063,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2021_2618_BoV-110,,"Human bocavirus 1 isolate Yunnan/2021_2618_BoV-110, complete genome",5204,complete,China,China,Homo sapiens,2021-07-17
+PP625064,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2021_0512_BoV-111,,"Human bocavirus 1 isolate Yunnan/2021_0512_BoV-111, complete genome",5201,complete,China,China,Homo sapiens,2021-06-28
+PP625065,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2021_4221_BoV-138,,"Human bocavirus 1 isolate Yunnan/2021_4221_BoV-138, complete genome",5200,complete,China,China,Homo sapiens,2021-05-17
+PP625066,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_0522_BoV-149,,"Human bocavirus 1 isolate Yunnan/2022_0522_BoV-149, complete genome",5204,complete,China,China,Homo sapiens,2022-04-27
+PP625067,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_0547_BoV-150,,"Human bocavirus 1 isolate Yunnan/2022_0547_BoV-150, complete genome",5201,complete,China,China,Homo sapiens,2022-05-06
+PP625068,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_4787_BoV-152,,"Human bocavirus 1 isolate Yunnan/2022_4787_BoV-152, complete genome",5202,complete,China,China,Homo sapiens,2022-07-05
+PP625069,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_0865_BoV-154,,"Human bocavirus 1 isolate Yunnan/2022_0865_BoV-154, complete genome",5202,complete,China,China,Homo sapiens,2022-08-02
+PP625070,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_0876_BoV-155,,"Human bocavirus 1 isolate Yunnan/2022_0876_BoV-155, complete genome",5200,complete,China,China,Homo sapiens,2022-08-02
+PP625071,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_0880_BoV-156,,"Human bocavirus 1 isolate Yunnan/2022_0880_BoV-156, complete genome",5201,complete,China,China,Homo sapiens,2022-08-02
+PP625072,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_4880_BoV-157,,"Human bocavirus 1 isolate Yunnan/2022_4880_BoV-157, complete genome",5201,complete,China,China,Homo sapiens,2022-08-01
+PP625073,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_0948_BoV-158,,"Human bocavirus 1 isolate Yunnan/2022_0948_BoV-158, complete genome",5206,complete,China,China,Homo sapiens,2022-08-22
+PP625074,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_0953_BoV-159,,"Human bocavirus 1 isolate Yunnan/2022_0953_BoV-159, complete genome",5201,complete,China,China,Homo sapiens,2022-08-22
+PP625075,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_4934_BoV-160,,"Human bocavirus 1 isolate Yunnan/2022_4934_BoV-160, complete genome",5201,complete,China,China,Homo sapiens,2022-08-22
+PP625076,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_2905_BoV-163,,"Human bocavirus 1 isolate Yunnan/2022_2905_BoV-163, complete genome",5200,complete,China,China,Homo sapiens,2022-10-06
+PP625077,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_1108_BoV-164,,"Human bocavirus 1 isolate Yunnan/2022_1108_BoV-164, complete genome",5200,complete,China,China,Homo sapiens,2022-10-10
+PP625078,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_1122_BoV-165,,"Human bocavirus 1 isolate Yunnan/2022_1122_BoV-165, complete genome",5200,complete,China,China,Homo sapiens,2018-08-14
+PP625079,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_1236_BoV-166,,"Human bocavirus 1 isolate Yunnan/2022_1236_BoV-166, complete genome",5200,complete,China,China,Homo sapiens,2022-11-14
+PP625080,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2022_5233_BoV-168,,"Human bocavirus 1 isolate Yunnan/2022_5233_BoV-168, complete genome",5200,complete,China,China,Homo sapiens,2022-12-07
+PP625081,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0123_BoV-169,,"Human bocavirus 1 isolate Yunnan/2023_0123_BoV-169, complete genome",5200,complete,China,China,Homo sapiens,2023-01-31
+PP625082,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0355_BoV-172,,"Human bocavirus 1 isolate Yunnan/2023_0355_BoV-172, complete genome",5200,complete,China,China,Homo sapiens,2023-04-10
+PP625083,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0356_BoV-173,,"Human bocavirus 1 isolate Yunnan/2023_0356_BoV-173, complete genome",5206,complete,China,China,Homo sapiens,2023-04-10
+PP625084,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0451_BoV-174,,"Human bocavirus 1 isolate Yunnan/2023_0451_BoV-174, complete genome",5200,complete,China,China,Homo sapiens,2023-05-09
+PP625085,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0461_BoV-175,,"Human bocavirus 1 isolate Yunnan/2023_0461_BoV-175, complete genome",5200,complete,China,China,Homo sapiens,2023-05-09
+PP625086,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0549_BoV-177,,"Human bocavirus 1 isolate Yunnan/2023_0549_BoV-177, complete genome",5200,complete,China,China,Homo sapiens,2023-05-23
+PP625087,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0595_BoV-179,,"Human bocavirus 1 isolate Yunnan/2023_0595_BoV-179, complete genome",5213,complete,China,China,Homo sapiens,2023-06-06
+PP625088,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0619_BoV-180,,"Human bocavirus 1 isolate Yunnan/2023_0619_BoV-180, complete genome",5200,complete,China,China,Homo sapiens,2023-06-13
+PP625089,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0642_BoV-181,,"Human bocavirus 1 isolate Yunnan/2023_0642_BoV-181, complete genome",5200,complete,China,China,Homo sapiens,2023-06-20
+PP625090,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0659_BoV-182,,"Human bocavirus 1 isolate Yunnan/2023_0659_BoV-182, complete genome",5202,complete,China,China,Homo sapiens,2023-06-20
+PP625091,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_4425_BoV-183,,"Human bocavirus 1 isolate Yunnan/2023_4425_BoV-183, complete genome",5200,complete,China,China,Homo sapiens,2023-06-19
+PP625092,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_2616_BoV-185,,"Human bocavirus 1 isolate Yunnan/2023_2616_BoV-185, complete genome",5200,complete,China,China,Homo sapiens,2023-06-20
+PP625093,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_4493_BoV-187,,"Human bocavirus 1 isolate Yunnan/2023_4493_BoV-187, complete genome",5200,complete,China,China,Homo sapiens,2023-07-03
+PP625094,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_4500_BoV-188,,"Human bocavirus 1 isolate Yunnan/2023_4500_BoV-188, complete genome",5200,complete,China,China,Homo sapiens,2023-07-03
+PP625095,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_4501_BoV-189,,"Human bocavirus 1 isolate Yunnan/2023_4501_BoV-189, complete genome",5200,complete,China,China,Homo sapiens,2023-07-03
+PP625096,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0728_BoV-192,,"Human bocavirus 1 isolate Yunnan/2023_0728_BoV-192, complete genome",5200,complete,China,China,Homo sapiens,2023-07-11
+PP625097,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0729_BoV-193,,"Human bocavirus 1 isolate Yunnan/2023_0729_BoV-193, complete genome",5202,complete,China,China,Homo sapiens,2023-07-11
+PP625098,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0735_BoV-194,,"Human bocavirus 1 isolate Yunnan/2023_0735_BoV-194, complete genome",5208,complete,China,China,Homo sapiens,2023-07-11
+PP625099,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0764_BoV-196,,"Human bocavirus 1 isolate Yunnan/2023_0764_BoV-196, complete genome",5204,complete,China,China,Homo sapiens,2023-07-18
+PP625100,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_2776_BoV-199,,"Human bocavirus 1 isolate Yunnan/2023_2776_BoV-199, complete genome",5200,complete,China,China,Homo sapiens,2023-07-21
+PP625101,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0777_BoV-200,,"Human bocavirus 1 isolate Yunnan/2023_0777_BoV-200, complete genome",5207,complete,China,China,Homo sapiens,2023-07-25
+PP625102,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_2805_BoV-201,,"Human bocavirus 1 isolate Yunnan/2023_2805_BoV-201, complete genome",5200,complete,China,China,Homo sapiens,2023-07-25
+PP625103,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_2848_BoV-202,,"Human bocavirus 1 isolate Yunnan/2023_2848_BoV-202, complete genome",5200,complete,China,China,Homo sapiens,2023-08-01
+PP625104,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_4688_BoV-203,,"Human bocavirus 1 isolate Yunnan/2023_4688_BoV-203, complete genome",5200,complete,China,China,Homo sapiens,2023-07-31
+PP625105,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_4693_BoV-204,,"Human bocavirus 1 isolate Yunnan/2023_4693_BoV-204, complete genome",5201,complete,China,China,Homo sapiens,2023-07-31
+PP625106,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0809_BoV-205,,"Human bocavirus 1 isolate Yunnan/2023_0809_BoV-205, complete genome",5202,complete,China,China,Homo sapiens,2023-08-01
+PP625107,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0856_BoV-206,,"Human bocavirus 1 isolate Yunnan/2023_0856_BoV-206, complete genome",5202,complete,China,China,Homo sapiens,2023-08-15
+PP625108,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_2892_BoV-207,,"Human bocavirus 1 isolate Yunnan/2023_2892_BoV-207, complete genome",5200,complete,China,China,Homo sapiens,2023-08-10
+PP625109,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_4746_BoV-208,,"Human bocavirus 1 isolate Yunnan/2023_4746_BoV-208, complete genome",5200,complete,China,China,Homo sapiens,2023-08-14
+PP625110,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0914_BoV-210,,"Human bocavirus 1 isolate Yunnan/2023_0914_BoV-210, complete genome",5200,complete,China,China,Homo sapiens,2023-08-29
+PP625111,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_0995_BoV-211,,"Human bocavirus 1 isolate Yunnan/2023_0995_BoV-211, complete genome",5200,complete,China,China,Homo sapiens,2023-09-26
+PP625112,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_3110_BoV-212,,"Human bocavirus 1 isolate Yunnan/2023_3110_BoV-212, complete genome",5200,complete,China,China,Homo sapiens,2023-09-25
+PP625113,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_1031_BoV-213,,"Human bocavirus 1 isolate Yunnan/2023_1031_BoV-213, complete genome",5200,complete,China,China,Homo sapiens,2023-10-06
+PP625114,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_1032_BoV-214,,"Human bocavirus 1 isolate Yunnan/2023_1032_BoV-214, complete genome",5200,complete,China,China,Homo sapiens,2023-10-06
+PP625115,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_1044_BoV-215,,"Human bocavirus 1 isolate Yunnan/2023_1044_BoV-215, complete genome",5200,complete,China,China,Homo sapiens,2023-10-10
+PP625116,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_1057_BoV-216,,"Human bocavirus 1 isolate Yunnan/2023_1057_BoV-216, complete genome",5200,complete,China,China,Homo sapiens,2023-10-10
+PP625117,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_1061_BoV-217,,"Human bocavirus 1 isolate Yunnan/2023_1061_BoV-217, complete genome",5200,complete,China,China,Homo sapiens,2023-10-10
+PP625118,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_1063_BoV-218,,"Human bocavirus 1 isolate Yunnan/2023_1063_BoV-218, complete genome",5201,complete,China,China,Homo sapiens,2023-10-10
+PP625119,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_5027_BoV-221,,"Human bocavirus 1 isolate Yunnan/2023_5027_BoV-221, complete genome",5201,complete,China,China,Homo sapiens,2023-10-13
+PP625120,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_5033_BoV-222,,"Human bocavirus 1 isolate Yunnan/2023_5033_BoV-222, complete genome",5200,complete,China,China,Homo sapiens,2023-10-13
+PP625121,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_1090_BoV-223,,"Human bocavirus 1 isolate Yunnan/2023_1090_BoV-223, complete genome",5201,complete,China,China,Homo sapiens,2023-10-19
+PP625122,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_1111_BoV-224,,"Human bocavirus 1 isolate Yunnan/2023_1111_BoV-224, complete genome",5200,complete,China,China,Homo sapiens,2023-10-24
+PP625123,,Human bocavirus 1,Bocaparvovirus primate1,Yunnan/2023_1152_BoV-225,,"Human bocavirus 1 isolate Yunnan/2023_1152_BoV-225, complete genome",5201,complete,China,China,Homo sapiens,2023-11-07
+OP255990,,Human bocavirus 1,Bocaparvovirus primate1,R04-014/Hu/NL/2018,,"Human bocavirus 1 strain R04-014/Hu/NL/2018, complete genome",5464,complete,Netherlands,Netherlands,Homo sapiens,2018-12-21
+OP255991,,Human bocavirus 3,Bocaparvovirus primate1,R04-14/Hu/NL/2018,,"Human bocavirus 3 strain R04-14/Hu/NL/2018, complete genome",5432,complete,Netherlands,Netherlands,Homo sapiens,2018-12-21
+LC769220,,Human bocavirus 1,Bocaparvovirus primate1,HBoV_Fukushima_OR634_2022,,"Human bocavirus 1 HBoV_Fukushima_OR634_2022 DNA, nearly complete genome",5537,complete,Japan: Fukushima,Japan,Homo sapiens,2022
+LC756667,,Human bocavirus 1,Bocaparvovirus primate1,HBoV_Fukushima_O230_2018,,"Human bocavirus 1 HBoV_Fukushima_O230_2018 DNA, nearly complete genome",5543,complete,Japan: Fukushima,Japan,Homo sapiens,2018
+LC720416,,Human bocavirus 1,Bocaparvovirus primate1,HBoV/Fukushima/H257/2018,,"Human bocavirus 1 HBoV/Fukushima/H257/2018 DNA, nearly complete genome",5544,complete,Japan: Fukushima,Japan,Homo sapiens,2018
+LC720417,,Human bocavirus 1,Bocaparvovirus primate1,HBoV/Fukushima/OR291/2021,,"Human bocavirus 1 HBoV/Fukushima/OR291/2021 DNA, nearly complete genome",5469,complete,Japan: Fukushima,Japan,Homo sapiens,2021
+LC720418,,Human bocavirus 1,Bocaparvovirus primate1,HBoV/Fukushima/OR293/2021,,"Human bocavirus 1 HBoV/Fukushima/OR293/2021 DNA, nearly complete genome",5357,complete,Japan: Fukushima,Japan,Homo sapiens,2021
+LC720419,,Human bocavirus 1,Bocaparvovirus primate1,HBoV/Fukushima/OR321/2021,,"Human bocavirus 1 HBoV/Fukushima/OR321/2021 DNA, nearly complete genome",5318,complete,Japan: Fukushima,Japan,Homo sapiens,2021
+LC720420,,Human bocavirus 1,Bocaparvovirus primate1,HBoV/Fukushima/OR327/2021,,"Human bocavirus 1 HBoV/Fukushima/OR327/2021 DNA, nearly complete genome",5440,complete,Japan: Fukushima,Japan,Homo sapiens,2021
+LC720421,,Human bocavirus 1,Bocaparvovirus primate1,HBoV/Fukushima/OR32/2020,,"Human bocavirus 1 HBoV/Fukushima/OR32/2020 DNA, nearly complete genome",5374,complete,Japan: Fukushima,Japan,Homo sapiens,2020
+LC720422,,Human bocavirus 1,Bocaparvovirus primate1,HBoV/Fukushima/OR331/2021,,"Human bocavirus 1 HBoV/Fukushima/OR331/2021 DNA, nearly complete genome",5349,complete,Japan: Fukushima,Japan,Homo sapiens,2021
+LC720423,,Human bocavirus 1,Bocaparvovirus primate1,HBoV/Fukushima/OR7/2020,,"Human bocavirus 1 HBoV/Fukushima/OR7/2020 DNA, nearly complete genome",5339,complete,Japan: Fukushima,Japan,Homo sapiens,2020
+OL519569,SAMN23039864,Human bocavirus 1,Bocaparvovirus primate1,xz003-boca-1,,"MAG: Human bocavirus 1 isolate xz003-boca-1, complete genome",5419,complete,China,China,Homo sapiens,2018
+OL519570,SAMN23039864,Human bocavirus 1,Bocaparvovirus primate1,xz005-boca-1,,"MAG: Human bocavirus 1 isolate xz005-boca-1, complete genome",5671,complete,China,China,Homo sapiens,2018
+OL519571,SAMN23039864,Human bocavirus 1,Bocaparvovirus primate1,xz007-boca-1,,"MAG: Human bocavirus 1 isolate xz007-boca-1, complete genome",5299,complete,China,China,Homo sapiens,2018
+OL519572,SAMN23039864,Human bocavirus 1,Bocaparvovirus primate1,xz021-boca-1,,"MAG: Human bocavirus 1 isolate xz021-boca-1, complete genome",5364,complete,China,China,Homo sapiens,2018
+OL519573,SAMN23039864,Human bocavirus 1,Bocaparvovirus primate1,xz040-boca-1,,"MAG: Human bocavirus 1 isolate xz040-boca-1, complete genome",5351,complete,China,China,Homo sapiens,2018
+LC651167,SAMD00414903,Human bocavirus 1,Bocaparvovirus primate1,Fukushima_H181_2018,,"Human bocavirus 1 Fukushima_H181_2018 DNA, complete genome",5371,complete,Japan:Fukushima,Japan,Homo sapiens,2018
+LC651168,SAMD00414904,Human bocavirus 1,Bocaparvovirus primate1,H216,,"Human bocavirus 1 H216 DNA, complete genome",5484,complete,Japan:Fukushima,Japan,Homo sapiens,2018
+LC651169,SAMD00414905,Human bocavirus 1,Bocaparvovirus primate1,H254,,"Human bocavirus 1 H254 DNA, complete genome",5561,complete,Japan:Fukushima,Japan,Homo sapiens,2018
+LC651170,SAMD00414906,Human bocavirus 1,Bocaparvovirus primate1,H315,,"Human bocavirus 1 H315 DNA, complete genome",5590,complete,Japan:Fukushima,Japan,Homo sapiens,2018
+LC651171,SAMD00414907,Human bocavirus 1,Bocaparvovirus primate1,H565,,"Human bocavirus 1 H565 DNA, complete genome",5596,complete,Japan:Fukushima,Japan,Homo sapiens,2019
+LC651172,SAMD00414908,Human bocavirus 1,Bocaparvovirus primate1,O210,,"Human bocavirus 1 O210 DNA, complete genome",5450,complete,Japan:Fukushima,Japan,Homo sapiens,2018
+LC651173,SAMD00414909,Human bocavirus 1,Bocaparvovirus primate1,O234,,"Human bocavirus 1 O234 DNA, complete genome",5291,complete,Japan:Fukushima,Japan,Homo sapiens,2018
+LC651174,SAMD00414910,Human bocavirus 1,Bocaparvovirus primate1,O278,,"Human bocavirus 1 O278 DNA, complete genome",5472,complete,Japan:Fukushima,Japan,Homo sapiens,2018
+LC651175,SAMD00414911,Human bocavirus 1,Bocaparvovirus primate1,OR189,,"Human bocavirus 1 OR189 DNA, complete genome",5539,complete,Japan:Fukushima,Japan,Homo sapiens,2021
+LC651176,SAMD00414912,Human bocavirus 1,Bocaparvovirus primate1,OR5,,"Human bocavirus 1 OR5 DNA, complete genome",5501,complete,Japan:Fukushima,Japan,Homo sapiens,2020
+LC651177,SAMD00414913,Human bocavirus 1,Bocaparvovirus primate1,OR59,,"Human bocavirus 1 OR59 DNA, complete genome",5421,complete,Japan:Fukushima,Japan,Homo sapiens,2020
+LC651178,SAMD00414914,Human bocavirus 1,Bocaparvovirus primate1,HBoV/Fukushima/OR65/2020,,"Human bocavirus 1 HBoV/Fukushima/OR65/2020 DNA, complete genome",5490,complete,Japan:Fukushima,Japan,Homo sapiens,2020
+LC651179,SAMD00414915,Human bocavirus 1,Bocaparvovirus primate1,OR72,,"Human bocavirus 1 OR72 DNA, complete genome",5402,complete,Japan:Fukushima,Japan,Homo sapiens,2020
+MG953829,,Human bocavirus 1,Bocaparvovirus primate1,BRA/PA-160,,"Human bocavirus 1 strain HBoV-1/BRA/PA-160/Brazil/2015 isolate BRA/PA-160, complete genome",5164,complete,Brazil,Brazil,Homo sapiens,2015
+MG953830,,Human bocavirus 1,Bocaparvovirus primate1,BRA/TO-142,,"Human bocavirus 1 strain HBoV-1/BRA/TO-142/Brazil/2014 isolate BRA/TO-142, complete genome",5164,complete,Brazil,Brazil,Homo sapiens,2014
+MG953832,,Human bocavirus 3,Bocaparvovirus primate1,BRA/TO-57,,"Human bocavirus 3 strain HBoV-3/BRA/TO-57/Brazil/2014 isolate BRA/TO-57, complete genome",5155,complete,Brazil,Brazil,Homo sapiens,2014
+MG953833,,Human bocavirus 3,Bocaparvovirus primate1,BRA/TO-40,,"Human bocavirus 3 strain HBoV-3/BRA/TO-40/Brazil/2014 isolate BRA/TO-40, complete genome",5157,complete,Brazil,Brazil,Homo sapiens,2014
+MG953834,,Human bocavirus 3,Bocaparvovirus primate1,BRA/TO-243,,"Human bocavirus 3 strain HBoV-3/BRA/TO-243/Brazil/2014 isolate BRA/TO-243, complete genome",5157,complete,Brazil,Brazil,Homo sapiens,2014
+KJ634207,,Human bocavirus 1,Bocaparvovirus primate1,307AR09,,"Human bocavirus 1 isolate 307AR09, complete genome",5099,complete,Argentina,Argentina,Homo sapiens,2009
+JQ923422,,Bocaparvovirus primate1,Bocaparvovirus primate1,Salvador1,,"Bocaparvovirus primate1 isolate Salvador1, complete genome",5543,complete,Brazil,Brazil,Homo sapiens,2005
+HM132056,,Human bocavirus 3,Bocaparvovirus primate1,46-BJ07,,"Human bocavirus 3 isolate 46-BJ07, complete genome",5242,complete,China,China,Homo sapiens,2007-11
+GQ867666,,Human bocavirus 3,Bocaparvovirus primate1,,,"Human bocavirus 3 strain MC8, complete genome",5161,complete,Brazil,Brazil,Homo sapiens,2003-06-25
+GQ867667,,Human bocavirus 3,Bocaparvovirus primate1,,,"Human bocavirus 3 strain IM10, complete genome",5161,complete,Brazil,Brazil,Homo sapiens,2004-05-19
+GU048665,,Human bocavirus 3,Bocaparvovirus primate1,,,"Human bocavirus 3 strain CU2139UK, complete genome",5148,complete,United Kingdom,United Kingdom,Homo sapiens,2008-09
+FJ948861,,Human bocavirus 3,Bocaparvovirus primate1,,,"Human bocavirus 3 strain W855, complete genome",5164,complete,Australia,Australia,Homo sapiens,2002-08
+FJ973562,,Human bocavirus 3,Bocaparvovirus primate1,,,"Human bocavirus 3 strain HBoV3B-TU-A-210-07, complete genome",4972,complete,Tunisia,Tunisia,Homo sapiens,2007-03-07
+EU918736,,Human bocavirus 3,Bocaparvovirus primate1,,,"Human bocavirus 3 strain W471, complete genome",5242,complete,Australia,Australia,Homo sapiens,2001-08

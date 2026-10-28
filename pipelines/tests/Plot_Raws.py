@@ -102,7 +102,7 @@ def kmer_styles(df):
     """Use the original Plot_RAWs.py colours, with a fallback for other lengths."""
     kmer_lengths = sorted(df["kmer_len"].unique())
     color_map = plt.get_cmap("tab10", len(kmer_lengths))
-    original_colors = {11: "red", 12: "blue", 13: "darkseagreen", 14: "#f2b8d8"}
+    original_colors = {11: "red", 12: "blue", 13: "darkseagreen", 14: "#e87ba4"}
     k_colors = {
         k: original_colors.get(k, to_hex(color_map(index)))
         for index, k in enumerate(kmer_lengths)

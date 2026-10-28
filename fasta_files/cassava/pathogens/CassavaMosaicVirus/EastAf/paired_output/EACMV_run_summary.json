@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "workflow": "prepare",
+  "analysis_name": "EACMV",
+  "started_at_utc": "2026-10-19T23:22:09Z",
+  "finished_at_utc": "2026-10-19T23:24:31+00:00",
+  "elapsed_seconds": 142,
+  "exit_code": 0,
+  "working_directory": "/home/saraalmeida/UA/ano5/Tese/altair",
+  "inputs": {
+    "pathogen_fasta": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/pathogens/CassavaMosaicVirus/EastAf/EACMV_segments.fasta",
+      "exists": false
+    },
+    "sequences.csv": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/pathogens/CassavaMosaicVirus/EastAf/sequences.csv",
+      "exists": true,
+      "size_bytes": 105827,
+      "sha256": "f4279bb84a2694d05b02bfbff44bd8838985804540efcc62295dbb4d92ca3f03"
+    },
+    "manual_components.csv": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/pathogens/CassavaMosaicVirus/EastAf/manual_components.csv",
+      "exists": false
+    },
+    "manual_pairs.csv": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/pathogens/CassavaMosaicVirus/EastAf/manual_pairs.csv",
+      "exists": false
+    },
+    "segments_options.txt": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/pathogens/CassavaMosaicVirus/EastAf/segments_options.txt",
+      "exists": true,
+      "size_bytes": 95,
+      "sha256": "dbb6abc448e5bd3c6299673c622f843a5f91c8904d910a24c74e4c3cf17c90e9"
+    },
+    "layout": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/pathogens/CassavaMosaicVirus/EastAf/EACMV_segments.layout.tsv",
+      "exists": false
+    }
+  },
+  "parameters": {
+    "kmin": null,
+    "kmax": null,
+    "ignore_ir": null
+  },
+  "altair": null,
+  "python_version": "3.11.13 | packaged by conda-forge | (main, Jun  4 2025, 14:48:23) [GCC 13.3.0]",
+  "scripts": {
+    "pipeline.sh": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/pipeline.sh",
+      "exists": true,
+      "size_bytes": 21514,
+      "sha256": "5777a7680978ec1fc6463af51b05ea775b0c250c47b8c8451d10e7f7d3d38cf4"
+    },
+    "get_fasta.sh": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/get_fasta.sh",
+      "exists": true,
+      "size_bytes": 13953,
+      "sha256": "29dec43625f5a76eaa86752e644bed5858fcaa769342e00ebab250bee47dafea"
+    },
+    "GetSegments.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/GetSegments.py",
+      "exists": true,
+      "size_bytes": 33654,
+      "sha256": "af4c4eab4ff9e758c3d3c196968450361bee7138154db5bbe182004da12a661e"
+    },
+    "JoinSegments.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/JoinSegments.py",
+      "exists": true,
+      "size_bytes": 9590,
+      "sha256": "a07eaadf3f7224b34c213f5849324dc2aa227bb4c1eb80b661874ce94c177c13"
+    },
+    "run_raw.sh": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/run_raw.sh",
+      "exists": true,
+      "size_bytes": 3385,
+      "sha256": "a9ad0a4ec479eebe63f03112ed68d9a6cc7dddfce766b174f5e75c1dfbe601f7"
+    },
+    "GCcontent.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/GCcontent.py",
+      "exists": true,
+      "size_bytes": 5183,
+      "sha256": "dd2d13934792b693bb4e840de3499cd5c32ca478ae1553d892f9e25c7a7fbb38"
+    },
+    "Filter_mRAWs.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/Filter_mRAWs.py",
+      "exists": true,
+      "size_bytes": 10225,
+      "sha256": "342f020d156af2fcd3369c541a6b7053beb89104cfb92af5f56cd8b1fac6a6e8"
+    },
+    "Plot_Raws.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/Plot_Raws.py",
+      "exists": true,
+      "size_bytes": 31952,
+      "sha256": "583ed17255dffc07131dee04cbd07c0050eddea45559fb6f76c7f0291bdd7eff"
+    },
+    "run_summary.py": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/run_summary.py",
+      "exists": true,
+      "size_bytes": 6895,
+      "sha256": "c10b08c4ebc3e8a8b72b35c0790cf1b652ea3f12e632081df13ab19fae25330c"
+    }
+  },
+  "output_directory": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/pathogens/CassavaMosaicVirus/EastAf/paired_output",
+  "prepared_artifacts": {
+    "pathogen_fasta": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/pathogens/CassavaMosaicVirus/EastAf/EACMV_segments.fasta",
+      "exists": true,
+      "size_bytes": 431859,
+      "sha256": "3e13a66b22a9ae8d29e2dda408104979efddf1992e02cdee3a356b780641e166"
+    },
+    "layout": {
+      "path": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/pathogens/CassavaMosaicVirus/EastAf/EACMV_segments.layout.tsv",
+      "exists": true,
+      "size_bytes": 4215,
+      "sha256": "c4ac8111fed55c41e4ca4e319587c0e9f53fa0c8fa74d589cd4fba6bc4f49f1f"
+    }
+  },
+  "output_counts": {
+    "pairs.csv": 8,
+    "unpaired_A.csv": 113,
+    "unpaired_B.csv": 25,
+    "unknown_component.csv": 0,
+    "excluded_records.csv": 50
+  },
+  "output_files": [
+    "ambiguous.csv",
+    "excluded_records.csv",
+    "metadata_with_keys.csv",
+    "pairs.csv",
+    "similarity_report.csv",
+    "unknown_component.csv",
+    "unpaired.csv",
+    "unpaired_A.csv",
+    "unpaired_B.csv"
+  ],
+  "output_inventory_note": "Files present at completion; an existing analysis directory may also contain earlier outputs."
+}

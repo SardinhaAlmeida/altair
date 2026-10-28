@@ -1,0 +1,50 @@
+{
+  "input": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/sars-cov-2/results/COVID/merged_gc.csv",
+  "host": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/human.fa",
+  "output": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/human/sars-cov-2/results/COVID/merged_mraw_gc.csv",
+  "altair": "/home/saraalmeida/miniconda3/envs/altair/bin/AltaiR",
+  "ignore_ir": false,
+  "membership": "Selected AltaiR DNA host models; no independent matching",
+  "input_occurrences": 17060,
+  "retained_occurrences": 13275,
+  "input_unique_words": 1045,
+  "retained_unique_words": 804,
+  "by_k": {
+    "12": {
+      "occurrences": {
+        "retained": 127
+      },
+      "unique_words": {
+        "retained": 8
+      }
+    },
+    "13": {
+      "occurrences": {
+        "retained": 2047,
+        "rejected_suffix_absent": 107,
+        "rejected_both_absent": 20,
+        "rejected_prefix_absent": 107
+      },
+      "unique_words": {
+        "retained": 128,
+        "rejected_prefix_absent": 7,
+        "rejected_suffix_absent": 7,
+        "rejected_both_absent": 1
+      }
+    },
+    "14": {
+      "occurrences": {
+        "retained": 11101,
+        "rejected_suffix_absent": 1270,
+        "rejected_both_absent": 1011,
+        "rejected_prefix_absent": 1270
+      },
+      "unique_words": {
+        "retained": 668,
+        "rejected_suffix_absent": 82,
+        "rejected_both_absent": 61,
+        "rejected_prefix_absent": 83
+      }
+    }
+  }
+}

@@ -1,0 +1,139 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mRAWs positional distribution — Pathogen: Begomovirus manihotis | Host: TME3 — k = 12</title>
+
+<style>
+    body {
+        font: 15px system-ui, sans-serif;
+        margin: 20px;
+        color: #18212b
+    }
+
+    h1 {
+        font-size: 20px
+    }
+
+    button {
+        padding: 7px 14px;
+        cursor: pointer
+    }
+
+    canvas {
+        display: block;
+        width: 100%;
+        height: 70vh;
+        min-height: 400px;
+        border: 1px solid #ccc;
+        touch-action: none
+    }
+
+    #details {
+        margin-top: 15px;
+        max-height: 350px;
+        overflow: auto
+    }
+
+    table {
+        border-collapse: collapse
+    }
+
+    td,
+    th {
+        padding: 7px 14px;
+        border: 1px solid #ddd;
+        text-align: left
+    }
+
+    td.seq {
+        font-family: monospace;
+        user-select: text
+    }
+
+    #tip {
+        position: fixed;
+        pointer-events: none;
+        white-space: pre;
+        background: #fff;
+        border: 1px solid #777;
+        padding: 8px;
+        display: none;
+        max-width: 90vw;
+        overflow: hidden
+    }
+</style>
+
+<h1>mRAWs positional distribution — Pathogen: Begomovirus manihotis | Host: TME3 — k = 12</h1>
+<p>Hover to inspect; click to keep details below and select a sequence to copy. Scroll to zoom; drag to pan. Orange
+    rings: GC 48–52%.</p>
+<p><button id="reset">Reset view</button> <span id="count"></span></p>
+<canvas id="plot" aria-label="Interactive positional distribution"></canvas>
+<div id="details">Click a dot to see its sequence and metadata. Overlapping occurrences are listed together.</div>
+<div id="tip"></div>
+<script id="raw-data" type="application/json">{"rows": [[3683, 1, "GACCCCGCGCAC", 83.33, 12, "B", 183, "J02058"], [3533, 3, "CCCCGCGCACCG", 91.67, 12, "B", 33, "MT858794"], [3533, 4, "CCCCGCGCACCG", 91.67, 12, "B", 33, "PQ261072"], [3531, 5, "GACCCCGCGCAC", 83.33, 12, "B", 31, "PP503027"], [3533, 10, "CCCCGCGCACCG", 91.67, 12, "B", 33, "PX289791"], [31, 22, "GACCCCGCGCAC", 83.33, 12, "A", 31, "LC658343"], [31, 23, "GACCCCGCGCAC", 83.33, 12, "A", 31, "LC658342"], [31, 46, "GACCCCGCGCAC", 83.33, 12, "A", 31, "KJ887763"], [31, 47, "GACCCCGCGCAC", 83.33, 12, "A", 31, "KJ887764"], [31, 51, "GACCCCGCGCAC", 83.33, 12, "A", 31, "KJ887766"], [31, 52, "GACCCCGCGCAC", 83.33, 12, "A", 31, "KJ887767"], [31, 56, "GACCCCGCGCAC", 83.33, 12, "A", 31, "KJ887771"], [31, 57, "GACCCCGCGCAC", 83.33, 12, "A", 31, "KJ887772"], [31, 58, "GACCCCGCGCAC", 83.33, 12, "A", 31, "KJ887773"], [30, 61, "GACCCCGCGCAC", 83.33, 12, "A", 30, "KJ887776"], [738, 90, "GCAACGCGCCCC", 83.33, 12, "A", 738, "KJ887805"], [31, 263, "GACCCCGCGCAC", 83.33, 12, "A", 31, "KJ887911"], [31, 269, "GACCCCGCGCAC", 83.33, 12, "A", 31, "KJ887907"], [789, 281, "CCCAGTACGGCG", 75.0, 12, "A", 789, "KJ887979"], [740, 284, "GCAACGCGCCCC", 83.33, 12, "A", 740, "KJ887997"], [789, 289, "CCCAGTACGGCG", 75.0, 12, "A", 789, "KJ888070"], [2199, 293, "CGCGTTGGCGTA", 66.67, 12, "A", 2199, "KJ888086"], [1801, 312, "GGGTCGGACGTT", 66.67, 12, "A", 1801, "MT821876"], [1785, 326, "AACGGGGGGTCG", 75.0, 12, "A", 1785, "MT821872"], [3533, 327, "CCCCGCGCACCG", 91.67, 12, "B", 33, "KR476373"], [3533, 328, "CCCCGCGCACCG", 91.67, 12, "B", 33, "LC659081"], [3532, 330, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887591"], [4399, 330, "TATTCCGCGGGT", 58.33, 12, "B", 899, "KJ887591"], [4401, 330, "TTCCGCGGGTTA", 58.33, 12, "B", 901, "KJ887591"], [3532, 331, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887592"], [4399, 331, "TATTCCGCGGGT", 58.33, 12, "B", 899, "KJ887592"], [4401, 331, "TTCCGCGGGTTA", 58.33, 12, "B", 901, "KJ887592"], [3531, 332, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887593"], [4397, 332, "TATTCCGCGGGT", 58.33, 12, "B", 897, "KJ887593"], [4399, 332, "TTCCGCGGGTTA", 58.33, 12, "B", 899, "KJ887593"], [3532, 333, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887624"], [3532, 334, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887582"], [3531, 335, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887583"], [3532, 337, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887584"], [3551, 337, "CCGCGTCCCCCC", 91.67, 12, "B", 51, "KJ887584"], [4399, 340, "TATTCCGCGGGT", 58.33, 12, "B", 899, "KJ887588"], [4401, 340, "TTCCGCGGGTTA", 58.33, 12, "B", 901, "KJ887588"], [4399, 341, "TATTCCGCGGGT", 58.33, 12, "B", 899, "KJ887589"], [4401, 341, "TTCCGCGGGTTA", 58.33, 12, "B", 901, "KJ887589"], [3532, 342, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887590"], [4399, 342, "TATTCCGCGGGT", 58.33, 12, "B", 899, "KJ887590"], [4401, 342, "TTCCGCGGGTTA", 58.33, 12, "B", 901, "KJ887590"], [3532, 343, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887594"], [3551, 343, "CCGCGTCCCCCC", 91.67, 12, "B", 51, "KJ887594"], [3531, 344, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887631"], [3531, 345, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887632"], [3531, 348, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887597"], [3532, 349, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887598"], [3532, 350, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887599"], [3532, 351, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887600"], [4400, 351, "TATTCCGCGGGT", 58.33, 12, "B", 900, "KJ887600"], [4402, 351, "TTCCGCGGGTTA", 58.33, 12, "B", 902, "KJ887600"], [3531, 353, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887602"], [3531, 354, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887603"], [3530, 355, "GACCCCGCGCAC", 83.33, 12, "B", 30, "KJ887604"], [5694, 355, "CGCAGCGGAACG", 75.0, 12, "B", 2194, "KJ887604"], [3532, 356, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887605"], [3552, 356, "CGCGTCCCCCCC", 91.67, 12, "B", 52, "KJ887605"], [3533, 357, "GACCCCGCGCAC", 83.33, 12, "B", 33, "KJ887606"], [3552, 357, "CCGCGTCCCCCC", 91.67, 12, "B", 52, "KJ887606"], [3532, 358, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887607"], [3532, 360, "GCCCCGCGCACC", 91.67, 12, "B", 32, "KJ887609"], [3534, 360, "CCCGCGCACCAG", 83.33, 12, "B", 34, "KJ887609"], [3536, 362, "CCCGCGGACTGG", 83.33, 12, "B", 36, "KJ887611"], [3538, 362, "CGCGGACTGGTT", 66.67, 12, "B", 38, "KJ887611"], [3532, 367, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887616"], [3532, 370, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887619"], [3551, 370, "CCGCGTCCCCCC", 91.67, 12, "B", 51, "KJ887619"], [3552, 370, "CGCGTCCCCCCC", 91.67, 12, "B", 52, "KJ887619"], [3532, 371, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887620"], [3551, 371, "CCGCGTCCCCCC", 91.67, 12, "B", 51, "KJ887620"], [3532, 372, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887621"], [3532, 373, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887622"], [3532, 376, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887626"], [5879, 376, "ACCGTATACGAA", 41.67, 12, "B", 2379, "KJ887626"], [3532, 377, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887627"], [4400, 377, "TATTCCGCGGGT", 58.33, 12, "B", 900, "KJ887627"], [4402, 377, "TTCCGCGGGTTA", 58.33, 12, "B", 902, "KJ887627"], [3532, 379, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887629"], [3532, 380, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887630"], [3551, 380, "CCGCGTCCCCCC", 91.67, 12, "B", 51, "KJ887630"], [3532, 382, "GACCCCGCGCAC", 83.33, 12, "B", 32, "KJ887751"], [3531, 383, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887752"], [3531, 384, "GACCCCGCGCAC", 83.33, 12, "B", 31, "LC722237"], [3535, 389, "CCGCGCACTTAT", 58.33, 12, "B", 35, "PV297824"], [3532, 390, "GCCCCGCGCACC", 91.67, 12, "B", 32, "PV297827"], [3534, 390, "CCCGCGCACCAG", 83.33, 12, "B", 34, "PV297827"], [3535, 393, "CCGCGCACTTAT", 58.33, 12, "B", 35, "PV297835"], [3535, 396, "CCGCGCACTTAT", 58.33, 12, "B", 35, "PV297838"], [3533, 398, "CCCCGCGCACCG", 91.67, 12, "B", 33, "PV297840"], [3535, 399, "CCGCGCACTTAT", 58.33, 12, "B", 35, "PV297841"], [3532, 400, "GCCCCGCGCACC", 91.67, 12, "B", 32, "PV297842"], [3533, 400, "CCCCGCGCACCG", 91.67, 12, "B", 33, "PV297842"], [3535, 402, "CCGCGCACTTAT", 58.33, 12, "B", 35, "PV297844"], [3535, 406, "CCGCGCACTTAT", 58.33, 12, "B", 35, "PV297817"], [5694, 406, "CGCAGCGGAACG", 75.0, 12, "B", 2194, "PV297817"], [3535, 407, "CCGCGCACTTAT", 58.33, 12, "B", 35, "PV297818"], [3533, 411, "CCCCGCGCACCG", 91.67, 12, "B", 33, "PV297826"], [3535, 415, "CCGCGCACTTAT", 58.33, 12, "B", 35, "PV297851"], [5694, 418, "CGCAGCGGAACG", 75.0, 12, "B", 2194, "PV297831"], [3533, 420, "CCCCGCGCACCG", 91.67, 12, "B", 33, "PQ261069"], [3533, 421, "CCCCGCGCACCG", 91.67, 12, "B", 33, "PQ261068"], [3533, 422, "CCCCGCGCACCG", 91.67, 12, "B", 33, "PQ261070"], [3533, 423, "CCCCGCGCACCG", 91.67, 12, "B", 33, "PQ261067"], [3533, 431, "CCCCGCGCACCG", 91.67, 12, "B", 33, "MH646721"], [5693, 432, "CGCAGCGGAACG", 75.0, 12, "B", 2193, "MH646722"], [3535, 436, "CCGCGCACTTAT", 58.33, 12, "B", 35, "MH646697"], [3535, 437, "CCGCGCACTTAT", 58.33, 12, "B", 35, "MH646698"], [3535, 438, "CCGCGCACTTAT", 58.33, 12, "B", 35, "MH646699"], [3535, 439, "CCGCGCACTTAT", 58.33, 12, "B", 35, "MH646700"], [5829, 448, "CCGCGCACTTAT", 58.33, 12, "B", 2329, "MH646693"], [3535, 451, "CCGCGCACTTAT", 58.33, 12, "B", 35, "MH646709"], [3535, 452, "CCGCGCACTTAT", 58.33, 12, "B", 35, "MH646710"], [6055, 453, "CCCCCGCGGAAA", 75.0, 12, "B", 2555, "MH646706"], [5977, 458, "CCGCGCACTTAT", 58.33, 12, "B", 2477, "MH646711"], [5693, 461, "CGCAGCGGAACG", 75.0, 12, "B", 2193, "MH646713"], [3531, 468, "GACCCCGCGCAC", 83.33, 12, "B", 31, "HG530121"], [3533, 469, "CCCGCGCACCAG", 83.33, 12, "B", 33, "HG530122"], [3577, 469, "ACGTGCTGCGCT", 66.67, 12, "B", 77, "HG530122"], [5694, 469, "CGCAGCGGAACG", 75.0, 12, "B", 2194, "HG530122"], [3531, 470, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887634"], [3531, 472, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887636"], [3531, 473, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887638"], [3588, 473, "TCCGCGTATACG", 58.33, 12, "B", 88, "KJ887638"], [3589, 473, "CCGCGTATACGA", 58.33, 12, "B", 89, "KJ887638"], [3530, 474, "GACCCCGCGCAC", 83.33, 12, "B", 30, "KJ887651"], [3531, 475, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887681"], [3531, 476, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887692"], [3531, 477, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887705"], [3531, 478, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887706"], [3531, 479, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887707"], [3531, 480, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887710"], [3530, 481, "GACCCCGCGCAC", 83.33, 12, "B", 30, "KJ887739"], [3531, 482, "GACCCCGCGCAC", 83.33, 12, "B", 31, "KJ887741"], [3530, 483, "GACCCCGCGCAC", 83.33, 12, "B", 30, "KJ887743"], [3529, 484, "GACCCCGCGCAC", 83.33, 12, "B", 29, "KJ887744"], [3533, 486, "CCCCGCGCACCG", 91.67, 12, "B", 33, "KR476374"], [3534, 489, "CCCGCGCACCAG", 83.33, 12, "B", 34, "HE979786"], [3578, 489, "ACGTGCTGCGCT", 66.67, 12, "B", 78, "HE979786"], [3534, 491, "CCCGCGCACCAG", 83.33, 12, "B", 34, "HE979787"], [3578, 491, "ACGTGCTGCGCT", 66.67, 12, "B", 78, "HE979787"], [3534, 492, "CCCGCGCACCAG", 83.33, 12, "B", 34, "HE979788"], [3578, 492, "ACGTGCTGCGCT", 66.67, 12, "B", 78, "HE979788"], [3534, 493, "CCCGCGCACCAG", 83.33, 12, "B", 34, "HE979789"], [3578, 493, "ACGTGCTGCGCT", 66.67, 12, "B", 78, "HE979789"], [3533, 494, "CCCCGCGCACCG", 91.67, 12, "B", 33, "HE979790"], [3534, 495, "CCCGCGCACCAG", 83.33, 12, "B", 34, "HE979791"], [3578, 495, "ACGTGCTGCGCT", 66.67, 12, "B", 78, "HE979791"], [3534, 496, "CCCGCGCACCAG", 83.33, 12, "B", 34, "HE979792"], [3578, 496, "ACGTGCTGCGCT", 66.67, 12, "B", 78, "HE979792"], [3534, 499, "CCCGCGCACCAG", 83.33, 12, "B", 34, "HE979795"], [3578, 499, "ACGTGCTGCGCT", 66.67, 12, "B", 78, "HE979795"], [3534, 500, "CCCGCGCACCAG", 83.33, 12, "B", 34, "HE979796"], [3578, 500, "ACGTGCTGCGCT", 66.67, 12, "B", 78, "HE979796"]], "xmax": 6500, "ymax": 505, "color": "blue", "highlight": true, "label": "mRAWs", "position_label": "Display position", "extra_columns": ["Component", "Position in component", "Accession"]}</script>
+
+<script>
+    'use strict';
+    const data = JSON.parse(document.getElementById('raw-data').textContent);
+    const canvas = document.getElementById('plot'), ctx = canvas.getContext('2d'), tip = document.getElementById('tip');
+    const margin = { left: 80, right: 25, top: 25, bottom: 65 }; let width, height, view, drag = null, bins = new Map();
+    const groups = new Map();
+    for (const row of data.rows) { const key = row[0] + ',' + row[1]; if (!groups.has(key)) groups.set(key, []); groups.get(key).push(row); }
+    document.getElementById('count').textContent = data.rows.length.toLocaleString() + ' ' + data.label + ' occurrences';
+    function reset() { view = { x0: 0, x1: data.xmax, y0: -0.5, y1: data.ymax + 0.5 }; draw(); }
+    function px(x) { return margin.left + (x - view.x0) / (view.x1 - view.x0) * (width - margin.left - margin.right); }
+    function py(y) { return height - margin.bottom - (y - view.y0) / (view.y1 - view.y0) * (height - margin.top - margin.bottom); }
+    function step(span) { const base = 10 ** Math.floor(Math.log10(span / 10)); return [1, 2, 5, 10].map(v => v * base).find(v => v >= span / 10); }
+    function draw() {
+        ctx.clearRect(0, 0, width, height); ctx.font = '12px system-ui'; ctx.fillStyle = '#333'; ctx.strokeStyle = '#ddd'; ctx.lineWidth = 1;
+        for (let axis = 0; axis < 2; axis++) {
+            const low = axis ? view.y0 : view.x0, high = axis ? view.y1 : view.x1, inc = Math.max(1, step(high - low));
+            for (let v = Math.ceil(low / inc) * inc; v <= high; v += inc) {
+                ctx.beginPath();
+                if (axis) { const y = py(v); ctx.moveTo(margin.left, y); ctx.lineTo(width - margin.right, y); ctx.textAlign = 'right'; ctx.fillText(Math.round(v).toLocaleString(), margin.left - 8, y + 4); }
+                else { const x = px(v); ctx.moveTo(x, margin.top); ctx.lineTo(x, height - margin.bottom); ctx.textAlign = 'center'; ctx.fillText(Math.round(v).toLocaleString(), x, height - margin.bottom + 22); }
+                ctx.stroke();
+            }
+        }
+        ctx.textAlign = 'center'; ctx.fillText('Position in Genome', width / 2, height - 15); ctx.save(); ctx.translate(18, height / 2); ctx.rotate(-Math.PI / 2); ctx.fillText('Genome Index', 0, 0); ctx.restore();
+        bins = new Map(); ctx.save(); ctx.beginPath(); ctx.rect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom); ctx.clip();
+        for (const rows of groups.values()) {
+            const row = rows[0], x = px(row[0]), y = py(row[1]); if (x < margin.left || x > width - margin.right || y < margin.top || y > height - margin.bottom) continue;
+            ctx.fillStyle = data.color; ctx.beginPath(); ctx.arc(x, y, 2.5, 0, 2 * Math.PI); ctx.fill();
+            if (data.highlight && rows.some(r => r[3] >= 48 && r[3] <= 52)) { ctx.strokeStyle = 'orange'; ctx.beginPath(); ctx.arc(x, y, 6, 0, 2 * Math.PI); ctx.stroke(); }
+            const key = Math.floor(x / 12) + ',' + Math.floor(y / 12); if (!bins.has(key)) bins.set(key, []); bins.get(key).push({ x, y, rows });
+        }
+        ctx.restore();
+    }
+    function locate(e) { const rect = canvas.getBoundingClientRect(); return { x: e.clientX - rect.left, y: e.clientY - rect.top }; }
+    function hit(p) {
+        let best = null, distance = 81; const bx = Math.floor(p.x / 12), by = Math.floor(p.y / 12);
+        for (let x = bx - 1; x <= bx + 1; x++)for (let y = by - 1; y <= by + 1; y++)for (const point of bins.get(x + ',' + y) || []) { const d = (point.x - p.x) ** 2 + (point.y - p.y) ** 2; if (d < distance) { best = point; distance = d; } }
+        return best;
+    }
+    function inspect(point) {
+        const container = document.getElementById('details'); container.replaceChildren(); if (!point) return;
+        const heading = document.createElement('p'); heading.textContent = point.rows.length + ' occurrence(s) at position ' + point.rows[0][0] + ', genome ' + point.rows[0][1]; container.append(heading);
+        const table = document.createElement('table'), head = document.createElement('tr'); for (const name of ['Sequence', 'Position', 'Genome index', 'GC %', 'k']) { const cell = document.createElement('th'); cell.textContent = name; head.append(cell); } table.append(head);
+        for (const row of point.rows) { const tr = document.createElement('tr'); for (const [i, value] of [row[2], row[0], row[1], row[3], row[4]].entries()) { const cell = document.createElement('td'); cell.textContent = value; if (i === 0) cell.className = 'seq'; tr.append(cell); } table.append(tr); } container.append(table);
+    }
+    canvas.addEventListener('pointerdown', e => { drag = { start: locate(e), view: { ...view }, moved: false }; canvas.setPointerCapture(e.pointerId); tip.style.display = 'none'; });
+    canvas.addEventListener('pointermove', e => {
+        const p = locate(e); if (drag) {
+            const dx = p.x - drag.start.x, dy = p.y - drag.start.y; if (Math.hypot(dx, dy) > 3) drag.moved = true;
+            if (drag.moved) { const sx = (drag.view.x1 - drag.view.x0) / (width - margin.left - margin.right), sy = (drag.view.y1 - drag.view.y0) / (height - margin.top - margin.bottom); view = { x0: drag.view.x0 - dx * sx, x1: drag.view.x1 - dx * sx, y0: drag.view.y0 + dy * sy, y1: drag.view.y1 + dy * sy }; draw(); } return;
+        }
+        const point = hit(p); tip.style.display = point ? 'block' : 'none'; if (point) { const r = point.rows[0]; tip.textContent = r[2] + '\nPosition: ' + r[0] + ' | Genome: ' + r[1] + '\nGC: ' + r[3] + '% | k: ' + r[4] + (point.rows.length > 1 ? '\n' + point.rows.length + ' overlapping occurrences — click to list' : ''); tip.style.left = Math.min(e.clientX + 12, window.innerWidth - tip.offsetWidth - 8) + 'px'; tip.style.top = Math.max(0, Math.min(e.clientY + 12, window.innerHeight - tip.offsetHeight - 8)) + 'px'; }
+    });
+    canvas.addEventListener('pointerup', e => { if (drag && !drag.moved) inspect(hit(locate(e))); drag = null; });
+    canvas.addEventListener('pointercancel', () => { drag = null; }); canvas.addEventListener('pointerleave', () => { tip.style.display = 'none'; });
+    canvas.addEventListener('wheel', e => {
+        e.preventDefault(); tip.style.display = 'none'; const p = locate(e), factor = Math.exp(Math.max(-1, Math.min(1, e.deltaY * 0.002)));
+        const x = view.x0 + (p.x - margin.left) / (width - margin.left - margin.right) * (view.x1 - view.x0), y = view.y0 + (height - margin.bottom - p.y) / (height - margin.top - margin.bottom) * (view.y1 - view.y0);
+        if ((view.x1 - view.x0) * factor < 1 || (view.y1 - view.y0) * factor < 0.1) return;
+        view = { x0: x + (view.x0 - x) * factor, x1: x + (view.x1 - x) * factor, y0: y + (view.y0 - y) * factor, y1: y + (view.y1 - y) * factor }; draw();
+    }, { passive: false });
+    document.getElementById('reset').onclick = reset;
+    function resize() { const rect = canvas.getBoundingClientRect(), ratio = window.devicePixelRatio || 1; width = rect.width; height = rect.height; canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio); ctx.setTransform(ratio, 0, 0, ratio, 0, 0); if (view) draw(); else reset(); }
+    window.addEventListener('resize', resize); resize();
+</script>

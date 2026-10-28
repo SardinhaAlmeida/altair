@@ -1,0 +1,35 @@
+Download started: qua 23 set 2026 17:01:36 WEST
+Pathogen directory: /home/saraalmeida/UA/ano5/Tese/altair/fasta_files/random_experiment/Alphapolyomavirus_mauratus
+Input mode: complete
+Input CSV: /home/saraalmeida/UA/ano5/Tese/altair/fasta_files/random_experiment/Alphapolyomavirus_mauratus/sequences.csv
+Output FASTA: /home/saraalmeida/UA/ano5/Tese/altair/fasta_files/random_experiment/Alphapolyomavirus_mauratus/AM.fasta
+curl version: curl 8.14.1 (x86_64-conda-linux-gnu) libcurl/8.14.1 OpenSSL/3.6.3 zlib/1.3.1 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.67.0
+
+Expected unique total records: 10
+
+Downloading NC_001663 ...
+OK: NC_001663
+Downloading MT925637 ...
+OK: MT925637
+Downloading MT925638 ...
+OK: MT925638
+Downloading JX416849 ...
+OK: JX416849
+Downloading JX416850 ...
+OK: JX416850
+Downloading JX416851 ...
+OK: JX416851
+Downloading JX416852 ...
+OK: JX416852
+Downloading JX416853 ...
+OK: JX416853
+Downloading JX036360 ...
+OK: JX036360
+Downloading M26281 ...
+OK: M26281
+
+Download finished: qua 23 set 2026 17:01:47 WEST
+Expected records: 10
+Downloaded records: 10
+SUCCESS: all records downloaded and validated correctly.
+Output FASTA: /home/saraalmeida/UA/ano5/Tese/altair/fasta_files/random_experiment/Alphapolyomavirus_mauratus/AM.fasta

@@ -1,0 +1,3 @@
+role	at_percent	seed	length	file
+host	50	13	50000000	/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/synthetic_pairs/H50_P50/syn_H_50_seed13.fasta
+pathogen	50	108	10000	/home/saraalmeida/UA/ano5/Tese/altair/pipelines/tests/synthetic_pairs/H50_P50/p2/syn_P_50_r2_seed108.fasta
