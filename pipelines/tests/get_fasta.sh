@@ -8,10 +8,15 @@ usage() {
     echo "The directory may contain either sequences.csv (complete genomes) or" >&2
     echo "paired_output/{pairs,unpaired_A,unpaired_B}.csv (segmented genomes)." >&2
     echo "In segmented mode, paired_output/unknown_component.csv is also downloaded" >&2
-    echo "if present, so that segments.py --fasta can label those records." >&2
+    echo "if present, so that GetSegments.py --fasta can label those records." >&2
     echo "Example:" >&2
-    echo "  $0 ../../fasta_files/cassava/pathogens/CassavaMosaicVirus/EastAfKenya EA_CMV.fasta user@example.com" >&2
+    echo "  bash pipelines/tests/get_fasta.sh fasta_files/cassava/pathogens/CassavaMosaicVirus/EastAfKenya EA_CMV.fasta user@example.com" >&2
 }
+
+if [[ "${1:-}" == -h || "${1:-}" == --help ]]; then
+    usage
+    exit 0
+fi
 
 if [[ "$#" -lt 3 || "$#" -gt 4 ]]; then
     usage

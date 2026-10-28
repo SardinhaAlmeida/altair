@@ -2,7 +2,7 @@
 """Classify and pair DNA-A/DNA-B components from an NCBI Virus metadata CSV.
 
 This script is for bipartite viruses (e.g. bipartite begomoviruses). It is run
-twice by `pipeline2.sh prepare`:
+twice by `pipeline.sh prepare`:
 
 1. Before downloading (no --fasta): every complete record is labelled DNA-A or
    DNA-B from its Segment field, with GenBank_Title as a fallback, and the

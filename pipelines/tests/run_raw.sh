@@ -2,8 +2,29 @@
 set -euo pipefail
 shopt -s nullglob
 
-HOST=$1         # e.g. ../../fasta_files/.../hosts/tme7_1/tme7_phase1.fasta
-PATHOGEN=$2     # e.g. ../../fasta_files/.../pathogens/.../EastAf/EA_CMV.fasta
+usage() {
+  cat <<USAGE
+Usage: bash pipelines/tests/run_raw.sh HOST_FASTA PATHOGEN_FASTA [KMIN] [KMAX] [RESULTS_DIR] [ANALYSIS_NAME]
+
+Run from the altair repository folder with AltaiR on PATH.
+Host comes first. KMIN defaults to 10 and KMAX to 13.
+Outputs default to HOST_DIR/PATHOGEN_GROUP/results/ANALYSIS_NAME/.
+The default analysis name is HOST_NAME-PATHOGEN_NAME. Existing outputs may be overwritten.
+Requires AltaiR, gnuplot, and realpath.
+USAGE
+}
+
+if [[ "${1:-}" == -h || "${1:-}" == --help ]]; then
+  usage
+  exit 0
+fi
+if [[ "$#" -lt 2 || "$#" -gt 6 ]]; then
+  usage >&2
+  exit 2
+fi
+
+HOST=$1         # e.g. fasta_files/.../hosts/tme7_1/tme7_phase1.fasta
+PATHOGEN=$2     # e.g. fasta_files/.../pathogens/.../EastAf/EA_CMV.fasta
 KMIN=${3:-10}
 KMAX=${4:-13}
 RESULTS_DIR=${5:-}

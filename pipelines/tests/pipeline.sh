@@ -3,6 +3,7 @@
 set -euo pipefail
 
 pipeline_started_at=$SECONDS
+pipeline_started_utc="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
@@ -11,16 +12,20 @@ usage() {
 Usage:
   $0 prepare <pathogen_directory> <output_prefix> <email> [api_key]
 
-  $0 complete <pathogen_directory> <host_fasta> <analysis_name> <email> \
+  $0 complete <host_fasta> <pathogen_directory> <analysis_name> <email> \
 [kmin] [kmax] [api_key]
 
-  $0 analyse <pathogen_fasta_or_directory> <host_fasta> <analysis_name> \
+  $0 analyse <host_fasta> <pathogen_fasta_or_directory> <analysis_name> \
 [kmin] [kmax]
 
-  $0 <pathogen_directory> <host_fasta> <output_prefix> <email> \
+  $0 <host_fasta> <pathogen_directory> <output_prefix> <email> \
 [kmin] [kmax] [api_key]
 
 Workflows:
+  Run from the altair repository folder with AltaiR available on PATH:
+      export PATH="\$PWD/src:\$PATH"
+      bash pipelines/tests/pipeline.sh --help
+
   prepare
       (This command was made for Bipartite Begomoviruses to handle DNA-A and DNA-B components)
       Classify the metadata, download nucleotide sequences, label records
@@ -28,7 +33,7 @@ Workflows:
       DNA components plus a .layout.tsv for plotting. Optional
       manual_components.csv and manual_pairs.csv files in the pathogen
       directory are applied, as are the quality filters listed in an optional
-      segments_options.txt (see segments.py).
+      segments_options.txt (see GetSegments.py).
 
   complete
       Download every accession from sequences.csv as an independent complete
@@ -36,7 +41,7 @@ Workflows:
       join DNA-A/DNA-B components.
 
   analyse
-      Analyse an existing pathogen FASTA. The first argument may be:
+      Analyse an existing pathogen FASTA. After the host FASTA, supply:
         - a FASTA file; or
         - a directory containing the FASTA.
 
@@ -49,6 +54,8 @@ Workflows:
       All analysis outputs are stored under the host directory in
       <pathogen_group>/results/<analysis_name>/.
       Use a different analysis name to preserve each run.
+      A run_summary.json records inputs, settings, timing, and output counts.
+      Existing output files can be overwritten when an analysis name is reused.
 
   no workflow argument
       Run the complete preparation and analysis pipeline for a segmented
@@ -57,28 +64,28 @@ Workflows:
 Examples:
 
   $0 complete \
-     ../../fasta_files/virus_complete_genomes \
-     ../../fasta_files/human/human.fna \
+     fasta_files/human/human.fna \
+     fasta_files/virus_complete_genomes \
      VIRUS \
      user@example.com \
      10 \
      13
 
   $0 prepare \
-     ../../fasta_files/cassava/pathogens/CassavaMosaicVirus/Begomovirus_manihotis \
+     fasta_files/cassava/pathogens/CassavaMosaicVirus/Begomovirus_manihotis \
      ACMV \
      user@example.com
 
   $0 analyse \
-     ../../fasta_files/cassava/pathogens/CassavaMosaicVirus/Begomovirus_manihotis/ACMV_segments.fasta \
-     ../../fasta_files/cassava/hosts/tmeb117/TMEB117.fa \
+     fasta_files/cassava/hosts/tmeb117/TMEB117.fa \
+     fasta_files/cassava/pathogens/CassavaMosaicVirus/Begomovirus_manihotis/ACMV_segments.fasta \
      ACMV \
      11 \
      13
 
   $0 \
-     ../../fasta_files/cassava/pathogens/CassavaMosaicVirus/Begomovirus_manihotis \
-     ../../fasta_files/cassava/hosts/tmeb117/TMEB117.fa \
+     fasta_files/cassava/hosts/tmeb117/TMEB117.fa \
+     fasta_files/cassava/pathogens/CassavaMosaicVirus/Begomovirus_manihotis \
      ACMV \
      user@example.com \
      11 \
@@ -89,6 +96,43 @@ USAGE
 fail() {
     echo "ERROR: $*" >&2
     exit 1
+}
+
+finish_run_summary() {
+    local status=$?
+    trap - EXIT
+    if ! python3 "$script_dir/run_summary.py" finish "$run_summary_path" \
+        --exit-code "$status" --elapsed-seconds "$((SECONDS - pipeline_started_at))"; then
+        echo "ERROR: could not finalize run summary: $run_summary_path" >&2
+        if [[ "$status" -eq 0 ]]; then
+            status=1
+        fi
+    fi
+    exit "$status"
+}
+
+start_run_summary() {
+    local workflow="$1"
+    local pathogen_fasta="$2"
+    local host_fasta="${3:-}"
+    local dataset_dir
+    local -a summary_args=()
+
+    dataset_dir="$(dirname "$pathogen_fasta")"
+    if [[ "$workflow" == prepare ]]; then
+        run_summary_path="$dataset_dir/paired_output/${output_prefix}_run_summary.json"
+        summary_args=(--name "$output_prefix")
+    else
+        run_summary_path="$(dirname "$host_fasta")/$(basename "$dataset_dir")/results/$analysis_name/run_summary.json"
+        summary_args=(--name "$analysis_name" --host "$host_fasta" --kmin "$kmin" --kmax "$kmax")
+    fi
+    require_command python3
+    require_script "$script_dir/run_summary.py"
+    python3 "$script_dir/run_summary.py" start "$run_summary_path" \
+        --workflow "$workflow" --pathogen "$pathogen_fasta" \
+        --started-at "$pipeline_started_utc" "${summary_args[@]}"
+    trap finish_run_summary EXIT
+    echo "Run summary: $run_summary_path"
 }
 
 require_command() {
@@ -271,9 +315,9 @@ prepare_workflow() {
     require_command python3
     require_command curl
 
-    require_script "$script_dir/segments.py"
+    require_script "$script_dir/GetSegments.py"
     require_script "$script_dir/get_fasta.sh"
-    require_script "$script_dir/JoinSegments2.py"
+    require_script "$script_dir/JoinSegments.py"
 
     print_separator
     echo "Pathogen data-preparation workflow"
@@ -289,7 +333,7 @@ prepare_workflow() {
 
     echo "[1/4] Classifying viral genome components from metadata..."
 
-    python3 "$script_dir/segments.py" \
+    python3 "$script_dir/GetSegments.py" \
         "$metadata_csv"
 
     echo "[1/4] Completed."
@@ -319,9 +363,9 @@ prepare_workflow() {
 
     echo "[3/4] Labelling unknown components by similarity and pairing again..."
 
-    python3 "$script_dir/segments.py" \
+    python3 "$script_dir/GetSegments.py" \
         "$metadata_csv" \
-        --fasta "$downloaded_fasta"
+        --fasta "$downloaded_fasta" 
 
     echo "[3/4] Completed."
     echo
@@ -338,7 +382,7 @@ prepare_workflow() {
 
     echo "[4/4] Organising paired and unpaired DNA components..."
 
-    python3 "$script_dir/JoinSegments2.py" \
+    python3 "$script_dir/JoinSegments.py" \
         "$paired_dir/pairs.csv" \
         "$paired_dir/unpaired_A.csv" \
         "$paired_dir/unpaired_B.csv" \
@@ -363,8 +407,8 @@ prepare_workflow() {
 }
 
 complete_workflow() {
-    local pathogen_dir="$1"
-    local host_fasta="$2"
+    local host_fasta="$1"
+    local pathogen_dir="$2"
     local analysis_name="$3"
     local email="$4"
     local kmin="$5"
@@ -404,16 +448,16 @@ complete_workflow() {
     fi
 
     analyse_workflow \
-        "$downloaded_fasta" \
         "$host_fasta" \
+        "$downloaded_fasta" \
         "$analysis_name" \
         "$kmin" \
         "$kmax"
 }
 
 analyse_workflow() {
-    local pathogen_fasta="$1"
-    local host_fasta="$2"
+    local host_fasta="$1"
+    local pathogen_fasta="$2"
     local analysis_name="$3"
     local kmin="$4"
     local kmax="$5"
@@ -451,13 +495,13 @@ analyse_workflow() {
     require_script "$script_dir/run_raw.sh"
     require_script "$script_dir/GCcontent.py"
     require_script "$script_dir/Filter_mRAWs.py"
-    require_script "$script_dir/Plot_RAWs3_copy.py"
+    require_script "$script_dir/Plot_Raws.py"
 
     print_separator
     echo "Host-pathogen analysis workflow"
     print_separator
-    echo "Pathogen FASTA     : $pathogen_fasta"
     echo "Host FASTA         : $host_fasta"
+    echo "Pathogen FASTA     : $pathogen_fasta"
     echo "Analysis name      : $analysis_name"
     echo "k-mer range        : $kmin-$kmax"
     echo "RAW directory      : $raw_dir"
@@ -519,13 +563,13 @@ analyse_workflow() {
         --input "$raw_dir/merged_gc.csv" \
         --output "$raw_dir/merged_mraw_gc.csv"
 
-    python3 "$script_dir/Plot_RAWs3_copy.py" \
+    python3 "$script_dir/Plot_Raws.py" \
         "$raw_dir/merged_gc.csv" "$results_dir/raws" \
         --pathogen-name "$pathogen_group" --host-name "$host_name" \
         --word-label RAWs "${metadata_args[@]}"
 
     if [[ -s "$raw_dir/merged_mraw_gc.csv" ]]; then
-        MPLBACKEND=Agg python3 "$script_dir/Plot_RAWs3_copy.py" \
+        MPLBACKEND=Agg python3 "$script_dir/Plot_Raws.py" \
             "$raw_dir/merged_mraw_gc.csv" \
             "$results_dir/mraws" \
             --pathogen-name "$pathogen_group" --host-name "$host_name" \
@@ -558,6 +602,10 @@ case "$1" in
         ;;
 
     prepare)
+        if [[ "${2:-}" == -h || "${2:-}" == --help ]]; then
+            usage
+            exit 0
+        fi
         if [[ "$#" -lt 4 || "$#" -gt 5 ]]; then
             usage
             exit 1
@@ -571,6 +619,8 @@ case "$1" in
         validate_output_prefix "$output_prefix"
         pathogen_dir="$(resolve_directory "$pathogen_dir_input")"
 
+        start_run_summary prepare "$pathogen_dir/${output_prefix}_segments.fasta"
+
         prepare_workflow \
             "$pathogen_dir" \
             "$output_prefix" \
@@ -579,13 +629,17 @@ case "$1" in
         ;;
 
     complete)
+        if [[ "${2:-}" == -h || "${2:-}" == --help ]]; then
+            usage
+            exit 0
+        fi
         if [[ "$#" -lt 5 || "$#" -gt 8 ]]; then
             usage
             exit 1
         fi
 
-        pathogen_dir_input="$2"
-        host_fasta_input="$3"
+        host_fasta_input="$2"
+        pathogen_dir_input="$3"
         analysis_name="$4"
         email="$5"
         kmin="${6:-10}"
@@ -598,9 +652,11 @@ case "$1" in
         pathogen_dir="$(resolve_directory "$pathogen_dir_input")"
         host_fasta="$(resolve_file "$host_fasta_input")"
 
+        start_run_summary complete "$pathogen_dir/${analysis_name}.fasta" "$host_fasta"
+
         complete_workflow \
-            "$pathogen_dir" \
             "$host_fasta" \
+            "$pathogen_dir" \
             "$analysis_name" \
             "$email" \
             "$kmin" \
@@ -609,13 +665,17 @@ case "$1" in
         ;;
 
     analyse)
+        if [[ "${2:-}" == -h || "${2:-}" == --help ]]; then
+            usage
+            exit 0
+        fi
         if [[ "$#" -lt 4 || "$#" -gt 6 ]]; then
             usage
             exit 1
         fi
 
-        pathogen_input="$2"
-        host_fasta_input="$3"
+        host_fasta_input="$2"
+        pathogen_input="$3"
         analysis_name="$4"
         kmin="${5:-10}"
         kmax="${6:-13}"
@@ -626,9 +686,11 @@ case "$1" in
         pathogen_fasta="$(resolve_pathogen_fasta "$pathogen_input" "$analysis_name")"
         host_fasta="$(resolve_file "$host_fasta_input")"
 
+        start_run_summary analyse "$pathogen_fasta" "$host_fasta"
+
         analyse_workflow \
-            "$pathogen_fasta" \
             "$host_fasta" \
+            "$pathogen_fasta" \
             "$analysis_name" \
             "$kmin" \
             "$kmax"
@@ -640,8 +702,8 @@ case "$1" in
             exit 1
         fi
 
-        pathogen_dir_input="$1"
-        host_fasta_input="$2"
+        host_fasta_input="$1"
+        pathogen_dir_input="$2"
         output_prefix="$3"
         email="$4"
         kmin="${5:-10}"
@@ -653,6 +715,9 @@ case "$1" in
 
         pathogen_dir="$(resolve_directory "$pathogen_dir_input")"
         host_fasta="$(resolve_file "$host_fasta_input")"
+
+        analysis_name="$output_prefix"
+        start_run_summary segmented "$pathogen_dir/${output_prefix}_segments.fasta" "$host_fasta"
 
         prepare_workflow \
             "$pathogen_dir" \
@@ -669,8 +734,8 @@ case "$1" in
         fi
 
         analyse_workflow \
-            "$pathogen_fasta" \
             "$host_fasta" \
+            "$pathogen_fasta" \
             "$output_prefix" \
             "$kmin" \
             "$kmax"

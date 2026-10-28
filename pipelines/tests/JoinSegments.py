@@ -113,7 +113,7 @@ def get_segment(row):
 
 
 def get_component(row):
-    """Use the Component column written by segments.py; classify older CSVs from metadata."""
+    """Use the Component column written by GetSegments.py; classify older CSVs from metadata."""
     component = (row.get("Component") or "").strip().upper()
     if component in ("A", "B"):
         return component

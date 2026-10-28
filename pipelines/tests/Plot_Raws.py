@@ -102,7 +102,7 @@ def kmer_styles(df):
     """Use the original Plot_RAWs.py colours, with a fallback for other lengths."""
     kmer_lengths = sorted(df["kmer_len"].unique())
     color_map = plt.get_cmap("tab10", len(kmer_lengths))
-    original_colors = {11: "red", 12: "blue", 13: "darkseagreen", 14: "magenta"}
+    original_colors = {11: "red", 12: "blue", 13: "darkseagreen", 14: "#f2b8d8"}
     k_colors = {
         k: original_colors.get(k, to_hex(color_map(index)))
         for index, k in enumerate(kmer_lengths)
@@ -169,7 +169,7 @@ def distribution_topdown_axes(ax, x, y, title, layout=None):
     position_max = max(250, int(np.ceil(y.max() / 250)) * 250)
     if layout:
         position_max = max(250, int(np.ceil(layout["position_max"] / 250)) * 250)
-    ax.set_yticks(np.arange(0, position_max + 1, 250))
+    ax.set_yticks(np.arange(0, position_max + 1, 250 * max(1, int(np.ceil(position_max / (250 * 28))))))
     ax.set_ylim3d(position_max, 0)  # azim=180 projects increasing y to the left
     if len(x): ax.set_xticks(np.arange(0, layout["genome_max"] + 1 if layout else x.max(), 5))
     ax.set_zticks([])
@@ -420,11 +420,12 @@ def gc_vs_kmer_length(df, out_png, va, kmer_lengths):
     plt.close()
 
 def results_csv(df, outputs_dir, va):
+    prefix = "mraws" if df.attrs.get("word_label") == "mRAWs" else "raws"
     gc_filtered = df[(df["gc_pct"] >= 45) & (df["gc_pct"] <= 55)]
-    gc_filtered.to_csv(f"{outputs_dir}/raws_gc_45_55_{va}.csv", sep=",", index=False)
+    gc_filtered.to_csv(f"{outputs_dir}/{prefix}_gc_45_55_{va}.csv", sep=",", index=False)
 
     gc_filtered2 = df[(df["gc_pct"] >= 48) & (df["gc_pct"] <= 52)]
-    gc_filtered2.to_csv(f"{outputs_dir}/raws_gc_48_52_{va}.csv", sep=",", index=False)
+    gc_filtered2.to_csv(f"{outputs_dir}/{prefix}_gc_48_52_{va}.csv", sep=",", index=False)
 
 
 
@@ -590,7 +591,7 @@ def plot_gradient_profile(
         xlabel=position_label, ylabel="RAWs in window",
         xlim=(positions[0], positions[-1]), ylim=(0, None),
     )
-    raw_ax.xaxis.set_major_locator(MultipleLocator(500))
+    raw_ax.xaxis.set_major_locator(MultipleLocator(500 * max(1, int(np.ceil(positions[-1] / (500 * 15))))))
     gc_ax.set(ylabel="Mean RAW GC content (%)", ylim=(100, 0))
     raw_ax.grid(True, alpha=0.2)
     fig.suptitle(f"{title}: positional RAW and GC profile")
@@ -684,7 +685,7 @@ def main():
     parser.add_argument("--pathogen-name", "--virus-name", dest="pathogen_name", required=True)
     parser.add_argument("--host-name", required=True)
     parser.add_argument("--word-label", choices=("RAWs", "mRAWs"), default="RAWs")
-    parser.add_argument("--metadata", type=Path, help="Component layout TSV from JoinSegments2.py")
+    parser.add_argument("--metadata", type=Path, help="Component layout TSV from JoinSegments.py")
     args = parser.parse_args()
     run_plots(args.input_csv, args.output_dir, args.pathogen_name,
               args.host_name, args.word_label, args.metadata)

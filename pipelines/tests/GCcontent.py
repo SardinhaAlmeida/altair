@@ -1,11 +1,9 @@
 import argparse, re, os, glob, csv
-import Plot_RAWs3_copy as Plot_RAWs
+import Plot_Raws as Plot_RAWs
 
 def gc_content(sequence):
     """Calculate the GC content of a DNA sequence."""
     gc_count = sequence.count('G') + sequence.count('C')
-    print(sequence)
-    print(gc_count)
     return (gc_count / len(sequence)) * 100 if len(sequence) > 0 else 0
 
 def process_fasta(input_file, output_file):
@@ -30,7 +28,7 @@ def main():
     epilog="""
         Example:
 
-            python GCcontent.py \\
+            python3 pipelines/tests/GCcontent.py \\
             -i "fasta_files/cassava/cassava.fasta-k*.eg" \\
             -p "fasta_files/cassava/results"
         """,

@@ -64,79 +64,27 @@ The filter does not establish completeness of the original RAW set. Artificial
 padding and padding-boundary overlaps in joined pathogen sequences are not
 removed. Those require a separate coordinate-aware filter.
 
-## Changes to existing scripts (not applied automatically)
+## Integration with the pipeline
 
-### `pipeline2.sh`
-
-In `analyse_workflow`, add these checks alongside the existing `require_script`
-calls:
+`pipeline.sh` already runs `GCcontent.py`, `Filter_mRAWs.py`, and `Plot_Raws.py`
+in sequence. Run it from the repository root with the host first:
 
 ```bash
-require_script "$script_dir/Filter_mRAWs.py"
-require_script "$script_dir/Plot_RAWs2.py"
+export PATH="$PWD/src:$PATH"
+bash pipelines/tests/pipeline.sh analyse HOST_FASTA PATHOGEN_FASTA NAME 11 13
 ```
 
-Replace the existing `python3 "$script_dir/GCcontent.py" ... -p "$results_dir"`
-command with:
+Results are stored in `HOST_DIR/PATHOGEN_GROUP/results/NAME/`. The pipeline
+keeps `merged_gc.csv` and `merged_mraw_gc.csv`, plots RAWs in `raws/`, and plots
+retained mRAWs in `mraws/`. GC-filtered exports use `raws_gc_` and `mraws_gc_`
+prefixes respectively. Empty mRAW outputs skip plotting. AltaiR's CG plot still
+describes all RAWs. The pipeline records provenance and counts in
+`run_summary.json`; the filter also writes `merged_mraw_gc.summary.json`.
 
-```bash
-# Generate all RAW GC data without plotting it.
-python3 "$script_dir/GCcontent.py" -i "${raw_files[@]}"
+`run_raw.sh` does not pass `-i` to AltaiR, so the filter uses the same default
+strand handling. If a future change adds `-i`, also add `--ignore-ir` to the
+filter command and update the run summary's recorded parameters.
 
-# Reuse the AltaiR found in this pipeline's environment.
-python3 "$script_dir/Filter_mRAWs.py" \
-    --altair "$(command -v AltaiR)" \
-    --host "$host_fasta" \
-    --input "$raw_dir/merged_gc.csv" \
-    --output "$raw_dir/merged_mraw_gc.csv"
-
-# Plot separately from the existing RAW figures.
-if [[ -s "$raw_dir/merged_mraw_gc.csv" ]]; then
-    MPLBACKEND=Agg python3 "$script_dir/Plot_RAWs2.py" \
-        "$raw_dir/merged_mraw_gc.csv" \
-        "$results_dir/mraws" \
-        "$pathogen_group $analysis_name — mRAWs only"
-else
-    echo "No mRAWs retained; no mRAW plots generated."
-fi
-```
-
-If a future change adds `-i` to `run_raw.sh`, add `--ignore-ir` to this filter
-command as well. The existing pipeline's `set -e` stops execution if filtering
-fails. Its progress labels can be updated to describe GC calculation, filtering
-and plotting separately.
-
-The existing `run_raw.sh` removes files directly in `raw_dir` on a new run, so it
-also removes these filtered CSV/report files before they are regenerated. Its
-AltaiR CG plot still describes **all RAWs**, not filtered mRAWs.
-
-### `GCcontent.py` and `run_raw.sh`
-
-No changes are necessary. GC content is a property of each word, so it can be
-calculated before minimality filtering. `GCcontent.py` already supports omitting
-`-p`. Its current import of `Plot_RAWs2` still requires the plotting dependencies
-even when only calculating GC.
-
-### `Plot_RAWs2.py`
-
-No functional change is required to read the new CSV; its schema is unchanged.
-The dataset title above identifies the mRAW-only input. Generic plot titles,
-legends and filenames still say RAWs. For publication figures, add a configurable
-word label and use `mRAWs` consistently, rather than hardcoding it for every run.
-
-Use a fresh output directory for a new comparison. The plotting script does not
-remove old per-k or GC-filtered figures when a later run has no corresponding
-records. The empty-file guard above likewise does not remove old plots.
-
-## Validation
-
-```bash
-ALTAIR_TEST_BINARY=/absolute/path/to/AltaiR \
-  python3 -m unittest discover -s pipelines/tests -p test_filter_mraws.py -v
-```
-
-Tests cover both-factor minimality, input validation, independent small-DNA
-membership, duplicate occurrence preservation, direct AltaiR agreement with both
-strand settings and ambiguous/multiple FASTA records, empty results, and failure
-without replacing existing output. Without `ALTAIR_TEST_BINARY`, only the pure
-Python tests run; integration tests are explicitly skipped.
+`GCcontent.py` imports `Plot_Raws`, so the plotting dependencies must be
+installed even when only calculating GC. See the [workflow documentation](../../README.md#dissertation-workflow)
+for dependencies and help commands.
