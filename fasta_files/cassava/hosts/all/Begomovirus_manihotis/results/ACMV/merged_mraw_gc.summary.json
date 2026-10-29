@@ -1,0 +1,34 @@
+{
+  "input": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/hosts/all/Begomovirus_manihotis/results/ACMV/merged_gc.csv",
+  "host": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/hosts/all/all.fasta",
+  "output": "/home/saraalmeida/UA/ano5/Tese/altair/fasta_files/cassava/hosts/all/Begomovirus_manihotis/results/ACMV/merged_mraw_gc.csv",
+  "altair": "/home/saraalmeida/miniconda3/envs/altair/bin/AltaiR",
+  "ignore_ir": false,
+  "membership": "Selected AltaiR DNA host models; no independent matching",
+  "input_occurrences": 3388,
+  "retained_occurrences": 3370,
+  "input_unique_words": 403,
+  "retained_unique_words": 399,
+  "by_k": {
+    "12": {
+      "occurrences": {
+        "retained": 9
+      },
+      "unique_words": {
+        "retained": 2
+      }
+    },
+    "13": {
+      "occurrences": {
+        "retained": 3361,
+        "rejected_suffix_absent": 9,
+        "rejected_prefix_absent": 9
+      },
+      "unique_words": {
+        "retained": 397,
+        "rejected_suffix_absent": 2,
+        "rejected_prefix_absent": 2
+      }
+    }
+  }
+}
